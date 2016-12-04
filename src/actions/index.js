@@ -4,6 +4,7 @@ const ROOT_KEY = 'https://hacker-news.firebaseio.com/v0/'
 
 export const NEW_STORIES = 'NEW_STORIES'
 export const ITEM = 'ITEM'
+export const USER = 'USER'
 
 export function fetchNewStories() {
   const request = axios.get(`${ROOT_KEY}newstories.json`).then(res => {
@@ -75,6 +76,15 @@ export function fetchItem(id) {
 
   return {
     type: ITEM,
+    payload: request
+  }
+}
+
+export function fetchUser(id) {
+  const request = axios.get(`${ROOT_KEY}user/${id}.json`)
+
+  return {
+    type: USER,
     payload: request
   }
 }
