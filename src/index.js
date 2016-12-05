@@ -8,8 +8,9 @@ import css from '../style/style'
 import HomePage from './components/homepage'
 import {Provider} from 'react-redux'
 import routes from './routes'
+import thunk from 'redux-thunk'
 
-const store = applyMiddleware(promise)(createStore)
+const store = applyMiddleware(promise, thunk)(createStore)
 
 ReactDOM.render(
   <Provider store={store(reducers)}>

@@ -9,6 +9,7 @@ class AskStories extends Component {
   }
 
   renderPosts() {
+    console.log(this.props)
       if (!this.props.items.items) {
         return <div>loading</div>
       } else {

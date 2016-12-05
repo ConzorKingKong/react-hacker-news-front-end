@@ -11,10 +11,11 @@ class User extends Component {
     if (!this.props.user.user) {
       return <div>loading</div>
     } else {
-      console.log(this.props.user.user)
+      console.log("User param", this.props.user.user)
       return (
-        <div>
-          {this.props.user.user.id}
+        <div className="user-header">
+          <h1>{this.props.user.user.id}</h1>
+          <h3>Karma: {this.props.user.user.karma}</h3>
         </div>
       )
     }
