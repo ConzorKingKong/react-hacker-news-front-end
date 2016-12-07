@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchJobStories, fetchItems} from '../actions/index'
+import {fetchJobStories} from '../actions/index'
 import {Link} from 'react-router'
 
 class JobStories extends Component {
@@ -9,20 +9,15 @@ class JobStories extends Component {
   }
 
   renderPosts() {
-      if (!this.props.items.items) {
-        console.log("props outside else", this.props)
-        return <div>loading</div>
-      } else {
-        console.log("this props items itmes", this.props.items.items)
-        this.props.fetchItems(this.props.items.items)
-        console.log("props in else", this.props)
+      if (!this.props.items.items) return <div>loading</div>
+      return this.props.items.items.map(({id, title, by}) => {
         return (
-          <Link to={`item/${this.props.items.items.id}`} className="link">
-            <div>{this.props.items.items.title}</div>
-            <div>{this.props.items.items.by}</div>
+          <Link key={id} to={`item/${id}`} className="link">
+            <div>{title}</div>
+            <div>{by}</div>
           </Link>
         )
-      }
+      })
     }
 
   render() {
@@ -38,4 +33,4 @@ function mapStateToProps(state) {
   return state
 }
 
-export default connect(mapStateToProps, {fetchJobStories, fetchItems})(JobStories)
+export default connect(mapStateToProps, {fetchJobStories})(JobStories)

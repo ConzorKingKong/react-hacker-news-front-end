@@ -9,16 +9,15 @@ class AskStories extends Component {
   }
 
   renderPosts() {
-    console.log(this.props)
-      if (!this.props.items.items) {
-        return <div>loading</div>
-      } else {
+      if (!this.props.items.items) return <div>loading</div>
+      return this.props.items.items.map(({id, title, by}) => {
         return (
-          <Link to={`item/${this.props.items.items.id}`} className="link">
-            <div>{this.props.items.items.title}</div>
-            <div>{this.props.items.items.by}</div>
+          <Link key={id} to={`item/${id}`} className="link">
+            <div>{title}</div>
+            <div>{by}</div>
           </Link>
-        )}
+        )
+      })
     }
 
   render() {

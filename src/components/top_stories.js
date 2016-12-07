@@ -9,16 +9,16 @@ class TopStories extends Component {
   }
 
   renderPosts() {
-      if (!this.props.items.items) {
-        return <div>loading</div>
-      } else {
-        return (
-          <Link to={`item/${this.props.items.items.id}`} className="link">
-            <div>{this.props.items.items.title}</div>
-            <div>{this.props.items.items.by}</div>
-          </Link>
-        )}
-    }
+    if (!this.props.items.items) return <div>loading</div>
+    return this.props.items.items.map(({id, title, by}) => {
+      return (
+        <Link key={id} to={`item/${id}`} className="link">
+          <div>{title}</div>
+          <div>{by}</div>
+        </Link>
+      )
+    })
+  }
 
   render() {
     return (
