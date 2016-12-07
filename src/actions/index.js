@@ -1,152 +1,88 @@
 import axios from 'axios'
 import async from 'async'
 
-const ROOT_KEY = 'https://hacker-news.firebaseio.com/v0/'
+// () ${}
+
+const ROOT_URL = 'https://hacker-news.firebaseio.com/v0/'
 
 export const NEW_STORIES = 'NEW_STORIES'
 export const ITEM = 'ITEM'
 export const USER = 'USER'
+export const COMMENTS = 'COMMENTS'
 
 export function fetchNewStories() {
-  const request = axios.get(`${ROOT_KEY}newstories.json`).then(res => {
-    const id = res.data[0]
-    return axios.get(`${ROOT_KEY}item/${id}.json`)
-  })
-  console.log("request", request)
-
-  return {
-    type: NEW_STORIES,
-    payload: request
+  return dispatch => {
+    axios.get(`${ROOT_URL}newstories.json`).then(({data}) => {
+      async.map(data, (id, done) => {
+        axios.get(`${ROOT_URL}item/${id}.json`).then(({data}) => done(null, data))
+      }, (err, results) => dispatch({type: NEW_STORIES, payload: results}))
+    })
   }
 }
 
 export function fetchTopStories() {
-  const request = axios.get(`${ROOT_KEY}topstories.json`).then(res => {
-    const id = res.data[0]
-    return axios.get(`${ROOT_KEY}item/${id}.json`)
-  })
-  console.log("request", request)
-
-  return {
-    type: NEW_STORIES,
-    payload: request
+  return dispatch => {
+    axios.get(`${ROOT_URL}topstories.json`).then(({data}) => {
+      async.map(data, (id, done) => {
+        axios.get(`${ROOT_URL}item/${id}.json`).then(({data}) => done(null, data))
+      }, (err, results) => dispatch({type: NEW_STORIES, payload: results}))
+    })
   }
 }
 
 export function fetchShowStories() {
-  const request = axios.get(`${ROOT_KEY}showstories.json`).then(res => {
-    const id = res.data[0]
-    return axios.get(`${ROOT_KEY}item/${id}.json`)
-  })
-  console.log("request", request)
-
-  return {
-    type: NEW_STORIES,
-    payload: request
+  return dispatch => {
+    axios.get(`${ROOT_URL}showstories.json`).then(({data}) => {
+      async.map(data, (id, done) => {
+        axios.get(`${ROOT_URL}item/${id}.json`).then(({data}) => done(null, data))
+      }, (err, results) => dispatch({type: NEW_STORIES, payload: results}))
+    })
   }
 }
 
 export function fetchAskStories() {
-  // const request = axios.get(`${ROOT_KEY}askstories.json`).then(res => {
-  //   res.data.map(id => {
-  //     axios.get(`${ROOT_KEY}item/${id}.json`).then(res => {
-  //       console.log("res res", res.data)
-  //       return res.data
-  //     })
-  //   })
-  // })
-  // console.log("request", request)
-
-  return {
-    type: NEW_STORIES,
-    payload: axios.get(`${ROOT_KEY}askstories.json`).then(res => {
-    res.data.map(id => {
-      console.log("id", id)
-      axios.get(`${ROOT_KEY}item/${id}.json`).then(res => {
-        console.log("res res", res.data)
-        return res.data
-      })
+  return dispatch => {
+    axios.get(`${ROOT_URL}askstories.json`).then(({data}) => {
+      async.map(data, (id, done) => {
+        axios.get(`${ROOT_URL}item/${id}.json`).then(({data}) => done(null, data))
+      }, (err, results) => dispatch({type: NEW_STORIES, payload: results}))
     })
-  })
   }
 }
 
-// export function fetchJobStories() {
-//   const request = axios.get(`${ROOT_KEY}jobstories.json`).then(res => {
-//     const id = res.data[0]
-//     return axios.get(`${ROOT_KEY}item/${id}.json`)
-//   })
-//   console.log("request", request)
-
-//   return {
-//     type: NEW_STORIES,
-//     payload: request
-//   }
-// }
+export function fetchJobStories() {
+  return dispatch => {
+    axios.get(`${ROOT_URL}jobstories.json`).then(({data}) => {
+      async.map(data, (id, done) => {
+        axios.get(`${ROOT_URL}item/${id}.json`).then(({data}) => done(null, data))
+      }, (err, results) => dispatch({type: NEW_STORIES, payload: results}))
+    })
+  }
+}
 
 export function fetchItem(id) {
-  const request = axios.get(`${ROOT_KEY}item/${id}.json`)
+  return dispatch => {
+    axios.get(`${ROOT_URL}item/${id}.json`).then(({data}) => {
+      const item = data
+      async.map(data.kids, (id, done) => {
+        axios.get(`${ROOT_URL}item/${id}.json`).then(({data}) => {
+          done(null, data)
+        })
+      }, (err, results) => {
+        dispatch({type: ITEM, comments: results, payload: item})
+      })
+    })}
 
-  return {
-    type: ITEM,
-    payload: request
-  }
 }
 
 export function fetchUser(id) {
-  const request = axios.get(`${ROOT_KEY}user/${id}.json`)
-
-  return {
-    type: USER,
-    payload: request
-  }
+  return dispatch => {
+    axios.get(`${ROOT_URL}user/${id}.json`).then(({data}) => {
+      const user = data
+      async.map(data.submitted, (id, done) => {
+        axios.get(`${ROOT_URL}item/${id}.json`).then(({data}) => done(null, data))
+      }, (err, results) => {
+        dispatch({type: USER, payload: user, comments: results})
+      })
+    })}
 }
-
-// export function fetchJobStories() {
-
-//   return function (dispatch) {
-//       return axios.get(`${ROOT_KEY}jobstories.json`).then((res) => {
-//         console.log("first res",res.data)
-//         res.data.map((id) => {
-//           console.log("id", id)
-//           axios.get(`${ROOT_KEY}item/${id}.json`).then((res) => {
-//             console.log("sencond res", res.data)
-//             return {
-//               type: NEW_STORIES,
-//               payload: res
-//             }
-//           })
-//         })
-//       })
-//     }
-//   }
-
-export function fetchJobStories() {
-  const request = axios.get(`${ROOT_KEY}jobstories.json`)
-
-  return {
-    type: NEW_STORIES,
-    payload: request
-  }
-}
-
-export function fetchItems(items) {
-  console.log("items", items)
-
-  return {
-    type: ITEM,
-    payload:  async.map(items, (item) => {
-      console.log("item inside async", item)
-      return axios.get(`${ROOT_KEY}item/${item}.json`)
-    }, (err, result) => {
-      console.log("error in async", err)
-      console.log("result in async", result)
-    })
-  }
-}
-
-// make a state clear function that runs on header click
-
-// items.map(item => {
-//               return axios.get(`${ROOT_KEY}item/${item}.json`)
-//             })
