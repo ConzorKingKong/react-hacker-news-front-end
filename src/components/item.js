@@ -8,22 +8,32 @@ class Item extends Component {
     this.props.fetchItem(this.props.params.id)
   }
 
-  render() {
-    if (!this.props.items.item) {
-      return <div>loading</div>
-    } else {
-      console.log(this.props.items.item)
+  renderComments() {
+    return this.props.items.comments.map(comment => {
+      console.log("comments", comment)
       return (
-        <div>
-          <a className="item-title" href={this.props.items.item.url}>{this.props.items.item.title}</a>
-          <div className="test">
-            <div>{this.props.items.item.score} Points by <Link to={`user/${this.props.items.item.by}`}>{this.props.items.item.by}</Link></div>
-            <div>Web</div>
-          </div>
-          <p>{this.props.items.item.text}</p>
+        <div key={comment.id}>
+            <div>{comment.by}</div>
+            <div>{comment.text}</div>
         </div>
       )
-    }
+    })
+  }
+
+  render() {
+    if (!this.props.items.item) return <div>loading</div>
+    const {url, title, score, by, text} = this.props.items.item
+    return (
+      <div>
+        <a className="item-title" href={url}>{title}</a>
+        <div className="test">
+          <div>{score} Points by <Link to={`user/${by}`}>{by}</Link></div>
+          <div>Web</div>
+        </div>
+        <p>{text}</p>
+        <div>{this.renderComments()}</div>
+      </div>
+    )
   }
 }
 
