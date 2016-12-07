@@ -7,18 +7,31 @@ class User extends Component {
     this.props.fetchUser(this.props.params.id)
   }
 
-  render() {
-    if (!this.props.user.user) {
-      return <div>loading</div>
-    } else {
-      console.log("User param", this.props.user.user)
+  renderPosts() {
+    return this.props.user.comments.map(comment => {
       return (
-        <div className="user-header">
-          <h1>{this.props.user.user.id}</h1>
-          <h3>Karma: {this.props.user.user.karma}</h3>
+        <div key={comment.id}>
+          <p>{comment.text}</p>
         </div>
       )
-    }
+    })
+  }
+
+  render() {
+    if (!this.props.user.user) return <div>loading</div>
+    const {id, karma} = this.props.user.user
+    return (
+      <div>
+        <div className="user-header">
+          <h1>{id}</h1>
+          <h3>Karma: {karma}</h3>
+        </div>
+        <div>
+          <h3>Comments made by this user</h3>        
+          {this.renderPosts()}
+        </div>
+      </div>
+    )
   }
 }
 
