@@ -10,16 +10,20 @@ import Ask from './components/ask'
 import Item from './components/item'
 import User from './components/user'
 import FoOhFo from './components/404'
+import Comments from './components/comments'
+import Stories from './components/stories'
 
 export default (
   <Route path="/" component={App}>
     <IndexRoute component={HomePage} />
+    <Route path="item/:id" component={Item} />
+    <Route path="user/:id" component={User} />
+    <Route path="comments/:id" component={Comments} />
+    <Route path="stories/:id" component={Stories} />
     <Route path="jobs" component={Jobs} />        
     <Route path="topstories" component={TopStories} />
     <Route path="show" component={Show} />
     <Route path="ask" component={Ask} />
-    <Route path="item/:id" component={Item} />
-    <Route path="user/:id" component={User} />
     <Route path="*" component={FoOhFo} />    
   </Route>
 )
