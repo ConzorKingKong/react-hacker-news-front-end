@@ -1,11 +1,15 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {fetchItem} from '../actions/index'
+import {fetchItem, clearItem} from '../actions/index'
 
 class Item extends Component {
   componentWillMount() {
     this.props.fetchItem(this.props.params.id)
+  }
+
+  componentWillUnmount() {
+    this.props.clearItem()
   }
 
   renderComments() {
@@ -27,7 +31,7 @@ class Item extends Component {
       <div>
         <a className="item-title" href={url}>{title}</a>
         <div className="test">
-          <div>{score} Points by <Link to={`user/${by}`}>{by}</Link></div>
+          <div>{score} Points by <Link to={`/user/${by}`}>{by}</Link></div>
           <div>Web</div>
         </div>
         <p>{text}</p>
@@ -41,4 +45,4 @@ function mapStateToProps(state) {
   return state
 }
 
-export default connect(mapStateToProps, {fetchItem})(Item)
+export default connect(mapStateToProps, {fetchItem, clearItem})(Item)
