@@ -1,24 +1,20 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchUser} from '../actions/index'
+import {fetchUser, clearUser} from '../actions/index'
+import {Link} from 'react-router'
 
 class User extends Component {
   componentWillMount() {
     this.props.fetchUser(this.props.params.id)
   }
 
-  renderPosts() {
-    return this.props.user.comments.map(comment => {
-      return (
-        <div key={comment.id}>
-          <p>{comment.text}</p>
-        </div>
-      )
-    })
+  componentWillUnmount() {
+    this.props.clearUser()
   }
 
   render() {
     if (!this.props.user.user) return <div>loading</div>
+    console.log(this.props.user.user)
     const {id, karma} = this.props.user.user
     return (
       <div>
@@ -27,8 +23,8 @@ class User extends Component {
           <h3>Karma: {karma}</h3>
         </div>
         <div>
-          <h3>Comments made by this user</h3>        
-          {this.renderPosts()}
+          <Link to={`/stories/${id}`}>Stories</Link>
+          <Link to={`/comments/${id}`}>Comments</Link>
         </div>
       </div>
     )
@@ -39,4 +35,4 @@ function mapStateToProps(state) {
   return state
 }
 
-export default connect(mapStateToProps, {fetchUser})(User)
+export default connect(mapStateToProps, {fetchUser, clearUser})(User)

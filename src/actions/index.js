@@ -6,8 +6,11 @@ import async from 'async'
 const ROOT_URL = 'https://hacker-news.firebaseio.com/v0/'
 
 export const NEW_STORIES = 'NEW_STORIES'
+export const CLEAR_STORIES = 'CLEAR_STORIES'
 export const ITEM = 'ITEM'
+export const CLEAR_ITEM = 'CLEAR_ITEM'
 export const USER = 'USER'
+export const CLEAR_USER = 'CLEAR_USER'
 export const COMMENTS = 'COMMENTS'
 
 export function fetchNewStories() {
@@ -60,6 +63,13 @@ export function fetchJobStories() {
   }
 }
 
+export function clearStories() {
+  return {
+    type: CLEAR_STORIES,
+    payload: ''
+  }
+}
+
 export function fetchItem(id) {
   return dispatch => {
     axios.get(`${ROOT_URL}item/${id}.json`).then(({data}) => {
@@ -72,7 +82,13 @@ export function fetchItem(id) {
         dispatch({type: ITEM, comments: results, payload: item})
       })
     })}
+}
 
+export function clearItem() {
+  return {
+    type: CLEAR_ITEM,
+    payload: ''
+  }
 }
 
 export function fetchUser(id) {
@@ -85,4 +101,11 @@ export function fetchUser(id) {
         dispatch({type: USER, payload: user, comments: results})
       })
     })}
+}
+
+export function clearUser() {
+  return {
+    type: CLEAR_USER,
+    payload: ''
+  }
 }
