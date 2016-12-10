@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchAskStories} from '../actions/index'
+import {fetchAskStories, clearStories} from '../actions/index'
 import {Link} from 'react-router'
 
 class AskStories extends Component {
@@ -8,14 +8,18 @@ class AskStories extends Component {
     this.props.fetchAskStories()
   }
 
+  componentWillUnmount() {
+    this.props.clearStories()
+  }
+
   renderPosts() {
       if (!this.props.items.items) return <div>loading</div>
       return this.props.items.items.map(({id, title, by}) => {
         return (
-          <Link key={id} to={`item/${id}`} className="link">
-            <div>{title}</div>
-            <div>{by}</div>
-          </Link>
+          <div  key={id} className="link">
+            <Link to={`item/${id}`}>{title}</Link>
+            <Link to={`user/${by}`}>{by}</Link>
+          </div>
         )
       })
     }
@@ -33,4 +37,4 @@ function mapStateToProps(state) {
   return state
 }
 
-export default connect(mapStateToProps, {fetchAskStories})(AskStories)
+export default connect(mapStateToProps, {fetchAskStories, clearStories})(AskStories)
