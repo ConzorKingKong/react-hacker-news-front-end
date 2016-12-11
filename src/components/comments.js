@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchUser, clearUser} from '../actions/index'
-
+import Comment from './comment'
 
 class Comments extends Component {
   componentWillMount() {
@@ -13,12 +13,10 @@ class Comments extends Component {
   }
 
   renderComments() {
-    return this.props.user.comments.map(comment => {
-      return (
-        <div key={comment.id}>
-          <p>{comment.text}</p>
-        </div>
-      )
+    return this.props.user.comments.filter(comment => {
+      return comment.type === "comment"
+    }).map(comment => {
+      return <Comment id={comment.id} type="comment"/>
     })
   }
 

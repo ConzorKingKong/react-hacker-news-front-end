@@ -13,9 +13,8 @@ class User extends Component {
   }
 
   render() {
-    if (!this.props.user.user) return <div>loading</div>
-    console.log(this.props.user.user)
-    const {id, karma} = this.props.user.user
+    if (!this.props.user) return <div>loading</div>
+    const {id, karma} = this.props.user
     return (
       <div>
         <div className="user-header">
@@ -32,7 +31,7 @@ class User extends Component {
 }
 
 function mapStateToProps(state) {
-  return state
+  return {user: state.user.user}
 }
 
 export default connect(mapStateToProps, {fetchUser, clearUser})(User)

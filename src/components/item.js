@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {fetchItem, clearItem} from '../actions/index'
+import Comment from './comment'
 
 class Item extends Component {
   componentWillMount() {
@@ -16,10 +17,7 @@ class Item extends Component {
     return this.props.items.comments.map(comment => {
       console.log("comments", comment)
       return (
-        <div key={comment.id}>
-            <div>{comment.by}</div>
-            <div>{comment.text}</div>
-        </div>
+        <Comment id={comment.id} />
       )
     })
   }

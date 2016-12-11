@@ -11,7 +11,7 @@ export const ITEM = 'ITEM'
 export const CLEAR_ITEM = 'CLEAR_ITEM'
 export const USER = 'USER'
 export const CLEAR_USER = 'CLEAR_USER'
-export const COMMENTS = 'COMMENTS'
+export const COMMENT = 'COMMENT'
 
 export function fetchNewStories() {
   return dispatch => {
@@ -107,5 +107,14 @@ export function clearUser() {
   return {
     type: CLEAR_USER,
     payload: ''
+  }
+}
+
+export function fetchComment(id) {
+  const request = axios.get(`${ROOT_URL}item/${id}.json`)
+  
+  return {
+    type: COMMENT,
+    payload: request
   }
 }
