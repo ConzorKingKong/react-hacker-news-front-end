@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchUser, clearUser} from '../actions/index'
 import Comment from './comment'
+import LoadingCircle from './loadingCircle'
 
 class Comments extends Component {
   componentWillMount() {
@@ -21,7 +22,7 @@ class Comments extends Component {
   }
 
   render() {
-    if (!this.props.user.comments) return <div>Loading</div>
+    if (!this.props.user.comments) return <LoadingCircle />
     return (
       <div>
         {this.renderComments()}

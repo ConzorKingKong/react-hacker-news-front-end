@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchUser, clearUser} from '../actions/index'
 import {Link} from 'react-router'
+import LoadingCircle from './loadingCircle'
 
 class User extends Component {
   componentWillMount() {
@@ -13,7 +14,7 @@ class User extends Component {
   }
 
   render() {
-    if (!this.props.user) return <div>loading</div>
+    if (!this.props.user) return <LoadingCircle />
     const {id, karma} = this.props.user
     return (
       <div>

@@ -1,16 +1,10 @@
 import React from 'react'
-import {Link} from 'react-router'
+import Titlebar from './titlebar'
 
 export default (props) => {
   return (
     <div className="wrapper">
-      <div className="title-bar">
-        <Link to="/">New Stories</Link>
-        <Link to="/topstories">Top Stories</Link>
-        <Link to="/show">Show</Link>
-        <Link to="/ask">Ask</Link>
-        <Link to="/jobs">Jobs</Link>
-      </div>
+      <Titlebar />
       <div className="content">
         {props.children}
       </div>

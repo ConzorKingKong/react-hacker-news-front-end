@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchNewStories, clearStories} from '../actions/index'
 import {Link} from 'react-router'
+import LoadingCircle from './loadingCircle'
 
 class HomePage extends Component {
   componentWillMount() {
@@ -13,7 +14,7 @@ class HomePage extends Component {
   }
 
   renderPosts() {
-      if (!this.props.items.items) return <div>loading</div>
+      if (!this.props.items.items) return <LoadingCircle />
       return this.props.items.items.map(({id, title, by}) => {
         return (
           <div  key={id} className="link">
