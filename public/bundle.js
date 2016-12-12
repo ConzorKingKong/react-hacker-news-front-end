@@ -76,11 +76,11 @@
 
 	var _reactRedux = __webpack_require__(298);
 
-	var _routes = __webpack_require__(306);
+	var _routes = __webpack_require__(307);
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _reduxThunk = __webpack_require__(319);
+	var _reduxThunk = __webpack_require__(320);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -35452,7 +35452,7 @@
 
 
 	// module
-	exports.push([module.id, ".title-bar {\n  display: flex;\n  position: relative;\n  justify-content: space-around;\n  padding-top: 2.5vh;\n  padding-bottom: 2.5vh;\n  z-index: 100;\n}\n.title-bar a {\n  text-decoration: none;\n  color: #808080;\n}\n.links {\n  width: 100%;\n}\n.link {\n  display: flex;\n  justify-content: space-between;\n  border: 2px solid #000;\n  text-align: center;\n  animation: materialize 2s;\n}\n.content {\n  display: flex;\n  width: 100%;\n  justify-content: center;\n}\n.test {\n  display: flex;\n}\n.item-title {\n  text-decoration: none;\n  color: #808080;\n  font-size: 1.3em;\n}\n.user-header {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n}\n.comment.comment {\n  animation: slide 1s;\n  animation-fill-mode: forwards;\n}\n.cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-color: #fff;\n  display: flex !important;\n  align-items: center;\n  justify-content: center;\n}\n.circle {\n  display: flex !important;\n  border-top: 0.1em solid #808080;\n  border-radius: 50%;\n  z-index: 100;\n  height: 6em;\n  width: 6em;\n  animation: spin 2s linear infinite;\n}\n@-moz-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-webkit-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-o-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-moz-keyframes materialize {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-webkit-keyframes materialize {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-o-keyframes materialize {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@keyframes materialize {\n  0% {\n    opacity: 0;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-moz-keyframes slide {\n  0% {\n    opacity: 0;\n  }\n  50% {\n    opacity: 1;\n    transform: translate3d(5vh, 0, 0);\n  }\n  100% {\n    opacity: 1;\n    transform: translate3d(5vh, 0, 0);\n  }\n}\n@-webkit-keyframes slide {\n  0% {\n    opacity: 0;\n  }\n  50% {\n    opacity: 1;\n    transform: translate3d(5vh, 0, 0);\n  }\n  100% {\n    opacity: 1;\n    transform: translate3d(5vh, 0, 0);\n  }\n}\n@-o-keyframes slide {\n  0% {\n    opacity: 0;\n  }\n  50% {\n    opacity: 1;\n    transform: translate3d(5vh, 0, 0);\n  }\n  100% {\n    opacity: 1;\n    transform: translate3d(5vh, 0, 0);\n  }\n}\n@keyframes slide {\n  0% {\n    opacity: 0;\n  }\n  50% {\n    opacity: 1;\n    transform: translate3d(5vh, 0, 0);\n  }\n  100% {\n    opacity: 1;\n    transform: translate3d(5vh, 0, 0);\n  }\n}\n", ""]);
+	exports.push([module.id, ".title-bar {\n  display: flex;\n  position: relative;\n  justify-content: space-around;\n  margin-top: 2.5vh;\n  margin-bottom: 2.5vh;\n  z-index: 100;\n}\n.title-bar a {\n  text-decoration: none;\n  color: #808080;\n}\n.posts-list {\n  width: 100%;\n}\n.posts-list-item {\n  display: flex;\n  flex-direction: column;\n  animation: materialize 2s;\n}\n.posts-list-item a {\n  text-decoration: none;\n  color: #808080;\n}\n.posts-list-item.posts-list-item {\n  margin-top: 1em;\n}\n.posts-list-item-subtitle {\n  font-size: 0.8em;\n}\n.content {\n  display: flex;\n}\n.user {\n  display: flex;\n}\n.item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n}\n.item-title {\n  text-decoration: none;\n  color: #808080;\n  font-size: 1.3em;\n}\n.user-header {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n}\n.comment .comment {\n  animation: slide 1s;\n  animation-fill-mode: forwards;\n}\n.cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.circle {\n  display: flex;\n  border-top: 0.1em solid #808080;\n  border-radius: 50%;\n  z-index: 100;\n  height: 6em;\n  width: 6em;\n  animation: spin 2s linear infinite;\n}\n@-moz-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-webkit-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-o-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-moz-keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-webkit-keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-o-keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-moz-keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n@-webkit-keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n@-o-keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n@keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n", ""]);
 
 	// exports
 
@@ -35787,7 +35787,11 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _loadingCircle = __webpack_require__(305);
+	var _post_item = __webpack_require__(305);
+
+	var _post_item2 = _interopRequireDefault(_post_item);
+
+	var _loadingCircle = __webpack_require__(306);
 
 	var _loadingCircle2 = _interopRequireDefault(_loadingCircle);
 
@@ -35827,20 +35831,7 @@
 	            title = _ref.title,
 	            by = _ref.by;
 
-	        return _react2.default.createElement(
-	          'div',
-	          { key: id, className: 'link' },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'item/' + id },
-	            title
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'user/' + by },
-	            by
-	          )
-	        );
+	        return _react2.default.createElement(_post_item2.default, { key: id, id: id, by: by, title: title });
 	      });
 	    }
 	  }, {
@@ -35848,7 +35839,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'links' },
+	        { className: 'posts-list' },
 	        this.renderPosts()
 	      );
 	    }
@@ -36474,6 +36465,45 @@
 	  value: true
 	});
 
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	var _reactRouter = __webpack_require__(178);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { key: props.id, className: 'posts-list-item' },
+	    _react2.default.createElement(
+	      _reactRouter.Link,
+	      { to: 'item/' + props.id },
+	      props.title
+	    ),
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'posts-list-item-subtitle' },
+	      _react2.default.createElement(
+	        _reactRouter.Link,
+	        { to: 'user/' + props.by },
+	        props.by
+	      )
+	    )
+	  );
+	};
+
+/***/ },
+/* 306 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
 	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 	var _react = __webpack_require__(1);
@@ -36520,7 +36550,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(LoadingCircle);
 
 /***/ },
-/* 306 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36535,7 +36565,7 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _app = __webpack_require__(307);
+	var _app = __webpack_require__(308);
 
 	var _app2 = _interopRequireDefault(_app);
 
@@ -36543,39 +36573,39 @@
 
 	var _homepage2 = _interopRequireDefault(_homepage);
 
-	var _jobs = __webpack_require__(309);
+	var _jobs = __webpack_require__(310);
 
 	var _jobs2 = _interopRequireDefault(_jobs);
 
-	var _top_stories = __webpack_require__(310);
+	var _top_stories = __webpack_require__(311);
 
 	var _top_stories2 = _interopRequireDefault(_top_stories);
 
-	var _show = __webpack_require__(311);
+	var _show = __webpack_require__(312);
 
 	var _show2 = _interopRequireDefault(_show);
 
-	var _ask = __webpack_require__(312);
+	var _ask = __webpack_require__(313);
 
 	var _ask2 = _interopRequireDefault(_ask);
 
-	var _item = __webpack_require__(313);
+	var _item = __webpack_require__(314);
 
 	var _item2 = _interopRequireDefault(_item);
 
-	var _user = __webpack_require__(315);
+	var _user = __webpack_require__(316);
 
 	var _user2 = _interopRequireDefault(_user);
 
-	var _ = __webpack_require__(316);
+	var _ = __webpack_require__(317);
 
 	var _2 = _interopRequireDefault(_);
 
-	var _comments = __webpack_require__(317);
+	var _comments = __webpack_require__(318);
 
 	var _comments2 = _interopRequireDefault(_comments);
 
-	var _stories = __webpack_require__(318);
+	var _stories = __webpack_require__(319);
 
 	var _stories2 = _interopRequireDefault(_stories);
 
@@ -36597,7 +36627,7 @@
 	);
 
 /***/ },
-/* 307 */
+/* 308 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36610,7 +36640,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _titlebar = __webpack_require__(308);
+	var _titlebar = __webpack_require__(309);
 
 	var _titlebar2 = _interopRequireDefault(_titlebar);
 
@@ -36630,7 +36660,7 @@
 	};
 
 /***/ },
-/* 308 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36680,7 +36710,7 @@
 	};
 
 /***/ },
-/* 309 */
+/* 310 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36701,9 +36731,13 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _loadingCircle = __webpack_require__(305);
+	var _loadingCircle = __webpack_require__(306);
 
 	var _loadingCircle2 = _interopRequireDefault(_loadingCircle);
+
+	var _post_item = __webpack_require__(305);
+
+	var _post_item2 = _interopRequireDefault(_post_item);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36741,20 +36775,7 @@
 	            title = _ref.title,
 	            by = _ref.by;
 
-	        return _react2.default.createElement(
-	          'div',
-	          { key: id, className: 'link' },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'item/' + id },
-	            title
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'user/' + by },
-	            by
-	          )
-	        );
+	        return _react2.default.createElement(_post_item2.default, { key: id, id: id, by: by, title: title });
 	      });
 	    }
 	  }, {
@@ -36762,7 +36783,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'links' },
+	        { className: 'posts-list' },
 	        this.renderPosts()
 	      );
 	    }
@@ -36778,7 +36799,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchJobStories: _index.fetchJobStories, clearStories: _index.clearStories })(JobStories);
 
 /***/ },
-/* 310 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36799,9 +36820,13 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _loadingCircle = __webpack_require__(305);
+	var _loadingCircle = __webpack_require__(306);
 
 	var _loadingCircle2 = _interopRequireDefault(_loadingCircle);
+
+	var _post_item = __webpack_require__(305);
+
+	var _post_item2 = _interopRequireDefault(_post_item);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36839,20 +36864,7 @@
 	            title = _ref.title,
 	            by = _ref.by;
 
-	        return _react2.default.createElement(
-	          'div',
-	          { key: id, className: 'link' },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'item/' + id },
-	            title
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'user/' + by },
-	            by
-	          )
-	        );
+	        return _react2.default.createElement(_post_item2.default, { key: id, id: id, by: by, title: title });
 	      });
 	    }
 	  }, {
@@ -36860,7 +36872,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'links' },
+	        { className: 'posts-list' },
 	        this.renderPosts()
 	      );
 	    }
@@ -36876,7 +36888,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchTopStories: _index.fetchTopStories, clearStories: _index.clearStories })(TopStories);
 
 /***/ },
-/* 311 */
+/* 312 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36897,9 +36909,13 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _loadingCircle = __webpack_require__(305);
+	var _loadingCircle = __webpack_require__(306);
 
 	var _loadingCircle2 = _interopRequireDefault(_loadingCircle);
+
+	var _post_item = __webpack_require__(305);
+
+	var _post_item2 = _interopRequireDefault(_post_item);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -36937,20 +36953,7 @@
 	            title = _ref.title,
 	            by = _ref.by;
 
-	        return _react2.default.createElement(
-	          'div',
-	          { key: id, className: 'link' },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'item/' + id },
-	            title
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'user/' + by },
-	            by
-	          )
-	        );
+	        return _react2.default.createElement(_post_item2.default, { key: id, id: id, by: by, title: title });
 	      });
 	    }
 	  }, {
@@ -36958,7 +36961,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'links' },
+	        { className: 'posts-list' },
 	        this.renderPosts()
 	      );
 	    }
@@ -36974,7 +36977,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchShowStories: _index.fetchShowStories, clearStories: _index.clearStories })(ShowStories);
 
 /***/ },
-/* 312 */
+/* 313 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36995,9 +36998,13 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _loadingCircle = __webpack_require__(305);
+	var _loadingCircle = __webpack_require__(306);
 
 	var _loadingCircle2 = _interopRequireDefault(_loadingCircle);
+
+	var _post_item = __webpack_require__(305);
+
+	var _post_item2 = _interopRequireDefault(_post_item);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37035,20 +37042,7 @@
 	            title = _ref.title,
 	            by = _ref.by;
 
-	        return _react2.default.createElement(
-	          'div',
-	          { key: id, className: 'link' },
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'item/' + id },
-	            title
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: 'user/' + by },
-	            by
-	          )
-	        );
+	        return _react2.default.createElement(_post_item2.default, { key: id, id: id, by: by, title: title });
 	      });
 	    }
 	  }, {
@@ -37056,7 +37050,7 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'links' },
+	        { className: 'posts-list' },
 	        this.renderPosts()
 	      );
 	    }
@@ -37072,7 +37066,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchAskStories: _index.fetchAskStories, clearStories: _index.clearStories })(AskStories);
 
 /***/ },
-/* 313 */
+/* 314 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37093,11 +37087,11 @@
 
 	var _index = __webpack_require__(256);
 
-	var _comment = __webpack_require__(314);
+	var _comment = __webpack_require__(315);
 
 	var _comment2 = _interopRequireDefault(_comment);
 
-	var _loadingCircle = __webpack_require__(305);
+	var _loadingCircle = __webpack_require__(306);
 
 	var _loadingCircle2 = _interopRequireDefault(_loadingCircle);
 
@@ -37149,7 +37143,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'item' },
 	        _react2.default.createElement(
 	          'a',
 	          { className: 'item-title', href: url },
@@ -37199,7 +37193,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchItem: _index.fetchItem, clearItem: _index.clearItem })(Item);
 
 /***/ },
-/* 314 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37219,6 +37213,8 @@
 	var _axios = __webpack_require__(257);
 
 	var _axios2 = _interopRequireDefault(_axios);
+
+	var _reactRouter = __webpack_require__(178);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -37288,8 +37284,8 @@
 	            )
 	          ),
 	          _react2.default.createElement(
-	            'div',
-	            null,
+	            _reactRouter.Link,
+	            { to: '/user/' + this.state.comment.by },
 	            this.state.comment.by
 	          )
 	        ),
@@ -37319,7 +37315,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Comment);
 
 /***/ },
-/* 315 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37340,7 +37336,7 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _loadingCircle = __webpack_require__(305);
+	var _loadingCircle = __webpack_require__(306);
 
 	var _loadingCircle2 = _interopRequireDefault(_loadingCircle);
 
@@ -37381,7 +37377,7 @@
 
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'user' },
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'user-header' },
@@ -37395,11 +37391,7 @@
 	            null,
 	            'Karma: ',
 	            karma
-	          )
-	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
+	          ),
 	          _react2.default.createElement(
 	            _reactRouter.Link,
 	            { to: '/stories/' + id },
@@ -37425,7 +37417,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUser: _index.fetchUser, clearUser: _index.clearUser })(User);
 
 /***/ },
-/* 316 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37449,7 +37441,7 @@
 	};
 
 /***/ },
-/* 317 */
+/* 318 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37468,11 +37460,11 @@
 
 	var _index = __webpack_require__(256);
 
-	var _comment = __webpack_require__(314);
+	var _comment = __webpack_require__(315);
 
 	var _comment2 = _interopRequireDefault(_comment);
 
-	var _loadingCircle = __webpack_require__(305);
+	var _loadingCircle = __webpack_require__(306);
 
 	var _loadingCircle2 = _interopRequireDefault(_loadingCircle);
 
@@ -37534,7 +37526,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUser: _index.fetchUser, clearUser: _index.clearUser })(Comments);
 
 /***/ },
-/* 318 */
+/* 319 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -37553,11 +37545,11 @@
 
 	var _index = __webpack_require__(256);
 
-	var _comment = __webpack_require__(314);
+	var _comment = __webpack_require__(315);
 
 	var _comment2 = _interopRequireDefault(_comment);
 
-	var _loadingCircle = __webpack_require__(305);
+	var _loadingCircle = __webpack_require__(306);
 
 	var _loadingCircle2 = _interopRequireDefault(_loadingCircle);
 
@@ -37588,6 +37580,9 @@
 	    value: function componentWillUnmount() {
 	      this.props.clearUser();
 	    }
+
+	    // need a return for if there are no stories
+
 	  }, {
 	    key: 'renderStories',
 	    value: function renderStories() {
@@ -37603,7 +37598,7 @@
 	      if (!this.props.user.comments) return _react2.default.createElement(_loadingCircle2.default, null);
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { className: 'stories' },
 	        this.renderStories()
 	      );
 	    }
@@ -37619,7 +37614,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUser: _index.fetchUser, clearUser: _index.clearUser })(Comments);
 
 /***/ },
-/* 319 */
+/* 320 */
 /***/ function(module, exports) {
 
 	'use strict';
