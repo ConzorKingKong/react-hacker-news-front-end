@@ -27,7 +27,7 @@ class Item extends Component {
     if (!this.props.items.item) return <LoadingCircle />
     const {url, title, score, by, text} = this.props.items.item
     return (
-      <div>
+      <div className="item">
         <a className="item-title" href={url}>{title}</a>
         <div className="test">
           <div>{score} Points by <Link to={`/user/${by}`}>{by}</Link></div>

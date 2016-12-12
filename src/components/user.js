@@ -17,12 +17,10 @@ class User extends Component {
     if (!this.props.user) return <LoadingCircle />
     const {id, karma} = this.props.user
     return (
-      <div>
+      <div className="user">
         <div className="user-header">
           <h1>{id}</h1>
           <h3>Karma: {karma}</h3>
-        </div>
-        <div>
           <Link to={`/stories/${id}`}>Stories</Link>
           <Link to={`/comments/${id}`}>Comments</Link>
         </div>

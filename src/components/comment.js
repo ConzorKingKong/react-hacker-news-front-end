@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
+import {Link} from 'react-router'
 
 class Comment extends Component {
   constructor(props) {
@@ -39,7 +40,7 @@ class Comment extends Component {
       <div className="comment" key={this.state.comment.id}>
         <div className="comment-header">
           <div><a href={this.state.comment.url}>{this.state.comment.title}</a></div>
-          <div>{this.state.comment.by}</div>
+          <Link to={`/user/${this.state.comment.by}`}>{this.state.comment.by}</Link>
         </div>          
         <p>{this.state.comment.text}</p>
         <div>{this.renderChildren()}</div>

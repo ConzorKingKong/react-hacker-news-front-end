@@ -13,6 +13,7 @@ class Comments extends Component {
     this.props.clearUser()
   }
 
+// need a return for if there are no stories
   renderStories() {
     return this.props.user.comments.filter(comment => {
       return comment.type !== "comment"
@@ -24,7 +25,7 @@ class Comments extends Component {
   render() {
     if (!this.props.user.comments) return <LoadingCircle />
     return (
-      <div>
+      <div className="stories">
         {this.renderStories()}
       </div>
     )

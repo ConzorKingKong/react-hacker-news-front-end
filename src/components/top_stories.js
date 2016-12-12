@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import {fetchTopStories, clearStories} from '../actions/index'
 import {Link} from 'react-router'
 import LoadingCircle from './loadingCircle'
+import PostItem from  './post_item'
 
 class TopStories extends Component {
   componentWillMount() {
@@ -17,17 +18,14 @@ class TopStories extends Component {
       if (!this.props.items.items) return <LoadingCircle />
       return this.props.items.items.map(({id, title, by}) => {
         return (
-          <div  key={id} className="link">
-            <Link to={`item/${id}`}>{title}</Link>
-            <Link to={`user/${by}`}>{by}</Link>
-          </div>
+          <PostItem key={id} id={id} by={by} title={title} />
         )
       })
     }
 
   render() {
     return (
-      <div className="links">
+      <div className="posts-list">
         {this.renderPosts()}
       </div>
     )
