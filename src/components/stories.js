@@ -36,7 +36,7 @@ class Comments extends Component {
     if (!this.props.user.comments) return <div className='posts-list'>{this.renderPlaceholders()}</div>
     console.log(this.props.user.comments)
     return (
-      <div className='stories'>
+      <div className='posts-list'>
         {this.renderStories()}
       </div>
     )
