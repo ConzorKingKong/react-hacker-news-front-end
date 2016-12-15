@@ -3,8 +3,8 @@ import {connect} from 'react-redux'
 import {Link} from 'react-router'
 import {fetchItem, clearItem} from '../actions/index'
 import Comment from './comment'
-import LoadingCircle from './loadingCircle'
 import {FormattedRelative} from 'react-intl'
+import ItemPlaceholder from './item_placeholder'
 
 class Item extends Component {
   componentWillMount () {
@@ -24,7 +24,7 @@ class Item extends Component {
   }
 
   render () {
-    if (!this.props.items.item) return <LoadingCircle />
+    if (!this.props.items.item) return <ItemPlaceholder />
     const {url, title, score, by, text, time} = this.props.items.item
     const Dummy = document.createElement('div')
     Dummy.innerHTML = text
