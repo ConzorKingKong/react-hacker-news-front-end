@@ -1,28 +1,39 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchUser, clearUser} from '../actions/index'
+import {fetchUserInfo, clearUser} from '../actions/index'
 import Comment from './comment'
-import LoadingCircle from './loadingCircle'
+import StoryPlaceholder from './story_placeholder'
 
 class Comments extends Component {
-  componentWillMount() {
-    this.props.fetchUser(this.props.params.id)
+  componentWillMount () {
+    this.props.fetchUserInfo(this.props.params.id)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.props.clearUser()
   }
 
-  renderComments() {
-    return this.props.user.comments.filter(comment => {
-      return comment.type === "comment"
-    }).map(comment => {
-      return <Comment id={comment.id} type="comment"/>
+  renderPlaceholders () {
+    const storyPlaceholders = []
+    for (var i = 1; i < 40; i++) {
+      storyPlaceholders.push(<StoryPlaceholder key={i} />)
+    }
+    return storyPlaceholders.map(story => {
+      return story
     })
   }
 
-  render() {
-    if (!this.props.user.comments) return <LoadingCircle />
+  renderComments () {
+    return this.props.user.comments.filter(comment => {
+      return comment.type === 'comment'
+    }).map(comment => {
+      return <Comment key={comment.id} id={comment.id} type='comment' />
+    })
+  }
+
+  render () {
+    if (!this.props.user.comments) return <div className='posts-list'>{this.renderPlaceholders()}</div>
+    console.log(this.props.user.comments)
     return (
       <div>
         {this.renderComments()}
@@ -31,8 +42,8 @@ class Comments extends Component {
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return state
 }
 
-export default connect(mapStateToProps, {fetchUser, clearUser})(Comments)
+export default connect(mapStateToProps, {fetchUserInfo, clearUser})(Comments)

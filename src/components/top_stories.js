@@ -1,38 +1,47 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchTopStories, clearStories} from '../actions/index'
-import {Link} from 'react-router'
-import LoadingCircle from './loadingCircle'
-import PostItem from  './post_item'
+import PostItem from './post_item'
+import StoryPlaceholder from './story_placeholder'
 
 class TopStories extends Component {
-  componentWillMount() {
+  componentWillMount () {
     this.props.fetchTopStories()
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.props.clearStories()
   }
 
-  renderPosts() {
-      if (!this.props.items.items) return <LoadingCircle />
-      return this.props.items.items.map(({id, title, by}) => {
-        return (
-          <PostItem key={id} id={id} by={by} title={title} />
-        )
-      })
+  renderPlaceholders () {
+    const storyPlaceholders = []
+    for (var i = 1; i < 40; i++) {
+      storyPlaceholders.push(<StoryPlaceholder key={i} />)
     }
+    return storyPlaceholders.map(story => {
+      return story
+    })
+  }
 
-  render() {
+  renderPosts () {
+    return this.props.items.items.map(({time, score, id, title, by}) => {
+      return (
+        <PostItem key={id} time={time} score={score} id={id} by={by} title={title} />
+      )
+    })
+  }
+
+  render () {
+    if (!this.props.items.items) return <div className='posts-list'>{this.renderPlaceholders()}</div>
     return (
-      <div className="posts-list">
+      <div className='posts-list'>
         {this.renderPosts()}
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return state
 }
 
