@@ -78,7 +78,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _reduxThunk = __webpack_require__(343);
+	var _reduxThunk = __webpack_require__(344);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -35466,7 +35466,7 @@
 
 
 	// module
-	exports.push([module.id, ".container {\n  background-color: #f6f6ef;\n}\na {\n  text-decoration: none;\n}\n.title-bar {\n  display: flex;\n  position: relative;\n  justify-content: space-around;\n  padding-top: 2.5vh;\n  padding-bottom: 2.5vh;\n  z-index: 100;\n  background-color: #f60;\n}\n.title-bar a {\n  color: #000;\n}\n.posts-list {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n}\n.posts-list-item {\n  display: flex;\n  align-items: center;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  animation: materialize 2s;\n}\n.posts-list-item a {\n  color: #808080;\n}\n.posts-list-item-score {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.posts-list-item-title {\n  display: flex;\n}\n.posts-list-item-by {\n  font-size: 0.75em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.posts-list-item-user {\n  font-size: 1em;\n  margin-right: 0.4em;\n}\n.content {\n  display: flex;\n  justify-content: center;\n}\n.user {\n  display: flex;\n}\n.item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 2em;\n}\n.item-title {\n  text-decoration: none;\n  color: #808080;\n  font-size: 1.3em;\n}\n.item-subtitle {\n  display: flex;\n  margin-top: 0.4em;\n}\n.item-subtitle-user-info {\n  margin-right: 0.3em;\n}\n.user-header {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n}\n.user-header h3 {\n  margin-top: 0;\n}\n.comment {\n  margin-bottom: 1em;\n  margin-top: 1em;\n}\n.comment .comment {\n  animation: slide 1s;\n  animation-fill-mode: forwards;\n}\n.comment-sub-header {\n  display: flex;\n}\n.comment-sub-header-user {\n  margin-right: 0.3em;\n}\n.show-hide {\n  margin-left: 0.2em;\n}\n.show-hide:hover {\n  cursor: pointer;\n}\n.cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.circle {\n  display: flex;\n  border-top: 0.1em solid #808080;\n  border-radius: 50%;\n  z-index: 100;\n  height: 6em;\n  width: 6em;\n  animation: spin 2s linear infinite;\n}\n.story-placeholder {\n  display: flex;\n  flex-direction: column;\n}\n.story-placeholder.story-placeholder {\n  margin-bottom: 1em;\n}\n.story-placeholder-bar {\n  background-color: #efefef;\n  height: 0.7em;\n  display: flex;\n  margin-bottom: 0.2em;\n}\n@-moz-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-webkit-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-o-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-moz-keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-webkit-keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-o-keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-moz-keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n@-webkit-keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n@-o-keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n@keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n", ""]);
+	exports.push([module.id, ".container {\n  background-color: #f6f6ef;\n}\na {\n  text-decoration: none;\n}\n.title-bar {\n  display: flex;\n  position: relative;\n  justify-content: space-around;\n  padding-top: 2.5vh;\n  padding-bottom: 2.5vh;\n  z-index: 100;\n  background-color: #f60;\n}\n.title-bar a {\n  color: #000;\n}\n.posts-list {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n}\n.posts-list-item {\n  display: flex;\n  align-items: center;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  animation: materialize 2s;\n}\n.posts-list-item a {\n  color: #808080;\n}\n.posts-list-item-score {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.posts-list-item-title {\n  display: flex;\n}\n.posts-list-item-by {\n  font-size: 0.75em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.posts-list-item-user {\n  font-size: 1em;\n  margin-right: 0.4em;\n}\n.content {\n  display: flex;\n  justify-content: center;\n}\n.user-placeholder {\n  display: flex;\n  flex-direction: column;\n  width: 50%;\n  align-items: center;\n  margin-top: 2em;\n}\n.user-placeholder-inner-wrapper {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  height: 50%;\n  margin-top: 2em;\n}\n.user-placeholder-name {\n  width: 30%;\n  height: 1.8em;\n  background-color: #808080;\n  margin-bottom: 1.5em;\n}\n.user-placeholder-karma {\n  width: 10%;\n  height: 0.8em;\n  background-color: #808080;\n  margin-bottom: 1.5em;\n}\n.user-placeholder-story {\n  width: 10%;\n  height: 0.8em;\n  background-color: #808080;\n  margin-bottom: 0.5em;\n}\n.user-placeholder-comment {\n  width: 30%;\n  height: 1.8em;\n  background-color: #808080;\n  margin-bottom: 0.5em;\n}\n.user {\n  display: flex;\n}\n.item-placeholder {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  width: 100%;\n  height: 50%;\n  margin-top: 2em;\n}\n.item-placeholder-header {\n  width: 30%;\n  height: 1.8em;\n  background-color: #808080;\n}\n.item-placeholder-subheader {\n  width: 20%;\n  height: 1em;\n  background-color: #808080;\n  margin-top: 0.4em;\n  margin-bottom: 0.4em;\n}\n.item-placeholder-content {\n  width: 75%;\n  height: 5em;\n  background-color: #808080;\n  margin-top: 0.4em;\n  margin-bottom: 0.4em;\n}\n.item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 2em;\n}\n.item-title {\n  text-decoration: none;\n  color: #808080;\n  font-size: 1.3em;\n}\n.item-subtitle {\n  display: flex;\n  margin-top: 0.4em;\n}\n.item-subtitle-user-info {\n  margin-right: 0.3em;\n}\n.user-header {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n}\n.user-header h3 {\n  margin-top: 0;\n}\n.comment {\n  margin-bottom: 1em;\n  margin-top: 1em;\n}\n.comment .comment {\n  animation: slide 1s;\n  animation-fill-mode: forwards;\n}\n.comment-sub-header {\n  display: flex;\n}\n.comment-sub-header-user {\n  margin-right: 0.3em;\n}\n.show-hide {\n  margin-left: 0.2em;\n}\n.show-hide:hover {\n  cursor: pointer;\n}\n.cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.circle {\n  display: flex;\n  border-top: 0.1em solid #808080;\n  border-radius: 50%;\n  z-index: 100;\n  height: 6em;\n  width: 6em;\n  animation: spin 2s linear infinite;\n}\n.story-placeholder {\n  display: flex;\n  flex-direction: column;\n}\n.story-placeholder.story-placeholder {\n  margin-bottom: 1em;\n}\n.story-placeholder-bar {\n  background-color: #efefef;\n  height: 0.7em;\n  display: flex;\n  margin-bottom: 0.2em;\n}\n@-moz-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-webkit-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-o-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-moz-keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-webkit-keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-o-keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-moz-keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n@-webkit-keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n@-o-keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n@keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n", ""]);
 
 	// exports
 
@@ -41026,15 +41026,15 @@
 
 	var _user2 = _interopRequireDefault(_user);
 
-	var _ = __webpack_require__(340);
+	var _ = __webpack_require__(341);
 
 	var _2 = _interopRequireDefault(_);
 
-	var _comments = __webpack_require__(341);
+	var _comments = __webpack_require__(342);
 
 	var _comments2 = _interopRequireDefault(_comments);
 
-	var _stories = __webpack_require__(342);
+	var _stories = __webpack_require__(343);
 
 	var _stories2 = _interopRequireDefault(_stories);
 
@@ -41759,11 +41759,11 @@
 
 	var _comment2 = _interopRequireDefault(_comment);
 
-	var _loadingCircle = __webpack_require__(338);
-
-	var _loadingCircle2 = _interopRequireDefault(_loadingCircle);
-
 	var _reactIntl = __webpack_require__(304);
+
+	var _item_placeholder = __webpack_require__(338);
+
+	var _item_placeholder2 = _interopRequireDefault(_item_placeholder);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41802,7 +41802,7 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (!this.props.items.item) return _react2.default.createElement(_loadingCircle2.default, null);
+	      if (!this.props.items.item) return _react2.default.createElement(_item_placeholder2.default, null);
 	      var _props$items$item = this.props.items.item,
 	          url = _props$items$item.url,
 	          title = _props$items$item.title,
@@ -42065,50 +42065,21 @@
 	  value: true
 	});
 
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(297);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-	var LoadingCircle = function (_Component) {
-	  _inherits(LoadingCircle, _Component);
-
-	  function LoadingCircle() {
-	    _classCallCheck(this, LoadingCircle);
-
-	    return _possibleConstructorReturn(this, (LoadingCircle.__proto__ || Object.getPrototypeOf(LoadingCircle)).apply(this, arguments));
-	  }
-
-	  _createClass(LoadingCircle, [{
-	    key: 'render',
-	    value: function render() {
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'cover' },
-	        _react2.default.createElement('div', { className: 'circle', 'data-status': 'loading' })
-	      );
-	    }
-	  }]);
-
-	  return LoadingCircle;
-	}(_react.Component);
-
-	function mapStateToProps(state) {
-	  return state;
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(LoadingCircle);
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
+	    { className: 'item-placeholder' },
+	    _react2.default.createElement('div', { className: 'item-placeholder-header' }),
+	    _react2.default.createElement('div', { className: 'item-placeholder-subheader' }),
+	    _react2.default.createElement('div', { className: 'item-placeholder-content' })
+	  );
+	};
 
 /***/ },
 /* 339 */
@@ -42132,9 +42103,9 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _loadingCircle = __webpack_require__(338);
+	var _user_placeholder = __webpack_require__(340);
 
-	var _loadingCircle2 = _interopRequireDefault(_loadingCircle);
+	var _user_placeholder2 = _interopRequireDefault(_user_placeholder);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42166,40 +42137,12 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (!this.props.user) return _react2.default.createElement(_loadingCircle2.default, null);
+	      if (!this.props.user) return _react2.default.createElement(_user_placeholder2.default, null);
 	      var _props$user = this.props.user,
 	          id = _props$user.id,
 	          karma = _props$user.karma;
 
-	      return _react2.default.createElement(
-	        'div',
-	        { className: 'user' },
-	        _react2.default.createElement(
-	          'div',
-	          { className: 'user-header' },
-	          _react2.default.createElement(
-	            'h1',
-	            null,
-	            id
-	          ),
-	          _react2.default.createElement(
-	            'h3',
-	            null,
-	            'Karma: ',
-	            karma
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/stories/' + id },
-	            'Stories'
-	          ),
-	          _react2.default.createElement(
-	            _reactRouter.Link,
-	            { to: '/comments/' + id },
-	            'Comments'
-	          )
-	        )
-	      );
+	      return _react2.default.createElement(_user_placeholder2.default, null);
 	    }
 	  }]);
 
@@ -42231,13 +42174,44 @@
 	exports.default = function (props) {
 	  return _react2.default.createElement(
 	    'div',
+	    { className: 'user-placeholder' },
+	    _react2.default.createElement(
+	      'div',
+	      { className: 'user-placeholder-inner-wrapper' },
+	      _react2.default.createElement('div', { className: 'user-placeholder-name' }),
+	      _react2.default.createElement('div', { className: 'user-placeholder-karma' }),
+	      _react2.default.createElement('div', { className: 'user-placeholder-story' }),
+	      _react2.default.createElement('div', { className: 'user-placeholder-comment' })
+	    )
+	  );
+	};
+
+/***/ },
+/* 341 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (props) {
+	  return _react2.default.createElement(
+	    'div',
 	    null,
 	    '404'
 	  );
 	};
 
 /***/ },
-/* 341 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42338,7 +42312,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUserInfo: _index.fetchUserInfo, clearUser: _index.clearUser })(Comments);
 
 /***/ },
-/* 342 */
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42426,7 +42400,7 @@
 	      console.log(this.props.user.comments);
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'stories' },
+	        { className: 'posts-list' },
 	        this.renderStories()
 	      );
 	    }
@@ -42442,7 +42416,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUserInfo: _index.fetchUserInfo, clearUser: _index.clearUser })(Comments);
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports) {
 
 	'use strict';
