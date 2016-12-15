@@ -10,10 +10,11 @@ export const CLEAR_STORIES = 'CLEAR_STORIES'
 export const ITEM = 'ITEM'
 export const CLEAR_ITEM = 'CLEAR_ITEM'
 export const USER = 'USER'
+export const USER_INFO = 'USER_INFO'
 export const CLEAR_USER = 'CLEAR_USER'
 export const COMMENT = 'COMMENT'
 
-export function fetchNewStories() {
+export function fetchNewStories () {
   return dispatch => {
     axios.get(`${ROOT_URL}newstories.json`).then(({data}) => {
       async.map(data, (id, done) => {
@@ -23,7 +24,7 @@ export function fetchNewStories() {
   }
 }
 
-export function fetchTopStories() {
+export function fetchTopStories () {
   return dispatch => {
     axios.get(`${ROOT_URL}topstories.json`).then(({data}) => {
       async.map(data, (id, done) => {
@@ -33,7 +34,7 @@ export function fetchTopStories() {
   }
 }
 
-export function fetchShowStories() {
+export function fetchShowStories () {
   return dispatch => {
     axios.get(`${ROOT_URL}showstories.json`).then(({data}) => {
       async.map(data, (id, done) => {
@@ -43,7 +44,7 @@ export function fetchShowStories() {
   }
 }
 
-export function fetchAskStories() {
+export function fetchAskStories () {
   return dispatch => {
     axios.get(`${ROOT_URL}askstories.json`).then(({data}) => {
       async.map(data, (id, done) => {
@@ -53,7 +54,7 @@ export function fetchAskStories() {
   }
 }
 
-export function fetchJobStories() {
+export function fetchJobStories () {
   return dispatch => {
     axios.get(`${ROOT_URL}jobstories.json`).then(({data}) => {
       async.map(data, (id, done) => {
@@ -63,14 +64,14 @@ export function fetchJobStories() {
   }
 }
 
-export function clearStories() {
+export function clearStories () {
   return {
     type: CLEAR_STORIES,
-    payload: ''
+    payload: null
   }
 }
 
-export function fetchItem(id) {
+export function fetchItem (id) {
   return dispatch => {
     axios.get(`${ROOT_URL}item/${id}.json`).then(({data}) => {
       const item = data
@@ -81,38 +82,49 @@ export function fetchItem(id) {
       }, (err, results) => {
         dispatch({type: ITEM, comments: results, payload: item})
       })
-    })}
-}
-
-export function clearItem() {
-  return {
-    type: CLEAR_ITEM,
-    payload: ''
+    })
   }
 }
 
-export function fetchUser(id) {
+export function clearItem () {
+  return {
+    type: CLEAR_ITEM,
+    payload: null
+  }
+}
+
+export function fetchUser (id) {
+  const request = axios.get(`${ROOT_URL}user/${id}.json`)
+
+  return {
+    type: USER,
+    payload: request
+  }
+}
+
+export function fetchUserInfo (id) {
   return dispatch => {
     axios.get(`${ROOT_URL}user/${id}.json`).then(({data}) => {
       const user = data
       async.map(data.submitted, (id, done) => {
         axios.get(`${ROOT_URL}item/${id}.json`).then(({data}) => done(null, data))
       }, (err, results) => {
-        dispatch({type: USER, payload: user, comments: results})
+        dispatch({type: USER_INFO, payload: user, comments: results})
       })
-    })}
-}
-
-export function clearUser() {
-  return {
-    type: CLEAR_USER,
-    payload: ''
+    })
   }
 }
 
-export function fetchComment(id) {
+export function clearUser () {
+  return {
+    type: CLEAR_USER,
+    payload: null
+  }
+}
+
+export function fetchComment (id) {
   const request = axios.get(`${ROOT_URL}item/${id}.json`)
-  
+
   return {
     type: COMMENT,
     payload: request
