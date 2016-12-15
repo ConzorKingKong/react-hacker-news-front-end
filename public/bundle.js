@@ -42142,7 +42142,35 @@
 	          id = _props$user.id,
 	          karma = _props$user.karma;
 
-	      return _react2.default.createElement(_user_placeholder2.default, null);
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'user' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'user-header' },
+	          _react2.default.createElement(
+	            'h1',
+	            null,
+	            id
+	          ),
+	          _react2.default.createElement(
+	            'h3',
+	            null,
+	            'Karma: ',
+	            karma
+	          ),
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/stories/' + id },
+	            'Stories'
+	          ),
+	          _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/comments/' + id },
+	            'Comments'
+	          )
+	        )
+	      );
 	    }
 	  }]);
 

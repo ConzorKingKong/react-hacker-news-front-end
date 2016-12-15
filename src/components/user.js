@@ -17,7 +17,14 @@ class User extends Component {
     if (!this.props.user) return <UserPlaceholder />
     const {id, karma} = this.props.user
     return (
-      <UserPlaceholder />
+      <div className='user'>
+        <div className='user-header'>
+          <h1>{id}</h1>
+          <h3>Karma: {karma}</h3>
+          <Link to={`/stories/${id}`}>Stories</Link>
+          <Link to={`/comments/${id}`}>Comments</Link>
+        </div>
+      </div>
     )
   }
 }
