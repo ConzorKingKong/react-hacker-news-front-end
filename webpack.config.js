@@ -1,8 +1,9 @@
+var path = require('path')
 module.exports = {
-  entry: __dirname + "/src/index.js",
+  entry: path.join(__dirname, '/src/index.js'),
   output: {
-    path: __dirname + "/public",
-    filename: "bundle.js"
+    path: path.join(__dirname, '/public'),
+    filename: 'bundle.js'
   },
   module: {
     loaders: [{
@@ -17,18 +18,9 @@ module.exports = {
       query: {
         presets: ['react', 'es2015', 'stage-1']
       }
-    }],
-    preloaders: [{
-      exclude: /node_modules/,
-      loader: "eslint-loader",
-      test: /\.js$/
     }]
   },
   resolve: {
     extensions: ['', '.js', '.jsx', '.styl']
-  },
-  devServer: {
-    historyApiFallback: true,
-    contentBase: './'
   }
 }
