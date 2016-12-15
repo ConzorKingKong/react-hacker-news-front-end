@@ -1,0 +1,14 @@
+{
+  "app": {
+    "development": {
+      "hostname": "0.0.0.0",
+      "port": 9003,
+      "protocol": "http"
+    },
+    "production": {
+      "hostname": "connorpeshek.me",
+      "port": "",
+      "protocol": "http"
+    }
+  }
+}
