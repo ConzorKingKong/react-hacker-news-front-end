@@ -3,9 +3,9 @@ import Titlebar from './titlebar'
 
 export default (props) => {
   return (
-    <div className="wrapper">
+    <div className='wrapper'>
       <Titlebar />
-      <div className="content">
+      <div className='content'>
         {props.children}
       </div>
     </div>

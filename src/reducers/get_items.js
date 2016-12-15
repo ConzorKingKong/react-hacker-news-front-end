@@ -2,8 +2,8 @@ import {NEW_STORIES, ITEM, CLEAR_STORIES, CLEAR_ITEM} from '../actions/index'
 
 const initialState = {items: null, item: null, comments: null}
 
-export default function(state = initialState, action) {
-  switch(action.type) {
+export default function (state = initialState, action) {
+  switch (action.type) {
     case NEW_STORIES:
       return {...state, items: action.payload}
     case CLEAR_STORIES:

@@ -2,17 +2,17 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 
 class LoadingCircle extends Component {
-  
-  render() {
+
+  render () {
     return (
-      <div className="cover">
-        <div className="circle" data-status="loading"></div>
+      <div className='cover'>
+        <div className='circle' data-status='loading' />
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return state
 }
 
