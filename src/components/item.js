@@ -4,43 +4,49 @@ import {Link} from 'react-router'
 import {fetchItem, clearItem} from '../actions/index'
 import Comment from './comment'
 import LoadingCircle from './loadingCircle'
+import {FormattedRelative} from 'react-intl'
 
 class Item extends Component {
-  componentWillMount() {
+  componentWillMount () {
     this.props.fetchItem(this.props.params.id)
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     this.props.clearItem()
   }
 
-  renderComments() {
+  renderComments () {
     return this.props.items.comments.map(comment => {
-      console.log("comments", comment)
       return (
-        <Comment id={comment.id} />
+        <Comment key={comment.id} id={comment.id} />
       )
     })
   }
 
-  render() {
+  render () {
     if (!this.props.items.item) return <LoadingCircle />
-    const {url, title, score, by, text} = this.props.items.item
+    const {url, title, score, by, text, time} = this.props.items.item
+    const Dummy = document.createElement('div')
+    Dummy.innerHTML = text
+    if (Dummy.innerText === 'undefined') Dummy.innerHTML = ' '
+    const utcSeconds = time
+    const date = new Date(0)
+    date.setUTCSeconds(utcSeconds)
     return (
-      <div className="item">
-        <a className="item-title" href={url}>{title}</a>
-        <div className="test">
-          <div>{score} Points by <Link to={`/user/${by}`}>{by}</Link></div>
-          <div>Web</div>
+      <div className='item'>
+        <a className='item-title' href={url}>{title}</a>
+        <div className='item-subtitle'>
+          <div className='item-subtitle-user-info' >{score} Points by <Link to={`/user/${by}`}>{by}</Link></div>
+          <FormattedRelative value={date} />
         </div>
-        <p>{text}</p>
+        <p>{Dummy.innerText}</p>
         <div>{this.renderComments()}</div>
       </div>
     )
   }
 }
 
-function mapStateToProps(state) {
+function mapStateToProps (state) {
   return state
 }
 
