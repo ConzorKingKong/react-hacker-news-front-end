@@ -75,7 +75,7 @@ class Comment extends Component {
             <div onClick={this.handleShowHideClick} className='show-hide'>{this.state.showHide}</div>
           </div>
         </div>
-        <div dangerouslySetInnerHTML={{__html: this.state.comment.text}}/>
+        <div dangerouslySetInnerHTML={{__html: this.state.comment.text}} />
         <div>{this.renderChildren()}</div>
       </div>
     )
