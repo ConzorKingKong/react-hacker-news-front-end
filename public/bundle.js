@@ -27565,7 +27565,10 @@
 	          return done(null, data);
 	        });
 	      }, function (err, results) {
-	        return dispatch({ type: NEW_STORIES, payload: results });
+	        if (err) {
+	          console.log(err);
+	        }
+	        dispatch({ type: NEW_STORIES, payload: results });
 	      });
 	    });
 	  };
@@ -27582,7 +27585,10 @@
 	          return done(null, data);
 	        });
 	      }, function (err, results) {
-	        return dispatch({ type: NEW_STORIES, payload: results });
+	        if (err) {
+	          console.log(err);
+	        }
+	        dispatch({ type: NEW_STORIES, payload: results });
 	      });
 	    });
 	  };
@@ -27599,7 +27605,10 @@
 	          return done(null, data);
 	        });
 	      }, function (err, results) {
-	        return dispatch({ type: NEW_STORIES, payload: results });
+	        if (err) {
+	          console.log(err);
+	        }
+	        dispatch({ type: NEW_STORIES, payload: results });
 	      });
 	    });
 	  };
@@ -27616,7 +27625,10 @@
 	          return done(null, data);
 	        });
 	      }, function (err, results) {
-	        return dispatch({ type: NEW_STORIES, payload: results });
+	        if (err) {
+	          console.log(err);
+	        }
+	        dispatch({ type: NEW_STORIES, payload: results });
 	      });
 	    });
 	  };
@@ -27633,7 +27645,10 @@
 	          return done(null, data);
 	        });
 	      }, function (err, results) {
-	        return dispatch({ type: NEW_STORIES, payload: results });
+	        if (err) {
+	          console.log(err);
+	        }
+	        dispatch({ type: NEW_STORIES, payload: results });
 	      });
 	    });
 	  };
@@ -27659,6 +27674,9 @@
 	          done(null, data);
 	        });
 	      }, function (err, results) {
+	        if (err) {
+	          console.log(err);
+	        }
 	        dispatch({ type: ITEM, comments: results, payload: item });
 	      });
 	    });
@@ -27693,6 +27711,9 @@
 	          return done(null, data);
 	        });
 	      }, function (err, results) {
+	        if (err) {
+	          console.log(err);
+	        }
 	        dispatch({ type: USER_INFO, payload: user, comments: results });
 	      });
 	    });
@@ -41955,8 +41976,6 @@
 	    key: 'render',
 	    value: function render() {
 	      if (!this.state.comment.text) return _react2.default.createElement('div', null);
-	      var Dummy = document.createElement('div');
-	      Dummy.innerHTML = this.state.comment.text;
 	      if (this.props.type === 'non-comment') {
 	        return _react2.default.createElement(_post_item2.default, { key: this.state.comment.id, score: this.state.comment.score, id: this.state.comment.id, title: this.state.comment.title, by: this.state.comment.by, time: this.state.comment.time });
 	      }
@@ -42030,11 +42049,7 @@
 	            )
 	          )
 	        ),
-	        _react2.default.createElement(
-	          'div',
-	          null,
-	          Dummy.innerText
-	        ),
+	        _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.comment.text } }),
 	        _react2.default.createElement(
 	          'div',
 	          null,
