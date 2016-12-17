@@ -45,8 +45,6 @@ class Comment extends Component {
 
   render () {
     if (!this.state.comment.text) return <div />
-    const Dummy = document.createElement('div')
-    Dummy.innerHTML = this.state.comment.text
     if (this.props.type === 'non-comment') {
       return <PostItem key={this.state.comment.id} score={this.state.comment.score} id={this.state.comment.id} title={this.state.comment.title} by={this.state.comment.by} time={this.state.comment.time} />
     }
@@ -77,7 +75,7 @@ class Comment extends Component {
             <div onClick={this.handleShowHideClick} className='show-hide'>{this.state.showHide}</div>
           </div>
         </div>
-        <div>{Dummy.innerText}</div>
+        <div dangerouslySetInnerHTML={{__html: this.state.comment.text}}/>
         <div>{this.renderChildren()}</div>
       </div>
     )
