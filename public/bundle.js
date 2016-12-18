@@ -62,23 +62,23 @@
 
 	var _index2 = _interopRequireDefault(_index);
 
-	var _reduxPromise = __webpack_require__(286);
+	var _reduxPromise = __webpack_require__(285);
 
 	var _reduxPromise2 = _interopRequireDefault(_reduxPromise);
 
-	var _style = __webpack_require__(293);
+	var _style = __webpack_require__(292);
 
 	var _style2 = _interopRequireDefault(_style);
 
-	var _reactRedux = __webpack_require__(297);
+	var _reactRedux = __webpack_require__(296);
 
-	var _reactIntl = __webpack_require__(304);
+	var _reactIntl = __webpack_require__(303);
 
-	var _routes = __webpack_require__(326);
+	var _routes = __webpack_require__(325);
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _reduxThunk = __webpack_require__(344);
+	var _reduxThunk = __webpack_require__(343);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -27461,16 +27461,11 @@
 
 	var _get_user2 = _interopRequireDefault(_get_user);
 
-	var _get_comments = __webpack_require__(285);
-
-	var _get_comments2 = _interopRequireDefault(_get_comments);
-
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 	var rootReducer = (0, _redux.combineReducers)({
 	  items: _get_items2.default,
-	  user: _get_user2.default,
-	  comment: _get_comments2.default
+	  user: _get_user2.default
 	});
 
 	exports.default = rootReducer;
@@ -27492,14 +27487,14 @@
 	  var action = arguments[1];
 
 	  switch (action.type) {
-	    case _index.NEW_STORIES:
-	      return _extends({}, state, { items: action.payload });
 	    case _index.CLEAR_STORIES:
 	      return _extends({}, state, { items: action.payload });
 	    case _index.ITEM:
 	      return _extends({}, state, { item: action.payload, comments: action.comments });
 	    case _index.CLEAR_ITEM:
 	      return _extends({}, state, { item: action.payload });
+	    case _index.STORIES:
+	      return _extends({}, state, { items: action.payload.data });
 	  }
 	  return state;
 	};
@@ -27517,19 +27512,13 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.COMMENT = exports.CLEAR_USER = exports.USER_INFO = exports.USER = exports.CLEAR_ITEM = exports.ITEM = exports.CLEAR_STORIES = exports.NEW_STORIES = undefined;
-	exports.fetchNewStories = fetchNewStories;
-	exports.fetchTopStories = fetchTopStories;
-	exports.fetchShowStories = fetchShowStories;
-	exports.fetchAskStories = fetchAskStories;
-	exports.fetchJobStories = fetchJobStories;
+	exports.CLEAR_USER = exports.USER = exports.CLEAR_ITEM = exports.ITEM = exports.CLEAR_STORIES = exports.STORIES = undefined;
+	exports.fetchStories = fetchStories;
 	exports.clearStories = clearStories;
 	exports.fetchItem = fetchItem;
 	exports.clearItem = clearItem;
 	exports.fetchUser = fetchUser;
-	exports.fetchUserInfo = fetchUserInfo;
 	exports.clearUser = clearUser;
-	exports.fetchComment = fetchComment;
 
 	var _axios = __webpack_require__(257);
 
@@ -27541,116 +27530,21 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	// () ${}
-
 	var ROOT_URL = 'https://hacker-news.firebaseio.com/v0/';
 
-	var NEW_STORIES = exports.NEW_STORIES = 'NEW_STORIES';
+	var STORIES = exports.STORIES = 'STORIES';
 	var CLEAR_STORIES = exports.CLEAR_STORIES = 'CLEAR_STORIES';
 	var ITEM = exports.ITEM = 'ITEM';
 	var CLEAR_ITEM = exports.CLEAR_ITEM = 'CLEAR_ITEM';
 	var USER = exports.USER = 'USER';
-	var USER_INFO = exports.USER_INFO = 'USER_INFO';
 	var CLEAR_USER = exports.CLEAR_USER = 'CLEAR_USER';
-	var COMMENT = exports.COMMENT = 'COMMENT';
 
-	function fetchNewStories() {
-	  return function (dispatch) {
-	    _axios2.default.get(ROOT_URL + 'newstories.json').then(function (_ref) {
-	      var data = _ref.data;
+	function fetchStories(type) {
+	  var request = _axios2.default.get('' + ROOT_URL + type + '.json');
 
-	      _async2.default.map(data, function (id, done) {
-	        _axios2.default.get(ROOT_URL + 'item/' + id + '.json').then(function (_ref2) {
-	          var data = _ref2.data;
-	          return done(null, data);
-	        });
-	      }, function (err, results) {
-	        if (err) {
-	          console.log(err);
-	        }
-	        dispatch({ type: NEW_STORIES, payload: results });
-	      });
-	    });
-	  };
-	}
-
-	function fetchTopStories() {
-	  return function (dispatch) {
-	    _axios2.default.get(ROOT_URL + 'topstories.json').then(function (_ref3) {
-	      var data = _ref3.data;
-
-	      _async2.default.map(data, function (id, done) {
-	        _axios2.default.get(ROOT_URL + 'item/' + id + '.json').then(function (_ref4) {
-	          var data = _ref4.data;
-	          return done(null, data);
-	        });
-	      }, function (err, results) {
-	        if (err) {
-	          console.log(err);
-	        }
-	        dispatch({ type: NEW_STORIES, payload: results });
-	      });
-	    });
-	  };
-	}
-
-	function fetchShowStories() {
-	  return function (dispatch) {
-	    _axios2.default.get(ROOT_URL + 'showstories.json').then(function (_ref5) {
-	      var data = _ref5.data;
-
-	      _async2.default.map(data, function (id, done) {
-	        _axios2.default.get(ROOT_URL + 'item/' + id + '.json').then(function (_ref6) {
-	          var data = _ref6.data;
-	          return done(null, data);
-	        });
-	      }, function (err, results) {
-	        if (err) {
-	          console.log(err);
-	        }
-	        dispatch({ type: NEW_STORIES, payload: results });
-	      });
-	    });
-	  };
-	}
-
-	function fetchAskStories() {
-	  return function (dispatch) {
-	    _axios2.default.get(ROOT_URL + 'askstories.json').then(function (_ref7) {
-	      var data = _ref7.data;
-
-	      _async2.default.map(data, function (id, done) {
-	        _axios2.default.get(ROOT_URL + 'item/' + id + '.json').then(function (_ref8) {
-	          var data = _ref8.data;
-	          return done(null, data);
-	        });
-	      }, function (err, results) {
-	        if (err) {
-	          console.log(err);
-	        }
-	        dispatch({ type: NEW_STORIES, payload: results });
-	      });
-	    });
-	  };
-	}
-
-	function fetchJobStories() {
-	  return function (dispatch) {
-	    _axios2.default.get(ROOT_URL + 'jobstories.json').then(function (_ref9) {
-	      var data = _ref9.data;
-
-	      _async2.default.map(data, function (id, done) {
-	        _axios2.default.get(ROOT_URL + 'item/' + id + '.json').then(function (_ref10) {
-	          var data = _ref10.data;
-	          return done(null, data);
-	        });
-	      }, function (err, results) {
-	        if (err) {
-	          console.log(err);
-	        }
-	        dispatch({ type: NEW_STORIES, payload: results });
-	      });
-	    });
+	  return {
+	    type: STORIES,
+	    payload: request
 	  };
 	}
 
@@ -27663,13 +27557,13 @@
 
 	function fetchItem(id) {
 	  return function (dispatch) {
-	    _axios2.default.get(ROOT_URL + 'item/' + id + '.json').then(function (_ref11) {
-	      var data = _ref11.data;
+	    _axios2.default.get(ROOT_URL + 'item/' + id + '.json').then(function (_ref) {
+	      var data = _ref.data;
 
 	      var item = data;
 	      _async2.default.map(data.kids, function (id, done) {
-	        _axios2.default.get(ROOT_URL + 'item/' + id + '.json').then(function (_ref12) {
-	          var data = _ref12.data;
+	        _axios2.default.get(ROOT_URL + 'item/' + id + '.json').then(function (_ref2) {
+	          var data = _ref2.data;
 
 	          done(null, data);
 	        });
@@ -27699,40 +27593,10 @@
 	  };
 	}
 
-	function fetchUserInfo(id) {
-	  return function (dispatch) {
-	    _axios2.default.get(ROOT_URL + 'user/' + id + '.json').then(function (_ref13) {
-	      var data = _ref13.data;
-
-	      var user = data;
-	      _async2.default.map(data.submitted, function (id, done) {
-	        _axios2.default.get(ROOT_URL + 'item/' + id + '.json').then(function (_ref14) {
-	          var data = _ref14.data;
-	          return done(null, data);
-	        });
-	      }, function (err, results) {
-	        if (err) {
-	          console.log(err);
-	        }
-	        dispatch({ type: USER_INFO, payload: user, comments: results });
-	      });
-	    });
-	  };
-	}
-
 	function clearUser() {
 	  return {
 	    type: CLEAR_USER,
 	    payload: null
-	  };
-	}
-
-	function fetchComment(id) {
-	  var request = _axios2.default.get(ROOT_URL + 'item/' + id + '.json');
-
-	  return {
-	    type: COMMENT,
-	    payload: request
 	  };
 	}
 
@@ -34626,8 +34490,6 @@
 	  switch (action.type) {
 	    case _index.USER:
 	      return _extends({}, state, { user: action.payload.data });
-	    case _index.USER_INFO:
-	      return _extends({}, state, { user: action.payload, comments: action.comments });
 	    case _index.CLEAR_USER:
 	      return _extends({}, state, { user: action.payload, comments: action.payload });
 	    default:
@@ -34641,40 +34503,13 @@
 
 	'use strict';
 
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-
-	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
-
-	var _index = __webpack_require__(256);
-
-	var initialState = { comment: null };
-
-	exports.default = function () {
-	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : initialState;
-	  var action = arguments[1];
-
-	  switch (action.type) {
-	    case _index.COMMENT:
-	      return _extends({}, state, { comment: action.payload });
-	  }
-	  return state;
-	};
-
-/***/ },
-/* 286 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-
 	exports.__esModule = true;
 
 	var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 	exports['default'] = promiseMiddleware;
 
-	var _fluxStandardAction = __webpack_require__(287);
+	var _fluxStandardAction = __webpack_require__(286);
 
 	function isPromise(val) {
 	  return val && typeof val.then === 'function';
@@ -34701,7 +34536,7 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 287 */
+/* 286 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -34712,7 +34547,7 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
 
-	var _lodashIsplainobject = __webpack_require__(288);
+	var _lodashIsplainobject = __webpack_require__(287);
 
 	var _lodashIsplainobject2 = _interopRequireDefault(_lodashIsplainobject);
 
@@ -34731,7 +34566,7 @@
 	}
 
 /***/ },
-/* 288 */
+/* 287 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -34742,9 +34577,9 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var baseFor = __webpack_require__(289),
-	    isArguments = __webpack_require__(290),
-	    keysIn = __webpack_require__(291);
+	var baseFor = __webpack_require__(288),
+	    isArguments = __webpack_require__(289),
+	    keysIn = __webpack_require__(290);
 
 	/** `Object#toString` result references. */
 	var objectTag = '[object Object]';
@@ -34840,7 +34675,7 @@
 
 
 /***/ },
-/* 289 */
+/* 288 */
 /***/ function(module, exports) {
 
 	/**
@@ -34894,7 +34729,7 @@
 
 
 /***/ },
-/* 290 */
+/* 289 */
 /***/ function(module, exports) {
 
 	/**
@@ -35129,7 +34964,7 @@
 
 
 /***/ },
-/* 291 */
+/* 290 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -35140,8 +34975,8 @@
 	 * Copyright 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
 	 * Available under MIT license <https://lodash.com/license>
 	 */
-	var isArguments = __webpack_require__(290),
-	    isArray = __webpack_require__(292);
+	var isArguments = __webpack_require__(289),
+	    isArray = __webpack_require__(291);
 
 	/** Used to detect unsigned integer values. */
 	var reIsUint = /^\d+$/;
@@ -35267,7 +35102,7 @@
 
 
 /***/ },
-/* 292 */
+/* 291 */
 /***/ function(module, exports) {
 
 	/**
@@ -35453,16 +35288,16 @@
 
 
 /***/ },
-/* 293 */
+/* 292 */
 /***/ function(module, exports, __webpack_require__) {
 
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(294);
+	var content = __webpack_require__(293);
 	if(typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(296)(content, {});
+	var update = __webpack_require__(295)(content, {});
 	if(content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if(false) {
@@ -35479,10 +35314,10 @@
 	}
 
 /***/ },
-/* 294 */
+/* 293 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(295)();
+	exports = module.exports = __webpack_require__(294)();
 	// imports
 
 
@@ -35493,7 +35328,7 @@
 
 
 /***/ },
-/* 295 */
+/* 294 */
 /***/ function(module, exports) {
 
 	/*
@@ -35549,7 +35384,7 @@
 
 
 /***/ },
-/* 296 */
+/* 295 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -35801,7 +35636,7 @@
 
 
 /***/ },
-/* 297 */
+/* 296 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35809,11 +35644,11 @@
 	exports.__esModule = true;
 	exports.connect = exports.Provider = undefined;
 
-	var _Provider = __webpack_require__(298);
+	var _Provider = __webpack_require__(297);
 
 	var _Provider2 = _interopRequireDefault(_Provider);
 
-	var _connect = __webpack_require__(301);
+	var _connect = __webpack_require__(300);
 
 	var _connect2 = _interopRequireDefault(_connect);
 
@@ -35823,7 +35658,7 @@
 	exports.connect = _connect2["default"];
 
 /***/ },
-/* 298 */
+/* 297 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35833,11 +35668,11 @@
 
 	var _react = __webpack_require__(1);
 
-	var _storeShape = __webpack_require__(299);
+	var _storeShape = __webpack_require__(298);
 
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 
-	var _warning = __webpack_require__(300);
+	var _warning = __webpack_require__(299);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -35907,7 +35742,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 299 */
+/* 298 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -35923,7 +35758,7 @@
 	});
 
 /***/ },
-/* 300 */
+/* 299 */
 /***/ function(module, exports) {
 
 	'use strict';
@@ -35953,7 +35788,7 @@
 	}
 
 /***/ },
-/* 301 */
+/* 300 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {'use strict';
@@ -35966,19 +35801,19 @@
 
 	var _react = __webpack_require__(1);
 
-	var _storeShape = __webpack_require__(299);
+	var _storeShape = __webpack_require__(298);
 
 	var _storeShape2 = _interopRequireDefault(_storeShape);
 
-	var _shallowEqual = __webpack_require__(302);
+	var _shallowEqual = __webpack_require__(301);
 
 	var _shallowEqual2 = _interopRequireDefault(_shallowEqual);
 
-	var _wrapActionCreators = __webpack_require__(303);
+	var _wrapActionCreators = __webpack_require__(302);
 
 	var _wrapActionCreators2 = _interopRequireDefault(_wrapActionCreators);
 
-	var _warning = __webpack_require__(300);
+	var _warning = __webpack_require__(299);
 
 	var _warning2 = _interopRequireDefault(_warning);
 
@@ -36354,7 +36189,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ },
-/* 302 */
+/* 301 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -36385,7 +36220,7 @@
 	}
 
 /***/ },
-/* 303 */
+/* 302 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -36402,7 +36237,7 @@
 	}
 
 /***/ },
-/* 304 */
+/* 303 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(global, process) {/*
@@ -36417,13 +36252,13 @@
 
 	function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
-	var allLocaleData = _interopDefault(__webpack_require__(305));
-	var IntlMessageFormat = _interopDefault(__webpack_require__(306));
-	var IntlRelativeFormat = _interopDefault(__webpack_require__(316));
+	var allLocaleData = _interopDefault(__webpack_require__(304));
+	var IntlMessageFormat = _interopDefault(__webpack_require__(305));
+	var IntlRelativeFormat = _interopDefault(__webpack_require__(315));
 	var React = __webpack_require__(1);
 	var React__default = _interopDefault(React);
 	var invariant = _interopDefault(__webpack_require__(182));
-	var memoizeIntlConstructor = _interopDefault(__webpack_require__(323));
+	var memoizeIntlConstructor = _interopDefault(__webpack_require__(322));
 
 	// GENERATED FILE
 	var defaultLocaleData = { "locale": "en", "pluralRuleFunction": function pluralRuleFunction(n, ord) {
@@ -38333,24 +38168,24 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(3)))
 
 /***/ },
-/* 305 */
+/* 304 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 306 */
+/* 305 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node:true */
 
 	'use strict';
 
-	var IntlMessageFormat = __webpack_require__(307)['default'];
+	var IntlMessageFormat = __webpack_require__(306)['default'];
 
 	// Add all locale data to `IntlMessageFormat`. This module will be ignored when
 	// bundling for the browser with Browserify/Webpack.
-	__webpack_require__(315);
+	__webpack_require__(314);
 
 	// Re-export `IntlMessageFormat` as the CommonJS default exports with all the
 	// locale data registered, and with English set as the default locale. Define
@@ -38360,13 +38195,13 @@
 
 
 /***/ },
-/* 307 */
+/* 306 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jslint esnext: true */
 
 	"use strict";
-	var src$core$$ = __webpack_require__(308), src$en$$ = __webpack_require__(314);
+	var src$core$$ = __webpack_require__(307), src$en$$ = __webpack_require__(313);
 
 	src$core$$["default"].__addLocaleData(src$en$$["default"]);
 	src$core$$["default"].defaultLocale = 'en';
@@ -38376,7 +38211,7 @@
 	//# sourceMappingURL=main.js.map
 
 /***/ },
-/* 308 */
+/* 307 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -38388,7 +38223,7 @@
 	/* jslint esnext: true */
 
 	"use strict";
-	var src$utils$$ = __webpack_require__(309), src$es5$$ = __webpack_require__(310), src$compiler$$ = __webpack_require__(311), intl$messageformat$parser$$ = __webpack_require__(312);
+	var src$utils$$ = __webpack_require__(308), src$es5$$ = __webpack_require__(309), src$compiler$$ = __webpack_require__(310), intl$messageformat$parser$$ = __webpack_require__(311);
 	exports["default"] = MessageFormat;
 
 	// -- MessageFormat --------------------------------------------------------
@@ -38645,7 +38480,7 @@
 	//# sourceMappingURL=core.js.map
 
 /***/ },
-/* 309 */
+/* 308 */
 /***/ function(module, exports) {
 
 	/*
@@ -38682,7 +38517,7 @@
 	//# sourceMappingURL=utils.js.map
 
 /***/ },
-/* 310 */
+/* 309 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -38694,7 +38529,7 @@
 	/* jslint esnext: true */
 
 	"use strict";
-	var src$utils$$ = __webpack_require__(309);
+	var src$utils$$ = __webpack_require__(308);
 
 	// Purposely using the same implementation as the Intl.js `Intl` polyfill.
 	// Copyright 2013 Andy Earnshaw, MIT License
@@ -38736,7 +38571,7 @@
 	//# sourceMappingURL=es5.js.map
 
 /***/ },
-/* 311 */
+/* 310 */
 /***/ function(module, exports) {
 
 	/*
@@ -38950,17 +38785,17 @@
 	//# sourceMappingURL=compiler.js.map
 
 /***/ },
-/* 312 */
+/* 311 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	exports = module.exports = __webpack_require__(313)['default'];
+	exports = module.exports = __webpack_require__(312)['default'];
 	exports['default'] = exports;
 
 
 /***/ },
-/* 313 */
+/* 312 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -40324,7 +40159,7 @@
 	//# sourceMappingURL=parser.js.map
 
 /***/ },
-/* 314 */
+/* 313 */
 /***/ function(module, exports) {
 
 	// GENERATED FILE
@@ -40334,24 +40169,24 @@
 	//# sourceMappingURL=en.js.map
 
 /***/ },
-/* 315 */
+/* 314 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 316 */
+/* 315 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jshint node:true */
 
 	'use strict';
 
-	var IntlRelativeFormat = __webpack_require__(317)['default'];
+	var IntlRelativeFormat = __webpack_require__(316)['default'];
 
 	// Add all locale data to `IntlRelativeFormat`. This module will be ignored when
 	// bundling for the browser with Browserify/Webpack.
-	__webpack_require__(322);
+	__webpack_require__(321);
 
 	// Re-export `IntlRelativeFormat` as the CommonJS default exports with all the
 	// locale data registered, and with English set as the default locale. Define
@@ -40361,13 +40196,13 @@
 
 
 /***/ },
-/* 317 */
+/* 316 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* jslint esnext: true */
 
 	"use strict";
-	var src$core$$ = __webpack_require__(318), src$en$$ = __webpack_require__(321);
+	var src$core$$ = __webpack_require__(317), src$en$$ = __webpack_require__(320);
 
 	src$core$$["default"].__addLocaleData(src$en$$["default"]);
 	src$core$$["default"].defaultLocale = 'en';
@@ -40377,7 +40212,7 @@
 	//# sourceMappingURL=main.js.map
 
 /***/ },
-/* 318 */
+/* 317 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*
@@ -40389,7 +40224,7 @@
 	/* jslint esnext: true */
 
 	"use strict";
-	var intl$messageformat$$ = __webpack_require__(306), src$diff$$ = __webpack_require__(319), src$es5$$ = __webpack_require__(320);
+	var intl$messageformat$$ = __webpack_require__(305), src$diff$$ = __webpack_require__(318), src$es5$$ = __webpack_require__(319);
 	exports["default"] = RelativeFormat;
 
 	// -----------------------------------------------------------------------------
@@ -40679,7 +40514,7 @@
 	//# sourceMappingURL=core.js.map
 
 /***/ },
-/* 319 */
+/* 318 */
 /***/ function(module, exports) {
 
 	/*
@@ -40730,7 +40565,7 @@
 	//# sourceMappingURL=diff.js.map
 
 /***/ },
-/* 320 */
+/* 319 */
 /***/ function(module, exports) {
 
 	/*
@@ -40810,7 +40645,7 @@
 	//# sourceMappingURL=es5.js.map
 
 /***/ },
-/* 321 */
+/* 320 */
 /***/ function(module, exports) {
 
 	// GENERATED FILE
@@ -40820,27 +40655,27 @@
 	//# sourceMappingURL=en.js.map
 
 /***/ },
-/* 322 */
+/* 321 */
 /***/ function(module, exports) {
 
 	/* (ignored) */
 
 /***/ },
-/* 323 */
+/* 322 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
 
-	exports = module.exports = __webpack_require__(324)['default'];
+	exports = module.exports = __webpack_require__(323)['default'];
 	exports['default'] = exports;
 
 
 /***/ },
-/* 324 */
+/* 323 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var src$es5$$ = __webpack_require__(325);
+	var src$es5$$ = __webpack_require__(324);
 	exports["default"] = createFormatCache;
 
 	// -----------------------------------------------------------------------------
@@ -40916,7 +40751,7 @@
 	//# sourceMappingURL=memoizer.js.map
 
 /***/ },
-/* 325 */
+/* 324 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -41000,7 +40835,7 @@
 	//# sourceMappingURL=es5.js.map
 
 /***/ },
-/* 326 */
+/* 325 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41015,47 +40850,47 @@
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _app = __webpack_require__(327);
+	var _app = __webpack_require__(326);
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _homepage = __webpack_require__(329);
+	var _homepage = __webpack_require__(328);
 
 	var _homepage2 = _interopRequireDefault(_homepage);
 
-	var _jobs = __webpack_require__(332);
+	var _jobs = __webpack_require__(331);
 
 	var _jobs2 = _interopRequireDefault(_jobs);
 
-	var _top_stories = __webpack_require__(333);
+	var _top_stories = __webpack_require__(332);
 
 	var _top_stories2 = _interopRequireDefault(_top_stories);
 
-	var _show = __webpack_require__(334);
+	var _show = __webpack_require__(333);
 
 	var _show2 = _interopRequireDefault(_show);
 
-	var _ask = __webpack_require__(335);
+	var _ask = __webpack_require__(334);
 
 	var _ask2 = _interopRequireDefault(_ask);
 
-	var _item = __webpack_require__(336);
+	var _item = __webpack_require__(335);
 
 	var _item2 = _interopRequireDefault(_item);
 
-	var _user = __webpack_require__(339);
+	var _user = __webpack_require__(338);
 
 	var _user2 = _interopRequireDefault(_user);
 
-	var _ = __webpack_require__(341);
+	var _ = __webpack_require__(340);
 
 	var _2 = _interopRequireDefault(_);
 
-	var _comments = __webpack_require__(342);
+	var _comments = __webpack_require__(341);
 
 	var _comments2 = _interopRequireDefault(_comments);
 
-	var _stories = __webpack_require__(343);
+	var _stories = __webpack_require__(342);
 
 	var _stories2 = _interopRequireDefault(_stories);
 
@@ -41077,7 +40912,7 @@
 	);
 
 /***/ },
-/* 327 */
+/* 326 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41090,7 +40925,7 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _titlebar = __webpack_require__(328);
+	var _titlebar = __webpack_require__(327);
 
 	var _titlebar2 = _interopRequireDefault(_titlebar);
 
@@ -41110,7 +40945,7 @@
 	};
 
 /***/ },
-/* 328 */
+/* 327 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41160,7 +40995,7 @@
 	};
 
 /***/ },
-/* 329 */
+/* 328 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41175,15 +41010,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(297);
+	var _reactRedux = __webpack_require__(296);
 
 	var _index = __webpack_require__(256);
 
-	var _post_item = __webpack_require__(330);
+	var _post_item = __webpack_require__(329);
 
 	var _post_item2 = _interopRequireDefault(_post_item);
 
-	var _story_placeholder = __webpack_require__(331);
+	var _story_placeholder = __webpack_require__(330);
 
 	var _story_placeholder2 = _interopRequireDefault(_story_placeholder);
 
@@ -41207,7 +41042,7 @@
 	  _createClass(HomePage, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.props.fetchNewStories();
+	      this.props.fetchStories('newstories');
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
@@ -41228,20 +41063,14 @@
 	  }, {
 	    key: 'renderPosts',
 	    value: function renderPosts() {
-	      return this.props.items.items.map(function (_ref) {
-	        var time = _ref.time,
-	            score = _ref.score,
-	            id = _ref.id,
-	            title = _ref.title,
-	            by = _ref.by;
-
-	        return _react2.default.createElement(_post_item2.default, { key: id, time: time, score: score, id: id, by: by, title: title });
+	      return this.props.items.map(function (id) {
+	        return _react2.default.createElement(_post_item2.default, { key: id, id: id });
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (!this.props.items.items) return _react2.default.createElement(
+	      if (!this.props.items) return _react2.default.createElement(
 	        'div',
 	        { className: 'posts-list' },
 	        this.renderPlaceholders()
@@ -41257,14 +41086,16 @@
 	  return HomePage;
 	}(_react.Component);
 
-	function mapStateToProps(state) {
-	  return state;
+	function mapStateToProps(_ref) {
+	  var items = _ref.items;
+
+	  return { items: items.items };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchNewStories: _index.fetchNewStories, clearStories: _index.clearStories })(HomePage);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchStories: _index.fetchStories, clearStories: _index.clearStories })(HomePage);
 
 /***/ },
-/* 330 */
+/* 329 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41273,49 +41104,103 @@
 	  value: true
 	});
 
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _reactIntl = __webpack_require__(304);
+	var _reactIntl = __webpack_require__(303);
+
+	var _story_placeholder = __webpack_require__(330);
+
+	var _story_placeholder2 = _interopRequireDefault(_story_placeholder);
+
+	var _axios = __webpack_require__(257);
+
+	var _axios2 = _interopRequireDefault(_axios);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	exports.default = function (props) {
-	  var utcSeconds = props.time;
-	  var date = new Date(0);
-	  date.setUTCSeconds(utcSeconds);
-	  return _react2.default.createElement(
-	    'div',
-	    { key: props.id, className: 'posts-list-item' },
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'posts-list-item-score' },
-	      props.score
-	    ),
-	    _react2.default.createElement(
-	      _reactRouter.Link,
-	      { className: 'posts-list-item-title', to: 'item/' + props.id },
-	      props.title
-	    ),
-	    _react2.default.createElement(
-	      'div',
-	      { className: 'posts-list-item-by' },
-	      'by'
-	    ),
-	    _react2.default.createElement(
-	      _reactRouter.Link,
-	      { className: 'posts-list-item-user', to: 'user/' + props.by },
-	      props.by
-	    ),
-	    _react2.default.createElement(_reactIntl.FormattedRelative, { value: date })
-	  );
-	};
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var PostItem = function (_Component) {
+	  _inherits(PostItem, _Component);
+
+	  function PostItem(props) {
+	    _classCallCheck(this, PostItem);
+
+	    var _this = _possibleConstructorReturn(this, (PostItem.__proto__ || Object.getPrototypeOf(PostItem)).call(this, props));
+
+	    _this.state = {
+	      comment: ''
+	    };
+	    return _this;
+	  }
+
+	  _createClass(PostItem, [{
+	    key: 'fetchComment',
+	    value: function fetchComment(id) {
+	      var _this2 = this;
+
+	      _axios2.default.get('https://hacker-news.firebaseio.com/v0/item/' + id + '.json').then(function (res) {
+	        _this2.setState({ comment: res.data });
+	      });
+	    }
+	  }, {
+	    key: 'componentWillMount',
+	    value: function componentWillMount() {
+	      this.fetchComment(this.props.id);
+	    }
+	  }, {
+	    key: 'render',
+	    value: function render() {
+	      if (!this.state.comment) return _react2.default.createElement(_story_placeholder2.default, null);
+	      if (this.state.comment.type === 'comment') return null;
+	      var utcSeconds = this.state.comment.time;
+	      var date = new Date(0);
+	      date.setUTCSeconds(utcSeconds);
+	      return _react2.default.createElement(
+	        'div',
+	        { key: this.state.comment.id, className: 'posts-list-item' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'posts-list-item-score' },
+	          this.state.comment.score
+	        ),
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { className: 'posts-list-item-title', to: 'item/' + this.state.comment.id },
+	          this.state.comment.title
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'posts-list-item-by' },
+	          'by'
+	        ),
+	        _react2.default.createElement(
+	          _reactRouter.Link,
+	          { className: 'posts-list-item-user', to: 'user/' + this.state.comment.by },
+	          this.state.comment.by
+	        ),
+	        _react2.default.createElement(_reactIntl.FormattedRelative, { value: date })
+	      );
+	    }
+	  }]);
+
+	  return PostItem;
+	}(_react.Component);
+
+	exports.default = PostItem;
 
 /***/ },
-/* 331 */
+/* 330 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41339,7 +41224,7 @@
 	};
 
 /***/ },
-/* 332 */
+/* 331 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41354,15 +41239,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(297);
+	var _reactRedux = __webpack_require__(296);
 
 	var _index = __webpack_require__(256);
 
-	var _post_item = __webpack_require__(330);
+	var _post_item = __webpack_require__(329);
 
 	var _post_item2 = _interopRequireDefault(_post_item);
 
-	var _story_placeholder = __webpack_require__(331);
+	var _story_placeholder = __webpack_require__(330);
 
 	var _story_placeholder2 = _interopRequireDefault(_story_placeholder);
 
@@ -41386,7 +41271,7 @@
 	  _createClass(JobStories, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.props.fetchJobStories();
+	      this.props.fetchStories('jobstories');
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
@@ -41407,20 +41292,14 @@
 	  }, {
 	    key: 'renderPosts',
 	    value: function renderPosts() {
-	      return this.props.items.items.map(function (_ref) {
-	        var time = _ref.time,
-	            score = _ref.score,
-	            id = _ref.id,
-	            title = _ref.title,
-	            by = _ref.by;
-
-	        return _react2.default.createElement(_post_item2.default, { key: id, time: time, score: score, id: id, by: by, title: title });
+	      return this.props.items.map(function (id) {
+	        return _react2.default.createElement(_post_item2.default, { key: id, id: id });
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (!this.props.items.items) return _react2.default.createElement(
+	      if (!this.props.items) return _react2.default.createElement(
 	        'div',
 	        { className: 'posts-list' },
 	        this.renderPlaceholders()
@@ -41436,14 +41315,16 @@
 	  return JobStories;
 	}(_react.Component);
 
-	function mapStateToProps(state) {
-	  return state;
+	function mapStateToProps(_ref) {
+	  var items = _ref.items;
+
+	  return { items: items.items };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchJobStories: _index.fetchJobStories, clearStories: _index.clearStories })(JobStories);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchStories: _index.fetchStories, clearStories: _index.clearStories })(JobStories);
 
 /***/ },
-/* 333 */
+/* 332 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41458,15 +41339,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(297);
+	var _reactRedux = __webpack_require__(296);
 
 	var _index = __webpack_require__(256);
 
-	var _post_item = __webpack_require__(330);
+	var _post_item = __webpack_require__(329);
 
 	var _post_item2 = _interopRequireDefault(_post_item);
 
-	var _story_placeholder = __webpack_require__(331);
+	var _story_placeholder = __webpack_require__(330);
 
 	var _story_placeholder2 = _interopRequireDefault(_story_placeholder);
 
@@ -41490,7 +41371,7 @@
 	  _createClass(TopStories, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.props.fetchTopStories();
+	      this.props.fetchStories('topstories');
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
@@ -41511,20 +41392,14 @@
 	  }, {
 	    key: 'renderPosts',
 	    value: function renderPosts() {
-	      return this.props.items.items.map(function (_ref) {
-	        var time = _ref.time,
-	            score = _ref.score,
-	            id = _ref.id,
-	            title = _ref.title,
-	            by = _ref.by;
-
-	        return _react2.default.createElement(_post_item2.default, { key: id, time: time, score: score, id: id, by: by, title: title });
+	      return this.props.items.map(function (id) {
+	        return _react2.default.createElement(_post_item2.default, { key: id, id: id });
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (!this.props.items.items) return _react2.default.createElement(
+	      if (!this.props.items) return _react2.default.createElement(
 	        'div',
 	        { className: 'posts-list' },
 	        this.renderPlaceholders()
@@ -41540,14 +41415,16 @@
 	  return TopStories;
 	}(_react.Component);
 
-	function mapStateToProps(state) {
-	  return state;
+	function mapStateToProps(_ref) {
+	  var items = _ref.items;
+
+	  return { items: items.items };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchTopStories: _index.fetchTopStories, clearStories: _index.clearStories })(TopStories);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchStories: _index.fetchStories, clearStories: _index.clearStories })(TopStories);
 
 /***/ },
-/* 334 */
+/* 333 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41562,15 +41439,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(297);
+	var _reactRedux = __webpack_require__(296);
 
 	var _index = __webpack_require__(256);
 
-	var _post_item = __webpack_require__(330);
+	var _post_item = __webpack_require__(329);
 
 	var _post_item2 = _interopRequireDefault(_post_item);
 
-	var _story_placeholder = __webpack_require__(331);
+	var _story_placeholder = __webpack_require__(330);
 
 	var _story_placeholder2 = _interopRequireDefault(_story_placeholder);
 
@@ -41594,7 +41471,7 @@
 	  _createClass(ShowStories, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.props.fetchShowStories();
+	      this.props.fetchStories('showstories');
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
@@ -41615,20 +41492,14 @@
 	  }, {
 	    key: 'renderPosts',
 	    value: function renderPosts() {
-	      return this.props.items.items.map(function (_ref) {
-	        var time = _ref.time,
-	            score = _ref.score,
-	            id = _ref.id,
-	            title = _ref.title,
-	            by = _ref.by;
-
-	        return _react2.default.createElement(_post_item2.default, { key: id, time: time, score: score, id: id, by: by, title: title });
+	      return this.props.items.map(function (id) {
+	        return _react2.default.createElement(_post_item2.default, { key: id, id: id });
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (!this.props.items.items) return _react2.default.createElement(
+	      if (!this.props.items) return _react2.default.createElement(
 	        'div',
 	        { className: 'posts-list' },
 	        this.renderPlaceholders()
@@ -41644,14 +41515,16 @@
 	  return ShowStories;
 	}(_react.Component);
 
-	function mapStateToProps(state) {
-	  return state;
+	function mapStateToProps(_ref) {
+	  var items = _ref.items;
+
+	  return { items: items.items };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchShowStories: _index.fetchShowStories, clearStories: _index.clearStories })(ShowStories);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchStories: _index.fetchStories, clearStories: _index.clearStories })(ShowStories);
 
 /***/ },
-/* 335 */
+/* 334 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41666,15 +41539,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(297);
+	var _reactRedux = __webpack_require__(296);
 
 	var _index = __webpack_require__(256);
 
-	var _post_item = __webpack_require__(330);
+	var _post_item = __webpack_require__(329);
 
 	var _post_item2 = _interopRequireDefault(_post_item);
 
-	var _story_placeholder = __webpack_require__(331);
+	var _story_placeholder = __webpack_require__(330);
 
 	var _story_placeholder2 = _interopRequireDefault(_story_placeholder);
 
@@ -41698,7 +41571,7 @@
 	  _createClass(AskStories, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.props.fetchAskStories();
+	      this.props.fetchStories('askstories');
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
@@ -41719,20 +41592,14 @@
 	  }, {
 	    key: 'renderPosts',
 	    value: function renderPosts() {
-	      return this.props.items.items.map(function (_ref) {
-	        var time = _ref.time,
-	            score = _ref.score,
-	            id = _ref.id,
-	            title = _ref.title,
-	            by = _ref.by;
-
-	        return _react2.default.createElement(_post_item2.default, { key: id, time: time, score: score, id: id, by: by, title: title });
+	      return this.props.items.map(function (id) {
+	        return _react2.default.createElement(_post_item2.default, { key: id, id: id });
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (!this.props.items.items) return _react2.default.createElement(
+	      if (!this.props.items) return _react2.default.createElement(
 	        'div',
 	        { className: 'posts-list' },
 	        this.renderPlaceholders()
@@ -41748,14 +41615,16 @@
 	  return AskStories;
 	}(_react.Component);
 
-	function mapStateToProps(state) {
-	  return state;
+	function mapStateToProps(_ref) {
+	  var items = _ref.items;
+
+	  return { items: items.items };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchAskStories: _index.fetchAskStories, clearStories: _index.clearStories })(AskStories);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchStories: _index.fetchStories, clearStories: _index.clearStories })(AskStories);
 
 /***/ },
-/* 336 */
+/* 335 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41770,19 +41639,19 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(297);
+	var _reactRedux = __webpack_require__(296);
 
 	var _reactRouter = __webpack_require__(178);
 
 	var _index = __webpack_require__(256);
 
-	var _comment = __webpack_require__(337);
+	var _comment = __webpack_require__(336);
 
 	var _comment2 = _interopRequireDefault(_comment);
 
-	var _reactIntl = __webpack_require__(304);
+	var _reactIntl = __webpack_require__(303);
 
-	var _item_placeholder = __webpack_require__(338);
+	var _item_placeholder = __webpack_require__(337);
 
 	var _item_placeholder2 = _interopRequireDefault(_item_placeholder);
 
@@ -41816,28 +41685,24 @@
 	  }, {
 	    key: 'renderComments',
 	    value: function renderComments() {
-	      return this.props.items.comments.map(function (comment) {
+	      return this.props.comments.map(function (comment) {
 	        return _react2.default.createElement(_comment2.default, { key: comment.id, id: comment.id });
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (!this.props.items.item) return _react2.default.createElement(_item_placeholder2.default, null);
-	      var _props$items$item = this.props.items.item,
-	          url = _props$items$item.url,
-	          title = _props$items$item.title,
-	          score = _props$items$item.score,
-	          by = _props$items$item.by,
-	          text = _props$items$item.text,
-	          time = _props$items$item.time;
+	      if (!this.props.item) return _react2.default.createElement(_item_placeholder2.default, null);
+	      var _props$item = this.props.item,
+	          url = _props$item.url,
+	          title = _props$item.title,
+	          score = _props$item.score,
+	          by = _props$item.by,
+	          text = _props$item.text,
+	          time = _props$item.time;
 
-	      var Dummy = document.createElement('div');
-	      Dummy.innerHTML = text;
-	      if (Dummy.innerText === 'undefined') Dummy.innerHTML = ' ';
-	      var utcSeconds = time;
 	      var date = new Date(0);
-	      date.setUTCSeconds(utcSeconds);
+	      date.setUTCSeconds(time);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'item' },
@@ -41862,11 +41727,7 @@
 	          ),
 	          _react2.default.createElement(_reactIntl.FormattedRelative, { value: date })
 	        ),
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          Dummy.innerText
-	        ),
+	        _react2.default.createElement('p', { dangerouslySetInnerHTML: { __html: text } }),
 	        _react2.default.createElement(
 	          'div',
 	          null,
@@ -41879,14 +41740,19 @@
 	  return Item;
 	}(_react.Component);
 
-	function mapStateToProps(state) {
-	  return state;
+	function mapStateToProps(_ref) {
+	  var items = _ref.items;
+
+	  return {
+	    item: items.item,
+	    comments: items.comments
+	  };
 	}
 
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchItem: _index.fetchItem, clearItem: _index.clearItem })(Item);
 
 /***/ },
-/* 337 */
+/* 336 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -41901,19 +41767,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(297);
-
 	var _axios = __webpack_require__(257);
 
 	var _axios2 = _interopRequireDefault(_axios);
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _post_item = __webpack_require__(330);
-
-	var _post_item2 = _interopRequireDefault(_post_item);
-
-	var _reactIntl = __webpack_require__(304);
+	var _reactIntl = __webpack_require__(303);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -41963,7 +41823,7 @@
 	  }, {
 	    key: 'renderChildren',
 	    value: function renderChildren() {
-	      if (!this.state.comment.kids || this.props.type === 'non-comment') return;
+	      if (!this.state.comment.kids) return;
 	      return this.state.comment.kids.map(function (kid) {
 	        return _react2.default.createElement(
 	          'div',
@@ -41975,10 +41835,8 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (!this.state.comment.text) return _react2.default.createElement('div', null);
-	      if (this.props.type === 'non-comment') {
-	        return _react2.default.createElement(_post_item2.default, { key: this.state.comment.id, score: this.state.comment.score, id: this.state.comment.id, title: this.state.comment.title, by: this.state.comment.by, time: this.state.comment.time });
-	      }
+	      if (!this.state.comment.text) return null;
+	      if (this.state.comment.type !== 'comment') return null;
 	      var utcSeconds = this.state.comment.time;
 	      var date = new Date(0);
 	      date.setUTCSeconds(utcSeconds);
@@ -42049,7 +41907,7 @@
 	            )
 	          )
 	        ),
-	        _react2.default.createElement('div', { dangerouslySetInnerHTML: { __html: this.state.comment.text } }),
+	        _react2.default.createElement('p', { dangerouslySetInnerHTML: { __html: this.state.comment.text } }),
 	        _react2.default.createElement(
 	          'div',
 	          null,
@@ -42062,16 +41920,10 @@
 	  return Comment;
 	}(_react.Component);
 
-	function mapStateToProps(_ref) {
-	  var comment = _ref.comment;
-
-	  return { comment: comment };
-	}
-
-	exports.default = (0, _reactRedux.connect)(mapStateToProps)(Comment);
+	exports.default = Comment;
 
 /***/ },
-/* 338 */
+/* 337 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42097,7 +41949,7 @@
 	};
 
 /***/ },
-/* 339 */
+/* 338 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42112,13 +41964,13 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(297);
+	var _reactRedux = __webpack_require__(296);
 
 	var _index = __webpack_require__(256);
 
 	var _reactRouter = __webpack_require__(178);
 
-	var _user_placeholder = __webpack_require__(340);
+	var _user_placeholder = __webpack_require__(339);
 
 	var _user_placeholder2 = _interopRequireDefault(_user_placeholder);
 
@@ -42199,7 +42051,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUser: _index.fetchUser, clearUser: _index.clearUser })(User);
 
 /***/ },
-/* 340 */
+/* 339 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42230,7 +42082,7 @@
 	};
 
 /***/ },
-/* 341 */
+/* 340 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42254,7 +42106,7 @@
 	};
 
 /***/ },
-/* 342 */
+/* 341 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42269,15 +42121,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(297);
+	var _reactRedux = __webpack_require__(296);
 
 	var _index = __webpack_require__(256);
 
-	var _comment = __webpack_require__(337);
+	var _comment = __webpack_require__(336);
 
 	var _comment2 = _interopRequireDefault(_comment);
 
-	var _story_placeholder = __webpack_require__(331);
+	var _story_placeholder = __webpack_require__(330);
 
 	var _story_placeholder2 = _interopRequireDefault(_story_placeholder);
 
@@ -42301,7 +42153,7 @@
 	  _createClass(Comments, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.props.fetchUserInfo(this.props.params.id);
+	      this.props.fetchUser(this.props.params.id);
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
@@ -42322,21 +42174,18 @@
 	  }, {
 	    key: 'renderComments',
 	    value: function renderComments() {
-	      return this.props.user.comments.filter(function (comment) {
-	        return comment.type === 'comment';
-	      }).map(function (comment) {
-	        return _react2.default.createElement(_comment2.default, { key: comment.id, id: comment.id, type: 'comment' });
+	      return this.props.user.submitted.map(function (comment) {
+	        return _react2.default.createElement(_comment2.default, { key: comment, id: comment });
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (!this.props.user.comments) return _react2.default.createElement(
+	      if (!this.props.user) return _react2.default.createElement(
 	        'div',
 	        { className: 'posts-list' },
 	        this.renderPlaceholders()
 	      );
-	      console.log(this.props.user.comments);
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -42348,14 +42197,16 @@
 	  return Comments;
 	}(_react.Component);
 
-	function mapStateToProps(state) {
-	  return state;
+	function mapStateToProps(_ref) {
+	  var user = _ref.user;
+
+	  return { user: user.user };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUserInfo: _index.fetchUserInfo, clearUser: _index.clearUser })(Comments);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUser: _index.fetchUser, clearUser: _index.clearUser })(Comments);
 
 /***/ },
-/* 343 */
+/* 342 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42370,15 +42221,15 @@
 
 	var _react2 = _interopRequireDefault(_react);
 
-	var _reactRedux = __webpack_require__(297);
+	var _reactRedux = __webpack_require__(296);
 
 	var _index = __webpack_require__(256);
 
-	var _comment = __webpack_require__(337);
+	var _post_item = __webpack_require__(329);
 
-	var _comment2 = _interopRequireDefault(_comment);
+	var _post_item2 = _interopRequireDefault(_post_item);
 
-	var _story_placeholder = __webpack_require__(331);
+	var _story_placeholder = __webpack_require__(330);
 
 	var _story_placeholder2 = _interopRequireDefault(_story_placeholder);
 
@@ -42390,19 +42241,19 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var Comments = function (_Component) {
-	  _inherits(Comments, _Component);
+	var Stories = function (_Component) {
+	  _inherits(Stories, _Component);
 
-	  function Comments() {
-	    _classCallCheck(this, Comments);
+	  function Stories() {
+	    _classCallCheck(this, Stories);
 
-	    return _possibleConstructorReturn(this, (Comments.__proto__ || Object.getPrototypeOf(Comments)).apply(this, arguments));
+	    return _possibleConstructorReturn(this, (Stories.__proto__ || Object.getPrototypeOf(Stories)).apply(this, arguments));
 	  }
 
-	  _createClass(Comments, [{
+	  _createClass(Stories, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
-	      this.props.fetchUserInfo(this.props.params.id);
+	      this.props.fetchUser(this.props.params.id);
 	    }
 	  }, {
 	    key: 'componentWillUnmount',
@@ -42420,27 +42271,21 @@
 	        return story;
 	      });
 	    }
-
-	    // need a return for if there are no stories
-
 	  }, {
 	    key: 'renderStories',
 	    value: function renderStories() {
-	      return this.props.user.comments.filter(function (comment) {
-	        return comment.type !== 'comment';
-	      }).map(function (comment) {
-	        return _react2.default.createElement(_comment2.default, { key: comment.id, id: comment.id, type: 'non-comment' });
+	      return this.props.user.submitted.map(function (story) {
+	        return _react2.default.createElement(_post_item2.default, { key: story, id: story });
 	      });
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      if (!this.props.user.comments) return _react2.default.createElement(
+	      if (!this.props.user) return _react2.default.createElement(
 	        'div',
 	        { className: 'posts-list' },
 	        this.renderPlaceholders()
 	      );
-	      console.log(this.props.user.comments);
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'posts-list' },
@@ -42449,17 +42294,19 @@
 	    }
 	  }]);
 
-	  return Comments;
+	  return Stories;
 	}(_react.Component);
 
-	function mapStateToProps(state) {
-	  return state;
+	function mapStateToProps(_ref) {
+	  var user = _ref.user;
+
+	  return { user: user.user };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUserInfo: _index.fetchUserInfo, clearUser: _index.clearUser })(Comments);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUser: _index.fetchUser, clearUser: _index.clearUser })(Stories);
 
 /***/ },
-/* 344 */
+/* 343 */
 /***/ function(module, exports) {
 
 	'use strict';
