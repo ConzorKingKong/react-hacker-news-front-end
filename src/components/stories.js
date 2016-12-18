@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchUserInfo, clearUser} from '../actions/index'
-import Comment from './comment'
-import StoryPlaceholder from './story_placeholder'
+import {fetchUser, clearUser} from '../actions/index'
+import PostItem from './post_item'
+import StoryPlaceholder from '../containers/story_placeholder'
 
-class Comments extends Component {
+class Stories extends Component {
   componentWillMount () {
-    this.props.fetchUserInfo(this.props.params.id)
+    this.props.fetchUser(this.props.params.id)
   }
 
   componentWillUnmount () {
@@ -23,18 +23,14 @@ class Comments extends Component {
     })
   }
 
-// need a return for if there are no stories
   renderStories () {
-    return this.props.user.comments.filter(comment => {
-      return comment.type !== 'comment'
-    }).map(comment => {
-      return <Comment key={comment.id} id={comment.id} type='non-comment' />
+    return this.props.user.submitted.map(story => {
+      return <PostItem key={story} id={story} />
     })
   }
 
   render () {
-    if (!this.props.user.comments) return <div className='posts-list'>{this.renderPlaceholders()}</div>
-    console.log(this.props.user.comments)
+    if (!this.props.user) return <div className='posts-list'>{this.renderPlaceholders()}</div>
     return (
       <div className='posts-list'>
         {this.renderStories()}
@@ -43,8 +39,8 @@ class Comments extends Component {
   }
 }
 
-function mapStateToProps (state) {
-  return state
+function mapStateToProps ({user}) {
+  return {user: user.user}
 }
 
-export default connect(mapStateToProps, {fetchUserInfo, clearUser})(Comments)
+export default connect(mapStateToProps, {fetchUser, clearUser})(Stories)

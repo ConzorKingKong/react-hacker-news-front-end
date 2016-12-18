@@ -1,11 +1,9 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
 import axios from 'axios'
 import {Link} from 'react-router'
-import PostItem from './post_item'
 import {FormattedRelative} from 'react-intl'
 
-class Comment extends Component {
+export default class Comment extends Component {
   constructor (props) {
     super(props)
 
@@ -33,7 +31,7 @@ class Comment extends Component {
   }
 
   renderChildren () {
-    if (!this.state.comment.kids || this.props.type === 'non-comment') return
+    if (!this.state.comment.kids) return
     return this.state.comment.kids.map(kid => {
       return (
         <div>
@@ -44,10 +42,8 @@ class Comment extends Component {
   }
 
   render () {
-    if (!this.state.comment.text) return <div />
-    if (this.props.type === 'non-comment') {
-      return <PostItem key={this.state.comment.id} score={this.state.comment.score} id={this.state.comment.id} title={this.state.comment.title} by={this.state.comment.by} time={this.state.comment.time} />
-    }
+    if (!this.state.comment.text) return null
+    if (this.state.comment.type !== 'comment') return null
     const utcSeconds = this.state.comment.time
     const date = new Date(0)
     date.setUTCSeconds(utcSeconds)
@@ -75,15 +71,9 @@ class Comment extends Component {
             <div onClick={this.handleShowHideClick} className='show-hide'>{this.state.showHide}</div>
           </div>
         </div>
-        <div dangerouslySetInnerHTML={{__html: this.state.comment.text}} />
+        <p dangerouslySetInnerHTML={{__html: this.state.comment.text}} />
         <div>{this.renderChildren()}</div>
       </div>
     )
   }
 }
-
-function mapStateToProps ({comment}) {
-  return {comment}
-}
-
-export default connect(mapStateToProps)(Comment)

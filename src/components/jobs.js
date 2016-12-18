@@ -1,12 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchJobStories, clearStories} from '../actions/index'
+import {fetchStories, clearStories} from '../actions/index'
 import PostItem from './post_item'
-import StoryPlaceholder from './story_placeholder'
+import StoryPlaceholder from '../containers/story_placeholder'
 
 class JobStories extends Component {
   componentWillMount () {
-    this.props.fetchJobStories()
+    this.props.fetchStories('jobstories')
   }
 
   componentWillUnmount () {
@@ -24,15 +24,15 @@ class JobStories extends Component {
   }
 
   renderPosts () {
-    return this.props.items.items.map(({time, score, id, title, by}) => {
+    return this.props.items.map(id => {
       return (
-        <PostItem key={id} time={time} score={score} id={id} by={by} title={title} />
+        <PostItem key={id} id={id} />
       )
     })
   }
 
   render () {
-    if (!this.props.items.items) return <div className='posts-list'>{this.renderPlaceholders()}</div>
+    if (!this.props.items) return <div className='posts-list'>{this.renderPlaceholders()}</div>
     return (
       <div className='posts-list'>
         {this.renderPosts()}
@@ -41,8 +41,8 @@ class JobStories extends Component {
   }
 }
 
-function mapStateToProps (state) {
-  return state
+function mapStateToProps ({items}) {
+  return {items: items.items}
 }
 
-export default connect(mapStateToProps, {fetchJobStories, clearStories})(JobStories)
+export default connect(mapStateToProps, {fetchStories, clearStories})(JobStories)

@@ -4,7 +4,7 @@ import {Link} from 'react-router'
 import {fetchItem, clearItem} from '../actions/index'
 import Comment from './comment'
 import {FormattedRelative} from 'react-intl'
-import ItemPlaceholder from './item_placeholder'
+import ItemPlaceholder from '../containers/item_placeholder'
 
 class Item extends Component {
   componentWillMount () {
@@ -16,7 +16,7 @@ class Item extends Component {
   }
 
   renderComments () {
-    return this.props.items.comments.map(comment => {
+    return this.props.comments.map(comment => {
       return (
         <Comment key={comment.id} id={comment.id} />
       )
@@ -24,14 +24,10 @@ class Item extends Component {
   }
 
   render () {
-    if (!this.props.items.item) return <ItemPlaceholder />
-    const {url, title, score, by, text, time} = this.props.items.item
-    const Dummy = document.createElement('div')
-    Dummy.innerHTML = text
-    if (Dummy.innerText === 'undefined') Dummy.innerHTML = ' '
-    const utcSeconds = time
+    if (!this.props.item) return <ItemPlaceholder />
+    const {url, title, score, by, text, time} = this.props.item
     const date = new Date(0)
-    date.setUTCSeconds(utcSeconds)
+    date.setUTCSeconds(time)
     return (
       <div className='item'>
         <a className='item-title' href={url}>{title}</a>
@@ -39,15 +35,18 @@ class Item extends Component {
           <div className='item-subtitle-user-info' >{score} Points by <Link to={`/user/${by}`}>{by}</Link></div>
           <FormattedRelative value={date} />
         </div>
-        <p>{Dummy.innerText}</p>
+        <p dangerouslySetInnerHTML={{__html: text}} />
         <div>{this.renderComments()}</div>
       </div>
     )
   }
 }
 
-function mapStateToProps (state) {
-  return state
+function mapStateToProps ({items}) {
+  return {
+    item: items.item,
+    comments: items.comments
+  }
 }
 
 export default connect(mapStateToProps, {fetchItem, clearItem})(Item)
