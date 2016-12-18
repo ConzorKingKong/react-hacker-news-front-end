@@ -1,7 +1,7 @@
 import React from 'react'
 import {Route, IndexRoute} from 'react-router'
 
-import App from './components/app'
+import App from './containers/app'
 import HomePage from './components/homepage'
 import Jobs from './components/jobs'
 import TopStories from './components/top_stories'
@@ -9,7 +9,7 @@ import Show from './components/show'
 import Ask from './components/ask'
 import Item from './components/item'
 import User from './components/user'
-import FoOhFo from './components/404'
+import FoOhFo from './containers/404'
 import Comments from './components/comments'
 import Stories from './components/stories'
 
