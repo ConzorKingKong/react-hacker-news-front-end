@@ -32,8 +32,10 @@ class Stories extends Component {
   render () {
     if (!this.props.user) return <div className='posts-list'>{this.renderPlaceholders()}</div>
     return (
-      <div className='posts-list'>
-        {this.renderStories()}
+      <div className='stories'>
+        <div className='posts-list'>
+          {this.renderStories()}
+        </div>
       </div>
     )
   }
