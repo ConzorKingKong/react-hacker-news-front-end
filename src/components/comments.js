@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchUser, clearUser} from '../actions/index'
 import Comment from './comment'
-import StoryPlaceholder from '../containers/story_placeholder'
+import CommentPlaceholder from '../containers/comment_placeholder'
 
 class Comments extends Component {
   componentWillMount () {
@@ -14,11 +14,11 @@ class Comments extends Component {
   }
 
   renderPlaceholders () {
-    const storyPlaceholders = []
+    const CommentPlaceholders = []
     for (var i = 1; i < 40; i++) {
-      storyPlaceholders.push(<StoryPlaceholder key={i} />)
+      CommentPlaceholders.push(<CommentPlaceholder key={i} />)
     }
-    return storyPlaceholders.map(story => {
+    return CommentPlaceholders.map(story => {
       return story
     })
   }
@@ -33,7 +33,9 @@ class Comments extends Component {
     if (!this.props.user) return <div className='posts-list'>{this.renderPlaceholders()}</div>
     return (
       <div>
-        {this.renderComments()}
+        <div>
+          {this.renderComments()}
+        </div>
       </div>
     )
   }
