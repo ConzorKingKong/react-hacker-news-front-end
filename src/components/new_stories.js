@@ -4,7 +4,7 @@ import {fetchStories, clearStories} from '../actions/index'
 import PostItem from './post_item'
 import StoryPlaceholder from '../containers/story_placeholder'
 
-class HomePage extends Component {
+class NewStories extends Component {
   constructor (props) {
     super(props)
 
@@ -51,7 +51,6 @@ class HomePage extends Component {
           {this.renderPosts()}
         </div>
         <button onClick={this.onMoreClick} className='pagination-button'>More</button>
-        <div>{this.state.warning}</div>
       </div>
     )
   }
@@ -61,4 +60,4 @@ function mapStateToProps ({items}) {
   return {items: items.items}
 }
 
-export default connect(mapStateToProps, {fetchStories, clearStories})(HomePage)
+export default connect(mapStateToProps, {fetchStories, clearStories})(NewStories)
