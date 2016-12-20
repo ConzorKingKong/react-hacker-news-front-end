@@ -5,12 +5,26 @@ import PostItem from './post_item'
 import StoryPlaceholder from '../containers/story_placeholder'
 
 class HomePage extends Component {
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      limit: 20
+    }
+    this.onMoreClick = this.onMoreClick.bind(this)
+  }
   componentWillMount () {
     this.props.fetchStories('newstories')
   }
 
   componentWillUnmount () {
     this.props.clearStories()
+  }
+
+  onMoreClick () {
+    this.setState({
+      limit: Math.min(this.state.limit + 20, this.props.items.length - 1)
+    })
   }
 
   renderPlaceholders () {
@@ -24,18 +38,20 @@ class HomePage extends Component {
   }
 
   renderPosts () {
-    return this.props.items.map(id => {
-      return (
-        <PostItem key={id} id={id} />
-      )
+    return this.props.items.slice(0, this.state.limit + 1).map(id => {
+      return <PostItem id={id} key={id} />
     })
   }
 
   render () {
     if (!this.props.items) return <div className='posts-list'>{this.renderPlaceholders()}</div>
     return (
-      <div className='posts-list'>
-        {this.renderPosts()}
+      <div className='new-stories'>
+        <div className='posts-list'>
+          {this.renderPosts()}
+        </div>
+        <button onClick={this.onMoreClick} className='pagination-button'>More</button>
+        <div>{this.state.warning}</div>
       </div>
     )
   }
