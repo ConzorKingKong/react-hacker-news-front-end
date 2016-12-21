@@ -78,7 +78,7 @@
 
 	var _routes2 = _interopRequireDefault(_routes);
 
-	var _reduxThunk = __webpack_require__(343);
+	var _reduxThunk = __webpack_require__(344);
 
 	var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -35322,7 +35322,7 @@
 
 
 	// module
-	exports.push([module.id, ".container {\n  background-color: #f6f6ef;\n}\na {\n  text-decoration: none;\n}\n.title-bar {\n  display: flex;\n  position: relative;\n  justify-content: space-around;\n  padding-top: 2.5vh;\n  padding-bottom: 2.5vh;\n  z-index: 100;\n  background-color: #f60;\n}\n.title-bar a {\n  color: #000;\n}\n.posts-list {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n}\n.posts-list-item {\n  display: flex;\n  align-items: center;\n  margin-top: 0.5em;\n  margin-bottom: 0.5em;\n  animation: materialize 2s;\n}\n.posts-list-item a {\n  color: #808080;\n}\n.posts-list-item-score {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.posts-list-item-title {\n  display: flex;\n}\n.posts-list-item-by {\n  font-size: 0.75em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.posts-list-item-user {\n  font-size: 1em;\n  margin-right: 0.4em;\n}\n.content {\n  display: flex;\n  justify-content: center;\n}\n.user-placeholder {\n  display: flex;\n  flex-direction: column;\n  width: 50%;\n  align-items: center;\n  margin-top: 2em;\n}\n.user-placeholder-inner-wrapper {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  height: 50%;\n  margin-top: 2em;\n}\n.user-placeholder-name {\n  width: 30%;\n  height: 1.8em;\n  background-color: #808080;\n  margin-bottom: 1.5em;\n}\n.user-placeholder-karma {\n  width: 10%;\n  height: 0.8em;\n  background-color: #808080;\n  margin-bottom: 1.5em;\n}\n.user-placeholder-story {\n  width: 10%;\n  height: 0.8em;\n  background-color: #808080;\n  margin-bottom: 0.5em;\n}\n.user-placeholder-comment {\n  width: 30%;\n  height: 1.8em;\n  background-color: #808080;\n  margin-bottom: 0.5em;\n}\n.user {\n  display: flex;\n}\n.item-placeholder {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  width: 100%;\n  height: 50%;\n  margin-top: 2em;\n}\n.item-placeholder-header {\n  width: 30%;\n  height: 1.8em;\n  background-color: #808080;\n}\n.item-placeholder-subheader {\n  width: 20%;\n  height: 1em;\n  background-color: #808080;\n  margin-top: 0.4em;\n  margin-bottom: 0.4em;\n}\n.item-placeholder-content {\n  width: 75%;\n  height: 5em;\n  background-color: #808080;\n  margin-top: 0.4em;\n  margin-bottom: 0.4em;\n}\n.item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 2em;\n}\n.item-title {\n  text-decoration: none;\n  color: #808080;\n  font-size: 1.3em;\n}\n.item-subtitle {\n  display: flex;\n  margin-top: 0.4em;\n}\n.item-subtitle-user-info {\n  margin-right: 0.3em;\n}\n.user-header {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n}\n.user-header h3 {\n  margin-top: 0;\n}\n.comment {\n  margin-bottom: 1em;\n  margin-top: 1em;\n}\n.comment .comment {\n  animation: slide 1s;\n  animation-fill-mode: forwards;\n}\n.comment-sub-header {\n  display: flex;\n}\n.comment-sub-header-user {\n  margin-right: 0.3em;\n}\n.show-hide {\n  margin-left: 0.2em;\n}\n.show-hide:hover {\n  cursor: pointer;\n}\n.cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.circle {\n  display: flex;\n  border-top: 0.1em solid #808080;\n  border-radius: 50%;\n  z-index: 100;\n  height: 6em;\n  width: 6em;\n  animation: spin 2s linear infinite;\n}\n.story-placeholder {\n  display: flex;\n  flex-direction: column;\n}\n.story-placeholder.story-placeholder {\n  margin-bottom: 1em;\n}\n.story-placeholder-bar {\n  background-color: #efefef;\n  height: 0.7em;\n  display: flex;\n  margin-bottom: 0.2em;\n}\n@-moz-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-webkit-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-o-keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@keyframes spin {\n  0% {\n    transform: rotate(0deg);\n  }\n  100% {\n    transform: rotate(360deg);\n  }\n}\n@-moz-keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-webkit-keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-o-keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@keyframes materialize {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n  }\n}\n@-moz-keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n@-webkit-keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n@-o-keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n@keyframes slide {\n  0% {\n    opacity: 0.1;\n  }\n  100% {\n    opacity: 1;\n    margin-left: 7%;\n  }\n}\n", ""]);
+	exports.push([module.id, "body {\n  margin: 0;\n}\n.container {\n  background-color: #f6f6ef;\n}\na {\n  text-decoration: none;\n}\n.title-bar {\n  display: flex;\n  position: relative;\n  align-items: center;\n  justify-content: flex-start;\n  background-color: #f60;\n  height: 44px;\n}\n.title-bar a {\n  color: #000;\n  padding: 0px 8px;\n}\n.title-bar a:hover {\n  color: #fff;\n}\n.posts-list {\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n}\n.posts-list-item {\n  display: flex;\n  align-items: center;\n  padding-top: 0.3em;\n  padding-bottom: 0.3em;\n}\n.posts-list-item a {\n  color: #808080;\n  font-size: 16px;\n}\n.posts-list-item:nth-child(even) {\n  background-color: #e6e6df;\n}\n.posts-list-item-score {\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.posts-list-item-title {\n  display: flex;\n}\n.posts-list-item-by {\n  font-size: 0.75em;\n  margin-left: 0.5em;\n  margin-right: 0.5em;\n}\n.posts-list-item-user {\n  font-size: 1em;\n  margin-right: 0.4em;\n}\n.content {\n  display: flex;\n  justify-content: center;\n  margin: 21px 8px;\n}\n.user-placeholder {\n  display: flex;\n  flex-direction: column;\n  width: 50%;\n  align-items: center;\n  margin-top: 2em;\n}\n.user-placeholder-inner-wrapper {\n  display: flex;\n  flex-direction: column;\n  width: 100%;\n  height: 50%;\n  margin-top: 2em;\n}\n.user-placeholder-name {\n  width: 30%;\n  height: 1.8em;\n  background-color: #808080;\n  margin-bottom: 1.5em;\n}\n.user-placeholder-karma {\n  width: 10%;\n  height: 0.8em;\n  background-color: #808080;\n  margin-bottom: 1.5em;\n}\n.user-placeholder-story {\n  width: 10%;\n  height: 0.8em;\n  background-color: #808080;\n  margin-bottom: 0.5em;\n}\n.user-placeholder-comment {\n  width: 30%;\n  height: 1.8em;\n  background-color: #808080;\n  margin-bottom: 0.5em;\n}\n.user {\n  display: flex;\n}\n.item-placeholder {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  width: 100%;\n  height: 50%;\n  margin-top: 2em;\n}\n.item-placeholder-header {\n  width: 30%;\n  height: 1.8em;\n  background-color: #808080;\n}\n.item-placeholder-subheader {\n  width: 20%;\n  height: 1em;\n  background-color: #808080;\n  margin-top: 0.4em;\n  margin-bottom: 0.4em;\n}\n.item-placeholder-content {\n  width: 75%;\n  height: 5em;\n  background-color: #808080;\n  margin-top: 0.4em;\n  margin-bottom: 0.4em;\n}\n.item {\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  margin-top: 2em;\n}\n.item-title {\n  text-decoration: none;\n  color: #808080;\n  font-size: 1.3em;\n}\n.item-subtitle {\n  display: flex;\n  margin-top: 0.4em;\n}\n.item-subtitle-user-info {\n  margin-right: 0.3em;\n}\n.user-header {\n  display: flex;\n  justify-content: center;\n  flex-direction: column;\n}\n.user-header h3 {\n  margin-top: 0;\n}\n.comment {\n  margin-bottom: 1em;\n  margin-top: 1em;\n}\n.comment .comment {\n  margin-left: 30px;\n}\n.comment-sub-header {\n  display: flex;\n}\n.comment-sub-header-user {\n  margin-right: 0.3em;\n}\n.show-hide {\n  margin-left: 0.2em;\n}\n.show-hide:hover {\n  cursor: pointer;\n}\n.cover {\n  position: absolute;\n  top: 0;\n  left: 0;\n  bottom: 0;\n  right: 0;\n  background-color: #fff;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n}\n.circle {\n  display: flex;\n  border-top: 0.1em solid #808080;\n  border-radius: 50%;\n  z-index: 100;\n  height: 6em;\n  width: 6em;\n  animation: spin 2s linear infinite;\n}\n.story-placeholder {\n  display: flex;\n  flex-direction: column;\n}\n.story-placeholder.story-placeholder {\n  margin-bottom: 1em;\n}\n.story-placeholder-bar {\n  background-color: #efefef;\n  height: 0.7em;\n  display: flex;\n  margin-bottom: 0.2em;\n}\n.comment-placeholder {\n  height: 5em;\n  background-color: #808080;\n  width: 50%;\n  margin-bottom: 1em;\n}\n.comment-placeholder:nth-child(even) {\n  margin-left: 30px;\n  margin-bottom: 15px;\n}\n.pagination-button {\n  border: none;\n  background-color: #f6f6ef;\n  color: #ffa500;\n}\n.pagination-button:hover {\n  cursor: pointer;\n  text-decoration: underline;\n}\n", ""]);
 
 	// exports
 
@@ -40854,9 +40854,9 @@
 
 	var _app2 = _interopRequireDefault(_app);
 
-	var _homepage = __webpack_require__(328);
+	var _new_stories = __webpack_require__(328);
 
-	var _homepage2 = _interopRequireDefault(_homepage);
+	var _new_stories2 = _interopRequireDefault(_new_stories);
 
 	var _jobs = __webpack_require__(331);
 
@@ -40890,7 +40890,7 @@
 
 	var _comments2 = _interopRequireDefault(_comments);
 
-	var _stories = __webpack_require__(342);
+	var _stories = __webpack_require__(343);
 
 	var _stories2 = _interopRequireDefault(_stories);
 
@@ -40899,13 +40899,13 @@
 	exports.default = _react2.default.createElement(
 	  _reactRouter.Route,
 	  { path: '/', component: _app2.default },
-	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _homepage2.default }),
+	  _react2.default.createElement(_reactRouter.IndexRoute, { component: _top_stories2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'item/:id', component: _item2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'user/:id', component: _user2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'comments/:id', component: _comments2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'stories/:id', component: _stories2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'jobs', component: _jobs2.default }),
-	  _react2.default.createElement(_reactRouter.Route, { path: 'topstories', component: _top_stories2.default }),
+	  _react2.default.createElement(_reactRouter.Route, { path: 'newstories', component: _new_stories2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'show', component: _show2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: 'ask', component: _ask2.default }),
 	  _react2.default.createElement(_reactRouter.Route, { path: '*', component: _2.default })
@@ -40969,23 +40969,27 @@
 	    _react2.default.createElement(
 	      _reactRouter.Link,
 	      { to: '/' },
-	      'New Stories'
+	      'Top'
 	    ),
+	    '|',
 	    _react2.default.createElement(
 	      _reactRouter.Link,
-	      { to: '/topstories' },
-	      'Top Stories'
+	      { to: '/newstories' },
+	      'New'
 	    ),
+	    '|',
 	    _react2.default.createElement(
 	      _reactRouter.Link,
 	      { to: '/show' },
 	      'Show'
 	    ),
+	    '|',
 	    _react2.default.createElement(
 	      _reactRouter.Link,
 	      { to: '/ask' },
 	      'Ask'
 	    ),
+	    '|',
 	    _react2.default.createElement(
 	      _reactRouter.Link,
 	      { to: '/jobs' },
@@ -41030,16 +41034,22 @@
 
 	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	var HomePage = function (_Component) {
-	  _inherits(HomePage, _Component);
+	var NewStories = function (_Component) {
+	  _inherits(NewStories, _Component);
 
-	  function HomePage() {
-	    _classCallCheck(this, HomePage);
+	  function NewStories(props) {
+	    _classCallCheck(this, NewStories);
 
-	    return _possibleConstructorReturn(this, (HomePage.__proto__ || Object.getPrototypeOf(HomePage)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (NewStories.__proto__ || Object.getPrototypeOf(NewStories)).call(this, props));
+
+	    _this.state = {
+	      limit: 20
+	    };
+	    _this.onMoreClick = _this.onMoreClick.bind(_this);
+	    return _this;
 	  }
 
-	  _createClass(HomePage, [{
+	  _createClass(NewStories, [{
 	    key: 'componentWillMount',
 	    value: function componentWillMount() {
 	      this.props.fetchStories('newstories');
@@ -41048,6 +41058,13 @@
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
 	      this.props.clearStories();
+	    }
+	  }, {
+	    key: 'onMoreClick',
+	    value: function onMoreClick() {
+	      this.setState({
+	        limit: Math.min(this.state.limit + 20, this.props.items.length - 1)
+	      });
 	    }
 	  }, {
 	    key: 'renderPlaceholders',
@@ -41063,8 +41080,8 @@
 	  }, {
 	    key: 'renderPosts',
 	    value: function renderPosts() {
-	      return this.props.items.map(function (id) {
-	        return _react2.default.createElement(_post_item2.default, { key: id, id: id });
+	      return this.props.items.slice(0, this.state.limit + 1).map(function (id) {
+	        return _react2.default.createElement(_post_item2.default, { id: id, key: id });
 	      });
 	    }
 	  }, {
@@ -41077,13 +41094,22 @@
 	      );
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'posts-list' },
-	        this.renderPosts()
+	        { className: 'new-stories' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'posts-list' },
+	          this.renderPosts()
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.onMoreClick, className: 'pagination-button' },
+	          'More'
+	        )
 	      );
 	    }
 	  }]);
 
-	  return HomePage;
+	  return NewStories;
 	}(_react.Component);
 
 	function mapStateToProps(_ref) {
@@ -41092,7 +41118,7 @@
 	  return { items: items.items };
 	}
 
-	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchStories: _index.fetchStories, clearStories: _index.clearStories })(HomePage);
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchStories: _index.fetchStories, clearStories: _index.clearStories })(NewStories);
 
 /***/ },
 /* 329 */
@@ -41262,10 +41288,16 @@
 	var JobStories = function (_Component) {
 	  _inherits(JobStories, _Component);
 
-	  function JobStories() {
+	  function JobStories(props) {
 	    _classCallCheck(this, JobStories);
 
-	    return _possibleConstructorReturn(this, (JobStories.__proto__ || Object.getPrototypeOf(JobStories)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (JobStories.__proto__ || Object.getPrototypeOf(JobStories)).call(this, props));
+
+	    _this.state = {
+	      limit: 20
+	    };
+	    _this.onMoreClick = _this.onMoreClick.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(JobStories, [{
@@ -41277,6 +41309,13 @@
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
 	      this.props.clearStories();
+	    }
+	  }, {
+	    key: 'onMoreClick',
+	    value: function onMoreClick() {
+	      this.setState({
+	        limit: Math.min(this.state.limit + 20, this.props.items.length - 1)
+	      });
 	    }
 	  }, {
 	    key: 'renderPlaceholders',
@@ -41292,8 +41331,8 @@
 	  }, {
 	    key: 'renderPosts',
 	    value: function renderPosts() {
-	      return this.props.items.map(function (id) {
-	        return _react2.default.createElement(_post_item2.default, { key: id, id: id });
+	      return this.props.items.slice(0, this.state.limit + 1).map(function (id) {
+	        return _react2.default.createElement(_post_item2.default, { id: id, key: id });
 	      });
 	    }
 	  }, {
@@ -41306,8 +41345,22 @@
 	      );
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'posts-list' },
-	        this.renderPosts()
+	        { className: 'new-stories' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'posts-list' },
+	          this.renderPosts()
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.onMoreClick, className: 'pagination-button' },
+	          'More'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          this.state.warning
+	        )
 	      );
 	    }
 	  }]);
@@ -41362,10 +41415,16 @@
 	var TopStories = function (_Component) {
 	  _inherits(TopStories, _Component);
 
-	  function TopStories() {
+	  function TopStories(props) {
 	    _classCallCheck(this, TopStories);
 
-	    return _possibleConstructorReturn(this, (TopStories.__proto__ || Object.getPrototypeOf(TopStories)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (TopStories.__proto__ || Object.getPrototypeOf(TopStories)).call(this, props));
+
+	    _this.state = {
+	      limit: 20
+	    };
+	    _this.onMoreClick = _this.onMoreClick.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(TopStories, [{
@@ -41377,6 +41436,13 @@
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
 	      this.props.clearStories();
+	    }
+	  }, {
+	    key: 'onMoreClick',
+	    value: function onMoreClick() {
+	      this.setState({
+	        limit: Math.min(this.state.limit + 20, this.props.items.length - 1)
+	      });
 	    }
 	  }, {
 	    key: 'renderPlaceholders',
@@ -41392,8 +41458,8 @@
 	  }, {
 	    key: 'renderPosts',
 	    value: function renderPosts() {
-	      return this.props.items.map(function (id) {
-	        return _react2.default.createElement(_post_item2.default, { key: id, id: id });
+	      return this.props.items.slice(0, this.state.limit + 1).map(function (id) {
+	        return _react2.default.createElement(_post_item2.default, { id: id, key: id });
 	      });
 	    }
 	  }, {
@@ -41406,8 +41472,22 @@
 	      );
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'posts-list' },
-	        this.renderPosts()
+	        { className: 'new-stories' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'posts-list' },
+	          this.renderPosts()
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.onMoreClick, className: 'pagination-button' },
+	          'More'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          this.state.warning
+	        )
 	      );
 	    }
 	  }]);
@@ -41462,10 +41542,16 @@
 	var ShowStories = function (_Component) {
 	  _inherits(ShowStories, _Component);
 
-	  function ShowStories() {
+	  function ShowStories(props) {
 	    _classCallCheck(this, ShowStories);
 
-	    return _possibleConstructorReturn(this, (ShowStories.__proto__ || Object.getPrototypeOf(ShowStories)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (ShowStories.__proto__ || Object.getPrototypeOf(ShowStories)).call(this, props));
+
+	    _this.state = {
+	      limit: 20
+	    };
+	    _this.onMoreClick = _this.onMoreClick.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(ShowStories, [{
@@ -41477,6 +41563,13 @@
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
 	      this.props.clearStories();
+	    }
+	  }, {
+	    key: 'onMoreClick',
+	    value: function onMoreClick() {
+	      this.setState({
+	        limit: Math.min(this.state.limit + 20, this.props.items.length - 1)
+	      });
 	    }
 	  }, {
 	    key: 'renderPlaceholders',
@@ -41492,8 +41585,8 @@
 	  }, {
 	    key: 'renderPosts',
 	    value: function renderPosts() {
-	      return this.props.items.map(function (id) {
-	        return _react2.default.createElement(_post_item2.default, { key: id, id: id });
+	      return this.props.items.slice(0, this.state.limit + 1).map(function (id) {
+	        return _react2.default.createElement(_post_item2.default, { id: id, key: id });
 	      });
 	    }
 	  }, {
@@ -41506,8 +41599,22 @@
 	      );
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'posts-list' },
-	        this.renderPosts()
+	        { className: 'new-stories' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'posts-list' },
+	          this.renderPosts()
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.onMoreClick, className: 'pagination-button' },
+	          'More'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          this.state.warning
+	        )
 	      );
 	    }
 	  }]);
@@ -41562,10 +41669,16 @@
 	var AskStories = function (_Component) {
 	  _inherits(AskStories, _Component);
 
-	  function AskStories() {
+	  function AskStories(props) {
 	    _classCallCheck(this, AskStories);
 
-	    return _possibleConstructorReturn(this, (AskStories.__proto__ || Object.getPrototypeOf(AskStories)).apply(this, arguments));
+	    var _this = _possibleConstructorReturn(this, (AskStories.__proto__ || Object.getPrototypeOf(AskStories)).call(this, props));
+
+	    _this.state = {
+	      limit: 20
+	    };
+	    _this.onMoreClick = _this.onMoreClick.bind(_this);
+	    return _this;
 	  }
 
 	  _createClass(AskStories, [{
@@ -41577,6 +41690,13 @@
 	    key: 'componentWillUnmount',
 	    value: function componentWillUnmount() {
 	      this.props.clearStories();
+	    }
+	  }, {
+	    key: 'onMoreClick',
+	    value: function onMoreClick() {
+	      this.setState({
+	        limit: Math.min(this.state.limit + 20, this.props.items.length - 1)
+	      });
 	    }
 	  }, {
 	    key: 'renderPlaceholders',
@@ -41592,8 +41712,8 @@
 	  }, {
 	    key: 'renderPosts',
 	    value: function renderPosts() {
-	      return this.props.items.map(function (id) {
-	        return _react2.default.createElement(_post_item2.default, { key: id, id: id });
+	      return this.props.items.slice(0, this.state.limit + 1).map(function (id) {
+	        return _react2.default.createElement(_post_item2.default, { id: id, key: id });
 	      });
 	    }
 	  }, {
@@ -41606,8 +41726,22 @@
 	      );
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'posts-list' },
-	        this.renderPosts()
+	        { className: 'new-stories' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'posts-list' },
+	          this.renderPosts()
+	        ),
+	        _react2.default.createElement(
+	          'button',
+	          { onClick: this.onMoreClick, className: 'pagination-button' },
+	          'More'
+	        ),
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          this.state.warning
+	        )
 	      );
 	    }
 	  }]);
@@ -42129,9 +42263,9 @@
 
 	var _comment2 = _interopRequireDefault(_comment);
 
-	var _story_placeholder = __webpack_require__(330);
+	var _comment_placeholder = __webpack_require__(342);
 
-	var _story_placeholder2 = _interopRequireDefault(_story_placeholder);
+	var _comment_placeholder2 = _interopRequireDefault(_comment_placeholder);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -42163,11 +42297,11 @@
 	  }, {
 	    key: 'renderPlaceholders',
 	    value: function renderPlaceholders() {
-	      var storyPlaceholders = [];
+	      var CommentPlaceholders = [];
 	      for (var i = 1; i < 40; i++) {
-	        storyPlaceholders.push(_react2.default.createElement(_story_placeholder2.default, { key: i }));
+	        CommentPlaceholders.push(_react2.default.createElement(_comment_placeholder2.default, { key: i }));
 	      }
-	      return storyPlaceholders.map(function (story) {
+	      return CommentPlaceholders.map(function (story) {
 	        return story;
 	      });
 	    }
@@ -42189,7 +42323,11 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        this.renderComments()
+	        _react2.default.createElement(
+	          'div',
+	          null,
+	          this.renderComments()
+	        )
 	      );
 	    }
 	  }]);
@@ -42207,6 +42345,26 @@
 
 /***/ },
 /* 342 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	exports.default = function (props) {
+	  return _react2.default.createElement('div', { className: 'comment-placeholder' });
+	};
+
+/***/ },
+/* 343 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -42288,8 +42446,12 @@
 	      );
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'posts-list' },
-	        this.renderStories()
+	        { className: 'stories' },
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'posts-list' },
+	          this.renderStories()
+	        )
 	      );
 	    }
 	  }]);
@@ -42306,7 +42468,7 @@
 	exports.default = (0, _reactRedux.connect)(mapStateToProps, { fetchUser: _index.fetchUser, clearUser: _index.clearUser })(Stories);
 
 /***/ },
-/* 343 */
+/* 344 */
 /***/ function(module, exports) {
 
 	'use strict';
