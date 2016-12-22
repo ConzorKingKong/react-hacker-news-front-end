@@ -11,7 +11,7 @@ a
   display flex
   position relative
   align-items center
-  justify-content flex-start
+  justify-content space-between
   background-color #ff6600
   height 44px
 
@@ -21,6 +21,19 @@ a
 
   a:hover
     color white
+
+.searchbar-wrapper
+  margin-right 15px
+
+  button
+    background-color rgb(215, 73, 55)
+    border none
+
+  button:hover
+    cursor pointer
+
+  input
+    border none
 
 .posts-list
   width 100%
@@ -78,25 +91,25 @@ a
 .user-placeholder-name
   width 30%
   height 1.8em
-  background-color grey
+  background-color rgb(230, 230, 223)
   margin-bottom 1.5em
 
 .user-placeholder-karma
   width 10%
   height 0.8em
-  background-color grey
+  background-color rgb(230, 230, 223)
   margin-bottom 1.5em
 
 .user-placeholder-story
   width 10%
   height 0.8em
-  background-color grey
+  background-color rgb(230, 230, 223)
   margin-bottom 0.5em
 
 .user-placeholder-comment
   width 30%
   height 1.8em
-  background-color grey
+  background-color rgb(230, 230, 223)
   margin-bottom 0.5em
 
 .user
@@ -113,19 +126,19 @@ a
 .item-placeholder-header
   width 30%
   height 1.8em
-  background-color grey
+  background-color rgb(230, 230, 223)
 
 .item-placeholder-subheader
   width 20%
   height 1em
-  background-color grey
+  background-color rgb(230, 230, 223)
   margin-top 0.4em
   margin-bottom 0.4em
 
 .item-placeholder-content
   width 75%
   height 5em
-  background-color grey
+  background-color rgb(230, 230, 223)
   margin-top 0.4em
   margin-bottom 0.4em
 
@@ -202,18 +215,25 @@ a
   margin-bottom 1em
 
 .story-placeholder-bar
-  background-color #efefef
-  height .7em
   display flex
-  margin-bottom .2em
+  width 728.969px
+  height 18px
+
+.comment-placeholder-wrapper
+  margin-bottom 1em
+
+.comment-placeholder-header
+  width 10%
+  height 1em
+  background-color rgb(230, 230, 223)
+  margin-bottom 1em
 
 .comment-placeholder
   height 5em
-  background-color grey
+  background-color rgb(230, 230, 223)
   width 50%
-  margin-bottom 1em
 
-.comment-placeholder:nth-child(even)
+.comment-placeholder-wrapper:nth-child(even)
   margin-left 30px
   margin-bottom 15px
 
