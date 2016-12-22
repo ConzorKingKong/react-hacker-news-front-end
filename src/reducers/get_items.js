@@ -1,4 +1,4 @@
-import {STORIES, ITEM, CLEAR_STORIES, CLEAR_ITEM} from '../actions/index'
+import {STORIES, ITEM, CLEAR_STORIES, CLEAR_ITEM, SEARCH} from '../actions/index'
 
 const initialState = {items: null, item: null, comments: null}
 
@@ -11,6 +11,8 @@ export default function (state = initialState, action) {
     case CLEAR_ITEM:
       return {...state, item: action.payload}
     case STORIES:
+      return {...state, items: action.payload.data}
+    case SEARCH:
       return {...state, items: action.payload.data}
   }
   return state
