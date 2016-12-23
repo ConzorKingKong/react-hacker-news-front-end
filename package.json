@@ -5,7 +5,7 @@
   "main": "./src/index.js",
   "scripts": {
     "start": "node app.js",
-    "watch": "node ./scripts/watch.js",
+    "watch": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config webpack.config.js",
     "build": "webpack --progress --colors",
     "test": "node ./node_modules/standard/bin/cmd.js"
   },
@@ -32,15 +32,18 @@
     "stylus-loader": "^2.4.0"
   },
   "devDependencies": {
+    "autobind-decorator": "^1.3.4",
     "axios": "^0.15.3",
     "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
+    "babel-preset-es2016": "^6.16.0",
     "babel-preset-stage-1": "^6.16.0",
     "eslint": "^3.11.1",
     "eslint-loader": "^1.6.1",
     "eslint-plugin-react": "^6.7.1",
     "redux-promise": "^0.5.3",
     "standard": "^8.6.0",
-    "webpack": "^1.13.3",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "2.2.0-rc.2",
+    "webpack-dev-server": "2.2.0-rc.0"
   }
 }
