@@ -11,8 +11,7 @@ class TopStories extends Component {
     super(props)
 
     this.state = {
-      limit: 20,
-      page: 1
+      limit: 20
     }
   }
   componentWillMount () {
@@ -25,16 +24,9 @@ class TopStories extends Component {
 
   @autobind
   onMoreClick () {
-    if (!this.props.items.hits) {
-      this.setState({
-        limit: Math.min(this.state.limit + 20, this.props.items.length - 1)
-      })
-      return
-    }
     this.setState({
-      limit: this.state.limit + 20
+      limit: Math.min(this.state.limit + 20, this.props.items.length - 1)
     })
-    this.props.search(this.props.items.query, this.state.limit)
   }
 
   renderPlaceholders () {
@@ -48,13 +40,8 @@ class TopStories extends Component {
   }
 
   renderPosts () {
-    if (!this.props.items.hits) {
-      return this.props.items.slice(0, this.state.limit + 1).map(id => {
-        return <PostItem id={id} key={id} />
-      })
-    }
-    return this.props.items.hits.map(post => {
-      return <AlgoliaPost id={parseInt(post.objectID)} key={parseInt(post.objectID)} score={post.points} title={post.title} by={post.author} time={post.created_at_i} />
+    return this.props.items.slice(0, this.state.limit + 1).map(id => {
+      return <PostItem id={id} key={id} />
     })
   }
 
@@ -73,9 +60,6 @@ class TopStories extends Component {
 }
 
 function mapStateToProps ({items}) {
-  if (items.hits) {
-    return {items: items.hits}
-  }
   return {items: items.items}
 }
 
