@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchStories, clearStories} from '../actions/index'
-import PostItem from './post_item'
-import StoryPlaceholder from '../containers/story_placeholder'
-import AlgoliaPost from '../containers/algolia_post'
+import {fetchStories, clearStories, search} from '../actions/index'
+import PostItem from './post-item'
+import StoryPlaceholder from '../components/story-placeholder'
+import AlgoliaPost from '../components/algolia-post'
+import autobind from 'autobind-decorator'
 
-class JobStories extends Component {
+class ShowStories extends Component {
   constructor (props) {
     super(props)
 
@@ -13,16 +14,16 @@ class JobStories extends Component {
       limit: 20,
       page: 1
     }
-    this.onMoreClick = this.onMoreClick.bind(this)
   }
   componentWillMount () {
-    this.props.fetchStories('jobstories')
+    this.props.fetchStories('showstories')
   }
 
   componentWillUnmount () {
     this.props.clearStories()
   }
 
+  @autobind
   onMoreClick () {
     if (!this.props.items.hits) {
       this.setState({
@@ -72,7 +73,10 @@ class JobStories extends Component {
 }
 
 function mapStateToProps ({items}) {
+  if (items.hits) {
+    return {items: items.hits}
+  }
   return {items: items.items}
 }
 
-export default connect(mapStateToProps, {fetchStories, clearStories})(JobStories)
+export default connect(mapStateToProps, {fetchStories, clearStories, search})(ShowStories)

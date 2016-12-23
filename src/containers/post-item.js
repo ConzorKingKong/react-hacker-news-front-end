@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {Link} from 'react-router'
 import {FormattedRelative} from 'react-intl'
-import StoryPlaceholder from '../containers/story_placeholder'
+import StoryPlaceholder from '../components/story-placeholder'
 import axios from 'axios'
 
 export default class PostItem extends Component {

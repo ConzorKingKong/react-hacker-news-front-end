@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {search} from '../actions/index'
+import autobind from 'autobind-decorator'
 
 class Searchbar extends Component {
   constructor (props) {
@@ -9,14 +10,14 @@ class Searchbar extends Component {
     this.state = {
       term: ''
     }
-    this.handleInputChange = this.handleInputChange.bind(this)
-    this.handleSubmitForm = this.handleSubmitForm.bind(this)
   }
 
+  @autobind
   handleInputChange (event) {
     this.setState({term: event.target.value})
   }
 
+  @autobind
   handleSubmitForm (event) {
     event.preventDefault()
     this.props.search(this.state.term)

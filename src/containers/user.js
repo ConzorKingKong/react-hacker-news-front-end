@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchUser, clearUser} from '../actions/index'
 import {Link} from 'react-router'
-import UserPlaceholder from '../containers/user_placeholder'
+import UserPlaceholder from '../components/user-placeholder'
 
 class User extends Component {
   componentWillMount () {

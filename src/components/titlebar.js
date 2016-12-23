@@ -1,6 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router'
-import Searchbar from '../components/searchbar'
+import Searchbar from '../containers/searchbar'
 
 export default (props) => {
   return (

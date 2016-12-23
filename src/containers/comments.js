@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchUser, clearUser} from '../actions/index'
 import Comment from './comment'
-import CommentPlaceholder from '../containers/comment_placeholder'
+import CommentPlaceholder from '../components/comment-placeholder'
 
 class Comments extends Component {
   componentWillMount () {

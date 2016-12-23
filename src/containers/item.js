@@ -4,7 +4,7 @@ import {Link} from 'react-router'
 import {fetchItem, clearItem} from '../actions/index'
 import Comment from './comment'
 import {FormattedRelative} from 'react-intl'
-import ItemPlaceholder from '../containers/item_placeholder'
+import ItemPlaceholder from '../components/item-placeholder'
 
 class Item extends Component {
   componentWillMount () {
@@ -18,7 +18,7 @@ class Item extends Component {
   renderComments () {
     return this.props.comments.map(comment => {
       return (
-        <Comment key={comment.id} id={comment.id} />
+        <Comment link={this.props.params.id} key={comment.id} id={comment.id} />
       )
     })
   }
@@ -29,7 +29,7 @@ class Item extends Component {
     const date = new Date(0)
     date.setUTCSeconds(time)
     return (
-      <div className='item'>
+      <div className='item' id={this.props.params.id}>
         <a className='item-title' href={url}>{title}</a>
         <div className='item-subtitle'>
           <div className='item-subtitle-user-info' >{score} Points by <Link to={`/user/${by}`}>{by}</Link></div>

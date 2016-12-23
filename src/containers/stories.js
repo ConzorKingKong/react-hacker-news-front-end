@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchUser, clearUser} from '../actions/index'
-import PostItem from './post_item'
-import StoryPlaceholder from '../containers/story_placeholder'
+import PostItem from './post-item'
+import StoryPlaceholder from '../components/story-placeholder'
 
 class Stories extends Component {
   componentWillMount () {
