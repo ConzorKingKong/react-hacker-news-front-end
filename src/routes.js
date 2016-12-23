@@ -12,6 +12,7 @@ import User from './containers/user'
 import FoOhFo from './components/404'
 import Comments from './containers/comments'
 import Stories from './containers/stories'
+import SearchResults from './containers/search-results'
 
 export default (
   <Route path='/' component={App}>
@@ -24,6 +25,7 @@ export default (
     <Route path='newstories' component={NewStories} />
     <Route path='show' component={Show} />
     <Route path='ask' component={Ask} />
+    <Route path='searchResults' component={SearchResults} />
     <Route path='*' component={FoOhFo} />
   </Route>
 )

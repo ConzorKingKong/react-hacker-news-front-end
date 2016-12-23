@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {search} from '../actions/index'
 import autobind from 'autobind-decorator'
+import {browserHistory} from 'react-router'
 
 class Searchbar extends Component {
   constructor (props) {
@@ -21,6 +22,7 @@ class Searchbar extends Component {
   handleSubmitForm (event) {
     event.preventDefault()
     this.props.search(this.state.term)
+    browserHistory.push('/searchResults')
   }
 
   render () {
