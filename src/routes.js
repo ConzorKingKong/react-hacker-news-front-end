@@ -1,17 +1,17 @@
 import React from 'react'
 import {Route, IndexRoute} from 'react-router'
 
-import App from './containers/app'
-import NewStories from './components/new_stories'
-import Jobs from './components/jobs'
-import TopStories from './components/top_stories'
-import Show from './components/show'
-import Ask from './components/ask'
-import Item from './components/item'
-import User from './components/user'
-import FoOhFo from './containers/404'
-import Comments from './components/comments'
-import Stories from './components/stories'
+import App from './components/app'
+import NewStories from './containers/new-stories'
+import Jobs from './containers/jobs'
+import TopStories from './containers/top-stories'
+import Show from './containers/show'
+import Ask from './containers/ask'
+import Item from './containers/item'
+import User from './containers/user'
+import FoOhFo from './components/404'
+import Comments from './containers/comments'
+import Stories from './containers/stories'
 
 export default (
   <Route path='/' component={App}>
