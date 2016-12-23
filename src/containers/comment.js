@@ -48,7 +48,6 @@ export default class Comment extends Component {
     const utcSeconds = this.state.comment.time
     const date = new Date(0)
     date.setUTCSeconds(utcSeconds)
-    console.log(this.props.link)
     if (this.state.displayChild === false) {
       return (
         <div className='comment' key={this.state.comment.id}>
