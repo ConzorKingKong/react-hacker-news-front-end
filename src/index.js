@@ -1,10 +1,11 @@
+import css from '../style/style.styl'
+
 import React from 'react'
 import ReactDOM from 'react-dom'
 import {Router, browserHistory} from 'react-router'
 import {createStore, applyMiddleware} from 'redux'
 import reducers from './reducers/index'
 import promise from 'redux-promise'
-import css from '../style/style'
 import {Provider} from 'react-redux'
 import {IntlProvider} from 'react-intl'
 import routes from './routes'

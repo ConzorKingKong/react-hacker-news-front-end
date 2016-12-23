@@ -1,9 +1,19 @@
-var path = require('path')
-module.exports = {
-  entry: path.join(__dirname, '/src/index.js'),
+const ENVIRONMENT = process.env.NODE_ENV || "development"
+const path = require('path')
+const routes = require('./routes.json')
+const route = routes.app[ENVIRONMENT]
+const HtmlWebpackPlugin = require("html-webpack-plugin")
+
+const $ = {
+  devtool: 'source-map',
+  entry: {
+    site: './src/index.js'
+  },
   output: {
     path: path.join(__dirname, '/public'),
-    filename: 'bundle.js'
+    publicPath: '/',
+    filename: "[name].js",
+    sourceMapFilename: "[name].map"
   },
   module: {
     loaders: [{
@@ -21,6 +31,26 @@ module.exports = {
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.styl']
+    extensions: ['', '.js']
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: "./index.html"
+    }),
+  ]
+}
+
+if (ENVIRONMENT === "development") {
+  $.devtool = "eval"
+
+  const devServerClient = `webpack-dev-server/client?http://0.0.0.0:${route.port}`
+
+  if (Array.isArray($.entry)) {
+    $.entry.unshift(devServerClient)
+  }
+  else {
+    $.entry["dev-server-client"] = devServerClient
   }
 }
+
+module.exports = $
