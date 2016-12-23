@@ -6,7 +6,7 @@ module.exports = {
     filename: 'bundle.js'
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.styl$/,
       exclude: /node_modules/,
       loader: 'style-loader!css-loader!stylus-loader'
@@ -14,13 +14,11 @@ module.exports = {
     {
       test: /\.js$/,
       exclude: /node_modules/,
-      loader: 'babel-loader',
-      query: {
-        presets: ['react', 'es2015', 'stage-1']
-      }
+      loader: 'babel-loader'
     }]
   },
   resolve: {
-    extensions: ['', '.js', '.jsx', '.styl']
+    modules: [path.join(__dirname, '/src/index.js'), "node_modules"],
+    extensions: ['.js', '.jsx', '.styl']
   }
 }
