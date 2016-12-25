@@ -6,27 +6,44 @@ import StoryPlaceholder from '../../../components/placeholders/story-placeholder
 import AlgoliaPost from '../../../components/algolia-post/algolia-post'
 import autobind from 'autobind-decorator'
 
+
 class AskStories extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      limit: 20
+      limit: 40
     }
   }
-  componentWillMount () {
-    this.props.fetchStories('askstories')
-  }
 
-  componentWillUnmount () {
-    this.props.clearStories()
+  componentWillMount () {
+    //check if cached stories
+    //if so, load cached tories
+    //else grab and cache
+    this.props.fetchStories('askstories')
+    window.addEventListener('scroll', this.handleOnScroll)
   }
 
   @autobind
-  onMoreClick () {
-    this.setState({
-      limit: Math.min(this.state.limit + 20, this.props.items.length - 1)
-    })
+  handleOnScroll () {
+    const button = this.refs.button
+    const buttonRect = button.getBoundingClientRect()
+    if (document.documentElement.clientHeight - buttonRect.top >= -40) {
+      this.setState({
+        limit: Math.min(this.state.limit + 20, this.props.items.length - 1)
+      })
+    }
+  }
+
+
+  componentWillUnmount () {
+    this.props.clearStories()
+    window.removeEventListener('scroll', this.handleOnScroll)
+  }
+
+  @autobind
+  onTopClick () {
+    window.scrollTo(0, 0)
   }
 
   renderPlaceholders () {
@@ -52,7 +69,7 @@ class AskStories extends Component {
         <div className='posts-list'>
           {this.renderPosts()}
         </div>
-        <button onClick={this.onMoreClick} className='pagination-button'>More</button>
+        <button ref='button' onClick={this.onTopClick} className='pagination-button'>Top</button>
       </div>
     )
   }
