@@ -2,13 +2,13 @@ import './user.styl'
 
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {fetchUser, clearUser} from '../../actions/index'
+import {clearUser, user} from '../../actions/index'
 import {Link} from 'react-router'
 import UserPlaceholder from '../../components/placeholders/user-placeholder/user-placeholder'
 
 class User extends Component {
   componentWillMount () {
-    this.props.fetchUser(this.props.params.id)
+    this.props.user(this.props.params.id)
   }
 
   componentWillUnmount () {
@@ -16,15 +16,16 @@ class User extends Component {
   }
 
   render () {
-    if (!this.props.user) return <UserPlaceholder />
-    const {id, karma} = this.props.user
+    if (!this.props.users.user) return <UserPlaceholder />
+    console.log(this.props)
+    const {objectID, karma} = this.props.users.user
     return (
       <div className='user'>
         <div className='user-header'>
-          <h1>{id}</h1>
+          <h1>{objectID}</h1>
           <h3>Karma: {karma}</h3>
-          <Link to={`/stories/${id}`}>Stories</Link>
-          <Link to={`/comments/${id}`}>Comments</Link>
+          <Link to={`/stories/${objectID}`}>Stories</Link>
+          <Link to={`/comments/${objectID}`}>Comments</Link>
         </div>
       </div>
     )
@@ -32,7 +33,7 @@ class User extends Component {
 }
 
 function mapStateToProps (state) {
-  return {user: state.user.user}
+  return state
 }
 
-export default connect(mapStateToProps, {fetchUser, clearUser})(User)
+export default connect(mapStateToProps, {user, clearUser})(User)

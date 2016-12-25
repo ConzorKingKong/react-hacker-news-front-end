@@ -11,6 +11,8 @@ export const CLEAR_ITEM = 'CLEAR_ITEM'
 export const USER = 'USER'
 export const CLEAR_USER = 'CLEAR_USER'
 export const SEARCH = 'SEARCH'
+export const ALGOLIA_ITEM = 'ALGOLIA_ITEM'
+export const ALGOLIA_USER = 'ALGOLIA_USER'
 
 export function fetchStories (type) {
   const request = axios.get(`${ROOT_URL}${type}.json`)
@@ -43,6 +45,24 @@ export function fetchItem (id) {
         dispatch({type: ITEM, comments: results, payload: item})
       })
     })
+  }
+}
+
+export function item (id) {
+  const request = axios.get(`https://hn.algolia.com/api/v1/items/${id}`)
+
+  return {
+    type: ALGOLIA_ITEM,
+    payload: request
+  }
+}
+
+export function user (id) {
+  const request = axios.get(`https://hn.algolia.com/api/v1/users/${id}`)
+
+  return {
+    type: ALGOLIA_USER,
+    payload: request
   }
 }
 

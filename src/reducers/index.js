@@ -4,7 +4,7 @@ import UserReducer from './get-user'
 
 const rootReducer = combineReducers({
   items: ItemsReducer,
-  user: UserReducer
+  users: UserReducer
 })
 
 export default rootReducer

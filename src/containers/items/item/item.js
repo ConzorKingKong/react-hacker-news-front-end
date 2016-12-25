@@ -3,14 +3,15 @@ import './item.styl'
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router'
-import {fetchItem, clearItem} from '../../../actions/index'
-import Comment from '../../comments/comment/comment'
+import {fetchItem, clearItem, item} from '../../../actions/index'
+import AlgoliaComment from '../../comments/algolia-comment/algolia-comment'
 import {FormattedRelative} from 'react-intl'
 import ItemPlaceholder from '../../../components/placeholders/item-placeholder/item-placeholder'
 
 class Item extends Component {
   componentWillMount () {
-    this.props.fetchItem(this.props.params.id)
+    // this.props.fetchItem(this.props.params.id)
+    this.props.item(this.props.params.id)
   }
 
   componentWillUnmount () {
@@ -18,23 +19,23 @@ class Item extends Component {
   }
 
   renderComments () {
-    return this.props.comments.map(comment => {
+    return this.props.items.item.children.map(comment => {
       return (
-        <Comment link={this.props.params.id} key={comment.id} id={comment.id} />
+        <AlgoliaComment children={comment.children} author={comment.author} url={comment.url} time={comment.created_at_i} text={comment.text} link={this.props.params.id} key={comment.id} id={comment.id} />
       )
     })
   }
 
   render () {
-    if (!this.props.item) return <ItemPlaceholder />
-    const {url, title, score, by, text, time} = this.props.item
+    if (!this.props.items.item) return <ItemPlaceholder />
+    const {url, title, points, author, text, created_at_i} = this.props.items.item
     const date = new Date(0)
-    date.setUTCSeconds(time)
+    date.setUTCSeconds(created_at_i)
     return (
       <div className='item' id={this.props.params.id}>
         <a className='item-title' href={url}>{title}</a>
         <div className='item-subtitle'>
-          <div className='item-subtitle-user-info' >{score} Points by <Link to={`/user/${by}`}>{by}</Link></div>
+          <div className='item-subtitle-user-info' >{points} Points author <Link to={`/user/${author}`}>{author}</Link></div>
           <FormattedRelative value={date} />
         </div>
         <p dangerouslySetInnerHTML={{__html: text}} />
@@ -44,11 +45,8 @@ class Item extends Component {
   }
 }
 
-function mapStateToProps ({items}) {
-  return {
-    item: items.item,
-    comments: items.comments
-  }
+function mapStateToProps (state) {
+  return state
 }
 
-export default connect(mapStateToProps, {fetchItem, clearItem})(Item)
+export default connect(mapStateToProps, {fetchItem, clearItem, item})(Item)
