@@ -11,21 +11,33 @@ class SearchResults extends Component {
     super(props)
 
     this.state = {
-      limit: 40,
-      page: 1
+      limit: 40
     }
+  }
+
+  componentWillMount () {
+    window.addEventListener('scroll', this.handleOnScroll)
   }
 
   componentWillUnmount () {
     this.props.clearStories()
+    window.removeEventListener('scroll', this.handleOnScroll)
   }
 
   @autobind
-  onMoreClick () {
-    this.setState({
-      limit: this.state.limit + 20
-    })
-    this.props.search(this.props.items.items.query, this.state.limit)
+  handleOnScroll () {
+    const button = this.refs.button
+    const buttonRect = button.getBoundingClientRect()
+    if (document.documentElement.clientHeight - buttonRect.top >= -40) {
+      this.setState({
+        limit: Math.min(this.state.limit + 20, this.props.items.items.hits.length - 1)
+      })
+    }
+  }
+
+  @autobind
+  onTopClick () {
+    window.scrollTo(0, 0)
   }
 
   renderPlaceholders () {
@@ -39,7 +51,7 @@ class SearchResults extends Component {
   }
 
   renderPosts () {
-    return this.props.items.items.hits.map(post => {
+    return this.props.items.items.hits.slice(0, this.state.limit).map(post => {
       return <AlgoliaPost id={parseInt(post.objectID)} key={parseInt(post.objectID)} score={post.points} title={post.title} by={post.author} time={post.created_at_i} />
     })
   }
@@ -51,7 +63,7 @@ class SearchResults extends Component {
         <div className='posts-list'>
           {this.renderPosts()}
         </div>
-        <button onClick={this.onMoreClick} className='pagination-button'>More</button>
+        <button ref='button' onClick={this.onTopClick} className='pagination-button'>Top</button>
       </div>
     )
   }
