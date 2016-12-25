@@ -17,9 +17,6 @@ class AskStories extends Component {
   }
 
   componentWillMount () {
-    //check if cached stories
-    //if so, load cached tories
-    //else grab and cache
     this.props.fetchStories('askstories')
     window.addEventListener('scroll', this.handleOnScroll)
   }
@@ -30,7 +27,7 @@ class AskStories extends Component {
     const buttonRect = button.getBoundingClientRect()
     if (document.documentElement.clientHeight - buttonRect.top >= -40) {
       this.setState({
-        limit: Math.min(this.state.limit + 20, this.props.items.length - 1)
+        limit: Math.min(this.state.limit + 30, this.props.items.length - 1)
       })
     }
   }

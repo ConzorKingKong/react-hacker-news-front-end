@@ -26,7 +26,7 @@ class JobStories extends Component {
     const buttonRect = button.getBoundingClientRect()
     if (document.documentElement.clientHeight - buttonRect.top >= -40) {
       this.setState({
-        limit: Math.min(this.state.limit + 20, this.props.items.length - 1)
+        limit: Math.min(this.state.limit + 30, this.props.items.length - 1)
       })
     }
   }
