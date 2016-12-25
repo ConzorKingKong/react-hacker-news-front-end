@@ -10,7 +10,6 @@ import ItemPlaceholder from '../../../components/placeholders/item-placeholder/i
 
 class Item extends Component {
   componentWillMount () {
-    // this.props.fetchItem(this.props.params.id)
     this.props.item(this.props.params.id)
   }
 
