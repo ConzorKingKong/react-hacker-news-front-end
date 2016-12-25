@@ -17,7 +17,9 @@ export default class AlgoliaComment extends Component {
 
   @autobind
   handleShowHideClick (e) {
-    if (this.state.displayChild === true) this.setState({displayChild: false, showHide: '[+]'})
+    if (this.state.displayChild === true) {
+      this.props.children.length === 0 ? this.setState({displayChild: false, showHide: `[+]`}) : this.setState({displayChild: false, showHide: `[+${this.props.children.length}]`})
+    }
     if (this.state.displayChild === false) this.setState({displayChild: true, showHide: '[-]'})
   }
 
@@ -46,6 +48,7 @@ export default class AlgoliaComment extends Component {
               <div onClick={this.handleShowHideClick} className='show-hide'>{this.state.showHide}</div>
               <Link className='comment-sub-header-user' to={`/user/${this.props.author}`}>{this.props.author} </Link>
               <FormattedRelative value={date} />
+              <a className='parent' href={`#${this.props.link}`}>Parent</a>
             </div>
           </div>
         </div>
@@ -75,7 +78,7 @@ export default class AlgoliaComment extends Component {
             <div onClick={this.handleShowHideClick} className='show-hide'>{this.state.showHide}</div>
             <Link className='comment-sub-header-user' to={`/user/${this.props.author}`}>{this.props.author} </Link>
             <FormattedRelative value={date} />
-            <a href={`#${this.props.link}`}>Parent</a>
+            <a className='parent' href={`#${this.props.link}`}>Parent</a>
           </div>
         </div>
         <p dangerouslySetInnerHTML={{__html: this.props.text}} />

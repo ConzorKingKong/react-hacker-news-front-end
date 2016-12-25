@@ -29,7 +29,9 @@ export default class Comment extends Component {
 
   @autobind
   handleShowHideClick (e) {
-    if (this.state.displayChild === true) this.setState({displayChild: false, showHide: '[+]'})
+    if (this.state.displayChild === true) {
+      this.state.comment.kids ? this.setState({displayChild: false, showHide: `[+${this.state.comment.kids.length}]`}) : this.setState({displayChild: false, showHide: `[+]`})
+    }
     if (this.state.displayChild === false) this.setState({displayChild: true, showHide: '[-]'})
   }
 
@@ -59,6 +61,7 @@ export default class Comment extends Component {
               <div onClick={this.handleShowHideClick} className='show-hide'>{this.state.showHide}</div>
               <Link className='comment-sub-header-user' to={`/user/${this.state.comment.by}`}>{this.state.comment.by} </Link>
               <FormattedRelative value={date} />
+              <a className='parent' href={`#${this.props.link}`}>Parent</a>
             </div>
           </div>
         </div>
@@ -88,7 +91,7 @@ export default class Comment extends Component {
             <div onClick={this.handleShowHideClick} className='show-hide'>{this.state.showHide}</div>
             <Link className='comment-sub-header-user' to={`/user/${this.state.comment.by}`}>{this.state.comment.by} </Link>
             <FormattedRelative value={date} />
-            <a href={`#${this.props.link}`}>Parent</a>
+            <a className='parent' href={`#${this.props.link}`}>Parent</a>
           </div>
         </div>
         <p dangerouslySetInnerHTML={{__html: this.state.comment.text}} />
