@@ -24,12 +24,14 @@ class AskStories extends Component {
   @autobind
   handleOnScroll () {
     const button = this.refs.button
+    console.log(document.body.scrollTop, document.body.clientHeight)
+    console.log('num', document.body.scrollTop / document.body.clientHeight)
     const buttonRect = button.getBoundingClientRect()
-    if (document.documentElement.clientHeight - buttonRect.top >= -40) {
-      this.setState({
-        limit: Math.min(this.state.limit + 30, this.props.items.length - 1)
-      })
-    }
+    // if (document.documentElement.clientHeight - buttonRect.top >= -40) {
+    //   this.setState({
+    //     limit: Math.min(this.state.limit + 30, this.props.items.length - 1)
+    //   })
+    // }
   }
 
 
