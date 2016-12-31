@@ -12,7 +12,7 @@ class AskStories extends Component {
     super(props)
 
     this.state = {
-      limit: 40
+      limit: 30
     }
   }
 
@@ -23,15 +23,12 @@ class AskStories extends Component {
 
   @autobind
   handleOnScroll () {
-    const button = this.refs.button
-    console.log(document.body.scrollTop, document.body.clientHeight)
-    console.log('num', document.body.scrollTop / document.body.clientHeight)
-    const buttonRect = button.getBoundingClientRect()
-    // if (document.documentElement.clientHeight - buttonRect.top >= -40) {
-    //   this.setState({
-    //     limit: Math.min(this.state.limit + 30, this.props.items.length - 1)
-    //   })
-    // }
+    const pctScrolled = Math.floor((window.pageYOffset/(window.innerHeight - document.body.scrollHeight) * 100) * -1) // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
+    if (pctScrolled >= 90) {
+      this.setState({
+        limit: Math.min(this.state.limit + 30, this.props.items.length - 1)
+      })
+    }
   }
 
 
@@ -47,7 +44,7 @@ class AskStories extends Component {
 
   renderPlaceholders () {
     const storyPlaceholders = []
-    for (var i = 1; i < 21; i++) {
+    for (var i = 1; i < 31; i++) {
       storyPlaceholders.push(<StoryPlaceholder key={i} />)
     }
     return storyPlaceholders.map(story => {
