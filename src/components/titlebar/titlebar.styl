@@ -1,10 +1,12 @@
+@import "../../media-query-variables"
+
 .title-bar
   display flex
   position relative
   align-items center
   justify-content space-between
   background-color #ff6600
-  height 44px
+  height 3em
 
   a
     color black
@@ -12,3 +14,8 @@
 
   a:hover
     color white
+
+@media mobileMaxWidthQuery
+  .title-bar
+    flex-direction column
+    height 4em

@@ -65,7 +65,7 @@ export default class AlgoliaComment extends Component {
               <FormattedRelative value={date} />
             </div>
           </div>
-          <p dangerouslySetInnerHTML={{__html: this.props.text}} />
+          <div dangerouslySetInnerHTML={{__html: this.props.text}} />
           <div>{this.renderChildren()}</div>
         </div>
       )
@@ -81,7 +81,7 @@ export default class AlgoliaComment extends Component {
             <a className='parent' href={`#${this.props.link}`}>Parent</a>
           </div>
         </div>
-        <p dangerouslySetInnerHTML={{__html: this.props.text}} />
+        <div dangerouslySetInnerHTML={{__html: this.props.text}} />
         <div>{this.renderChildren()}</div>
       </div>
     )

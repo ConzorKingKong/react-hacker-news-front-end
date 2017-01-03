@@ -36,7 +36,7 @@ export default class PostItem extends Component {
         <Link className='posts-list-item-title' to={`item/${this.state.comment.id}`}>{this.state.comment.title}</Link>
         <div className='posts-list-item-by'>by</div>
         <Link className='posts-list-item-user' to={`user/${this.state.comment.by}`}>{this.state.comment.by}</Link>
-        <div title={date}>
+        <div className='posts-list-item-date' title={date}>
           <FormattedRelative value={date} />
         </div>
       </div>

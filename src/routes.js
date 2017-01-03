@@ -25,7 +25,7 @@ export default (
     <Route path='newstories' component={NewStories} />
     <Route path='show' component={Show} />
     <Route path='ask' component={Ask} />
-    <Route path='searchResults' component={SearchResults} />
+    <Route path='search' component={SearchResults} />
     <Route path='*' component={FoOhFo} />
   </Route>
 )

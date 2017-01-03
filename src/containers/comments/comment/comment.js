@@ -78,7 +78,7 @@ export default class Comment extends Component {
               <FormattedRelative value={date} />
             </div>
           </div>
-          <p dangerouslySetInnerHTML={{__html: this.state.comment.text}} />
+          <div dangerouslySetInnerHTML={{__html: this.state.comment.text}} />
           <div>{this.renderChildren()}</div>
         </div>
       )
@@ -94,7 +94,7 @@ export default class Comment extends Component {
             <a className='parent' href={`#${this.props.link}`}>Parent</a>
           </div>
         </div>
-        <p dangerouslySetInnerHTML={{__html: this.state.comment.text}} />
+        <div dangerouslySetInnerHTML={{__html: this.state.comment.text}} />
         <div>{this.renderChildren()}</div>
       </div>
     )

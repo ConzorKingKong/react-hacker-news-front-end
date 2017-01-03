@@ -2,7 +2,7 @@ import axios from 'axios'
 import async from 'async'
 
 const ROOT_URL = 'https://hacker-news.firebaseio.com/v0/'
-const ALGORIA_URL = 'https://hn.algolia.com/api/v1/search?query='
+const ALGORIA_URL = 'https://hn.algolia.com/api/v1/'
 
 export const STORIES = 'STORIES'
 export const CLEAR_STORIES = 'CLEAR_STORIES'
@@ -89,8 +89,8 @@ export function clearUser () {
   }
 }
 
-export function search (term) {
-  const request = axios.get(`${ALGORIA_URL}${term}&tags=story&hitsPerPage=99999999`)
+export function search (term, by, type) {
+  const request = axios.get(`${ALGORIA_URL}${by}?query=${term}&tags=${type}&hitsPerPage=99999999`)
 
   return {
     type: SEARCH,

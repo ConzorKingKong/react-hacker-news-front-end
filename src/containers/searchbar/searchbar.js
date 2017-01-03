@@ -10,7 +10,9 @@ class Searchbar extends Component {
     super(props)
 
     this.state = {
-      term: ''
+      term: '',
+      type: 'story',
+      by: 'search'
     }
   }
 
@@ -22,16 +24,40 @@ class Searchbar extends Component {
   @autobind
   handleSubmitForm (event) {
     event.preventDefault()
-    this.props.search(this.state.term)
-    browserHistory.push('/searchResults')
+    browserHistory.push(`/search?term=${this.state.term}&type=${this.state.type}&by=${this.state.by}`)
+  }
+
+  @autobind
+  onTypeChange (event) {
+    this.setState({type: event.target.value})
+  }
+
+  @autobind
+  onByChange (event) {
+    this.setState({by: event.target.value})
   }
 
   render () {
     return (
       <div className='searchbar-wrapper'>
         <form onSubmit={this.handleSubmitForm}>
-          <input value={this.state.term} onChange={this.handleInputChange} type='text' />
-          <button type='submit'>Search</button>
+          <input placeholder='Search' value={this.state.term} onChange={this.handleInputChange} type='text' />
+          <div className='select-wrapper'>
+          in
+          <select value={this.state.type} onChange={this.onTypeChange}>
+            <option value='story'>Stories</option>
+            <option value='front_page'>Front Page</option>
+            <option value='show_hn'>Show Hacker News</option>
+            <option value='ask_hn'>Ask Hacker News</option>
+            <option value='comment'>Comments</option>
+            <option value='poll'>Polls</option>
+          </select>
+          by
+          <select value={this.state.by} onChange={this.onByChange}>
+            <option value='search'>Relevance</option>
+            <option value='search_by_date'>Date</option>
+          </select>
+          </div>
         </form>
       </div>
     )

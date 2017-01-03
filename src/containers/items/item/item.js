@@ -34,7 +34,7 @@ class Item extends Component {
       <div className='item' id={this.props.params.id}>
         <a className='item-title' href={url}>{title}</a>
         <div className='item-subtitle'>
-          <div className='item-subtitle-user-info' >{points} Points author <Link to={`/user/${author}`}>{author}</Link></div>
+          <div className='item-subtitle-user-info' >{points} Points by <Link to={`/user/${author}`}>{author}</Link></div>
           <FormattedRelative value={date} />
         </div>
         <p dangerouslySetInnerHTML={{__html: text}} />

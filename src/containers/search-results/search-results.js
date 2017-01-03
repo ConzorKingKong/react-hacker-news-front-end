@@ -4,18 +4,21 @@ import {clearStories, search} from '../../actions/index'
 import StoryPlaceholder from '../../components/placeholders/story-placeholder/story-placeholder'
 import AlgoliaPost from '../../components/algolia-post/algolia-post'
 import autobind from 'autobind-decorator'
-import './search-results.styl'
 
 class SearchResults extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      limit: 40
+      limit: 30,
+      term: this.props.location.query.term,
+      by: this.props.location.query.by,
+      type: this.props.location.query.type
     }
   }
 
   componentWillMount () {
+    this.props.search(this.state.term, this.state.by, this.state.type)
     window.addEventListener('scroll', this.handleOnScroll)
   }
 
@@ -42,7 +45,7 @@ class SearchResults extends Component {
 
   renderPlaceholders () {
     const storyPlaceholders = []
-    for (var i = 1; i < 21; i++) {
+    for (var i = 1; i < 31; i++) {
       storyPlaceholders.push(<StoryPlaceholder key={i} />)
     }
     return storyPlaceholders.map(story => {
@@ -57,7 +60,9 @@ class SearchResults extends Component {
   }
 
   render () {
+    console.log('props', this.props)
     if (!this.props.items.items) return <div className='new-stories'><div className='posts-list'>{this.renderPlaceholders()}</div></div>
+    if (this.props.items.items.hits.length === 0) return <div>No results for "{this.state.term}"</div>   
     return (
       <div className='new-stories'>
         <div className='posts-list'>

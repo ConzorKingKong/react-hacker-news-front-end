@@ -12,7 +12,9 @@ export default (props) => {
       <Link className='posts-list-item-title' to={`item/${props.id}`}>{props.title}</Link>
       <div className='posts-list-item-by'>by</div>
       <Link className='posts-list-item-user' to={`user/${props.by}`}>{props.by}</Link>
-      <FormattedRelative value={date} />
+      <div className='posts-list-item-date' title={date}>
+        <FormattedRelative value={date} />
+      </div>
     </div>
   )
 }
