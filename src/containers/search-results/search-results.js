@@ -10,21 +10,25 @@ class SearchResults extends Component {
     super(props)
 
     this.state = {
-      limit: 30,
-      term: this.props.location.query.term,
-      by: this.props.location.query.by,
-      type: this.props.location.query.type
+      limit: 30
     }
   }
 
   componentWillMount () {
-    this.props.search(this.state.term, this.state.by, this.state.type)
+    this.props.search(this.props.location.query.term, this.props.location.query.by, this.props.location.query.type)
+    window.addEventListener('popstate', this.handleAddressChange)
     window.addEventListener('scroll', this.handleOnScroll)
   }
 
   componentWillUnmount () {
     this.props.clearStories()
     window.removeEventListener('scroll', this.handleOnScroll)
+  }
+
+  @autobind
+  handleAddressChange () {
+    this.props.clearStories()
+    this.props.search(this.props.location.query.term, this.props.location.query.by, this.props.location.query.type)
   }
 
   @autobind
@@ -62,7 +66,7 @@ class SearchResults extends Component {
   render () {
     console.log('props', this.props)
     if (!this.props.items.items) return <div className='new-stories'><div className='posts-list'>{this.renderPlaceholders()}</div></div>
-    if (this.props.items.items.hits.length === 0) return <div>No results for "{this.state.term}"</div>   
+    if (this.props.items.items.hits.length === 0) return <div>No results for "{this.state.term}"</div>
     return (
       <div className='new-stories'>
         <div className='posts-list'>
