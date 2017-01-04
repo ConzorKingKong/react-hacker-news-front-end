@@ -11,13 +11,17 @@ import {Provider} from 'react-redux'
 import {IntlProvider} from 'react-intl'
 import routes from './routes'
 import thunk from 'redux-thunk'
+import {syncHistoryWithStore, routerMiddleware} from 'react-router-redux'
 
-const store = applyMiddleware(promise, thunk)(createStore)
+const middleware = routerMiddleware(browserHistory)
+const preStore = applyMiddleware(middleware, promise, thunk)(createStore)
+export const store = preStore(reducers)
+const history = syncHistoryWithStore(browserHistory, store)
 
 ReactDOM.render(
-  <Provider store={store(reducers)}>
+  <Provider store={store}>
     <IntlProvider locale='en-us'>
-      <Router routes={routes} history={browserHistory} />
+      <Router routes={routes} history={history} />
     </IntlProvider>
   </Provider>
     , document.querySelector('.container'))

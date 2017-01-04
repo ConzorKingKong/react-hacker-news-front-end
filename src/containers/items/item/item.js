@@ -38,7 +38,7 @@ class Item extends Component {
           <FormattedRelative value={date} />
         </div>
         <p dangerouslySetInnerHTML={{__html: text}} />
-        <div>{this.renderComments()}</div>
+        <div className='comment-list'>{this.renderComments()}</div>
       </div>
     )
   }

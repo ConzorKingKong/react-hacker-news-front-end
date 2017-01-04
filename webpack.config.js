@@ -1,9 +1,15 @@
-var path = require('path')
+const path = require('path')
+
 module.exports = {
+  devtool: 'eval',
+  devServer: {
+    historyApiFallback: true
+  },
   entry: path.join(__dirname, '/src/index.js'),
   output: {
     path: path.join(__dirname, '/public'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    publicPath: '/'
   },
   module: {
     rules: [{

@@ -16,19 +16,12 @@ class SearchResults extends Component {
 
   componentWillMount () {
     this.props.search(this.props.location.query.term, this.props.location.query.by, this.props.location.query.type)
-    window.addEventListener('popstate', this.handleAddressChange)
     window.addEventListener('scroll', this.handleOnScroll)
   }
 
   componentWillUnmount () {
     this.props.clearStories()
     window.removeEventListener('scroll', this.handleOnScroll)
-  }
-
-  @autobind
-  handleAddressChange () {
-    this.props.clearStories()
-    this.props.search(this.props.location.query.term, this.props.location.query.by, this.props.location.query.type)
   }
 
   @autobind
