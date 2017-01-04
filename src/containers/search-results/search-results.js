@@ -15,7 +15,7 @@ class SearchResults extends Component {
   }
 
   componentWillMount () {
-    this.props.search(this.props.location.query.term, this.props.location.query.by, this.props.location.query.type)
+    this.props.search(this.props.routing.locationBeforeTransitions.query.term, this.props.routing.locationBeforeTransitions.query.by, this.props.routing.locationBeforeTransitions.query.type)
     window.addEventListener('scroll', this.handleOnScroll)
   }
 
@@ -59,7 +59,7 @@ class SearchResults extends Component {
   render () {
     console.log('props', this.props)
     if (!this.props.items.items) return <div className='new-stories'><div className='posts-list'>{this.renderPlaceholders()}</div></div>
-    if (this.props.items.items.hits.length === 0) return <div>No results for "{this.state.term}"</div>
+    if (this.props.items.items.hits.length === 0) return <div>No results for "{this.props.routing.locationBeforeTransitions.query.term}"</div>
     return (
       <div className='new-stories'>
         <div className='posts-list'>
