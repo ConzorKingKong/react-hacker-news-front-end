@@ -1,4 +1,5 @@
 const path = require('path')
+const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
   devtool: 'eval',
@@ -26,5 +27,10 @@ module.exports = {
   resolve: {
     modules: [path.join(__dirname, '/src/index.js'), "node_modules"],
     extensions: ['.js', '.jsx', '.styl']
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html'
+    })
+  ]
 }
