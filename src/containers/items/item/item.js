@@ -37,7 +37,7 @@ class Item extends Component {
           <div className='item-subtitle-user-info' >{points} Points by <Link to={`/user/${author}`}>{author}</Link></div>
           <FormattedRelative value={date} />
         </div>
-        <p dangerouslySetInnerHTML={{__html: text}} />
+        <div className='item-text' dangerouslySetInnerHTML={{__html: text}} />
         <div className='comment-list'>{this.renderComments()}</div>
       </div>
     )
