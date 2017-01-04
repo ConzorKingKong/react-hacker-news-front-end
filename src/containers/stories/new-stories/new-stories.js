@@ -11,7 +11,7 @@ class NewStories extends Component {
     super(props)
 
     this.state = {
-      limit: 30
+      limit: 40
     }
   }
   componentWillMount () {
@@ -22,7 +22,7 @@ class NewStories extends Component {
   @autobind
   handleOnScroll () {
     const pctScrolled = Math.floor((window.pageYOffset/(window.innerHeight - document.body.scrollHeight) * 100) * -1) // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
-    if (pctScrolled >= 90) {
+    if (pctScrolled >= 85) {
       this.setState({
         limit: Math.min(this.state.limit + 30, this.props.items.length - 1)
       })
@@ -42,7 +42,7 @@ class NewStories extends Component {
 
   renderPlaceholders () {
     const storyPlaceholders = []
-    for (var i = 1; i < 31; i++) {
+    for (var i = 1; i < 41; i++) {
       storyPlaceholders.push(<StoryPlaceholder key={i} />)
     }
     return storyPlaceholders.map(story => {
