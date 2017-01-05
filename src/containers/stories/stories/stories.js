@@ -62,7 +62,7 @@ class Stories extends Component {
         <div className='posts-list'>
           {this.renderStories()}
         </div>
-        <button ref='button' onClick={this.onTopClick} className='pagination-button'>Top</button>
+        <button onClick={this.onTopClick} className='pagination-button'>Top</button>
       </div>
     )
   }

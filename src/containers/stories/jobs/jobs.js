@@ -64,7 +64,7 @@ class JobStories extends Component {
         <div className='posts-list'>
           {this.renderPosts()}
         </div>
-        <button ref='button' onClick={this.onTopClick} className='pagination-button'>Top</button>
+        <button onClick={this.onTopClick} className='pagination-button'>Top</button>
       </div>
     )
   }
