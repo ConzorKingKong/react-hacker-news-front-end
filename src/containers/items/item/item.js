@@ -7,6 +7,7 @@ import {fetchItem, clearItem, item} from '../../../actions/index'
 import AlgoliaComment from '../../comments/algolia-comment/algolia-comment'
 import {FormattedRelative} from 'react-intl'
 import ItemPlaceholder from '../../../components/placeholders/item-placeholder/item-placeholder'
+import autobind from 'autobind-decorator'
 
 class Item extends Component {
   componentWillMount () {
@@ -15,6 +16,11 @@ class Item extends Component {
 
   componentWillUnmount () {
     this.props.clearItem()
+  }
+
+  @autobind
+  onTopClick () {
+    window.scrollTo(0, 0)
   }
 
   renderComments () {
@@ -39,6 +45,7 @@ class Item extends Component {
         </div>
         <div className='item-text' dangerouslySetInnerHTML={{__html: text}} />
         <div className='comment-list'>{this.renderComments()}</div>
+        <button onClick={this.onTopClick} className='pagination-button'>Top</button>
       </div>
     )
   }
