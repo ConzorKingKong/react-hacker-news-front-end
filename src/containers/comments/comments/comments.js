@@ -1,3 +1,5 @@
+import './comments.styl'
+
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {fetchUser, clearUser} from '../../../actions/index'
@@ -26,11 +28,10 @@ class Comments extends Component {
 
   @autobind
   handleOnScroll () {
-    const button = this.refs.button
-    const buttonRect = button.getBoundingClientRect()
-    if (document.documentElement.clientHeight - buttonRect.top >= -200) {
+    const pctScrolled = Math.floor((window.pageYOffset/(window.innerHeight - document.body.scrollHeight) * 100) * -1) // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
+    if (pctScrolled >= 85) {
       this.setState({
-        limit: Math.min(this.state.limit + 20, this.props.user.submitted.length - 1)
+        limit: Math.min(this.state.limit + 30, this.props.user.submitted.length - 1)
       })
     }
   }
@@ -59,7 +60,7 @@ class Comments extends Component {
   render () {
     if (!this.props.user) return <div className='posts-list'>{this.renderPlaceholders()}</div>
     return (
-      <div>
+      <div className='comment-page'>
         <div>
           {this.renderComments()}
         </div>
