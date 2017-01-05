@@ -2,10 +2,11 @@ import './searchbar.styl'
 
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {search} from '../../actions/index'
+import {search, clearStories} from '../../actions/index'
 import autobind from 'autobind-decorator'
 import {push} from 'react-router-redux'
 import {store} from '../../index.js'
+import {browserHistory} from 'react-router'
 
 class Searchbar extends Component {
   constructor (props) {
@@ -26,7 +27,9 @@ class Searchbar extends Component {
   @autobind
   handleSubmitForm (event) {
     event.preventDefault()
-    store.dispatch(push(`/search?term=${this.state.term}&type=${this.state.type}&by=${this.state.by}`))
+    if (this.props.items.items) this.props.clearStories()
+    this.props.search(this.state.term, this.state.by, this.state.type)
+    browserHistory.push(`/search`)
   }
 
   @autobind
@@ -51,7 +54,6 @@ class Searchbar extends Component {
             <option value='front_page'>Front Page</option>
             <option value='show_hn'>Show Hacker News</option>
             <option value='ask_hn'>Ask Hacker News</option>
-            <option value='comment'>Comments</option>
             <option value='poll'>Polls</option>
           </select>
           by
@@ -66,4 +68,8 @@ class Searchbar extends Component {
   }
 }
 
-export default connect(null, {search})(Searchbar)
+function mapStateToProps (state) {
+  return state
+}
+
+export default connect(mapStateToProps, {search, clearStories})(Searchbar)

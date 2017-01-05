@@ -15,7 +15,6 @@ class SearchResults extends Component {
   }
 
   componentWillMount () {
-    this.props.search(this.props.routing.locationBeforeTransitions.query.term, this.props.routing.locationBeforeTransitions.query.by, this.props.routing.locationBeforeTransitions.query.type)
     window.addEventListener('scroll', this.handleOnScroll)
   }
 
@@ -26,11 +25,10 @@ class SearchResults extends Component {
 
   @autobind
   handleOnScroll () {
-    const button = this.refs.button
-    const buttonRect = button.getBoundingClientRect()
-    if (document.documentElement.clientHeight - buttonRect.top >= -40) {
+    const pctScrolled = Math.floor((window.pageYOffset/(window.innerHeight - document.body.scrollHeight) * 100) * -1) // gets percentage scrolled (ie: 80 or NaN if tracklength == 0)
+    if (pctScrolled >= 85) {
       this.setState({
-        limit: Math.min(this.state.limit + 20, this.props.items.items.hits.length - 1)
+        limit: Math.min(this.state.limit + 30, this.props.items.items.hits.length - 1)
       })
     }
   }
@@ -57,15 +55,14 @@ class SearchResults extends Component {
   }
 
   render () {
-    console.log('props', this.props)
     if (!this.props.items.items) return <div className='new-stories'><div className='posts-list'>{this.renderPlaceholders()}</div></div>
-    if (this.props.items.items.hits.length === 0) return <div>No results for "{this.props.routing.locationBeforeTransitions.query.term}"</div>
+    if (this.props.items.items.hits.length === 0) return <div>No results for "{this.props.items.items.query}"</div>
     return (
       <div className='new-stories'>
         <div className='posts-list'>
           {this.renderPosts()}
         </div>
-        <button ref='button' onClick={this.onTopClick} className='pagination-button'>Top</button>
+        <button onClick={this.onTopClick} className='pagination-button'>Top</button>
       </div>
     )
   }
