@@ -1,3 +1,5 @@
+@import '../../../media-query-variables'
+
 .story-placeholder
   display flex
   flex-direction column
@@ -7,5 +9,9 @@
 
 .story-placeholder-bar
   display flex
-  width 728.969px
+  width 723px
   height 18px
+
+@media mobileMaxWidthQuery
+  .story-placeholder-bar
+    width 90vw
