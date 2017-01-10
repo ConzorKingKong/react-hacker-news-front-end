@@ -1,4 +1,3 @@
-import 'intl'
 import './index.styl'
 
 import React from 'react'
