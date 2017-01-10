@@ -1,26 +1,35 @@
+@import '../../../media-query-variables'
+
 .posts-list-item
   display flex
-  align-items center
+  flex-direction row
   padding-top 0.3em
   padding-bottom 0.3em
 
 .posts-list-item:nth-child(even)
   background-color rgb(230, 230, 223)
 
+.posts-list-header
+  display flex
+  flex-direction row
+
 .posts-list-item-score
   margin-left 0.5em
-  min-width 2em
+  min-width 2.5em
 
 .posts-list-item-title
   display flex
   color black
   font-size 16px
 
+.posts-list-item-subtitle
+  display flex
+
 .posts-list-item-by
   font-size 0.75em
   margin-left 0.5em
   margin-right 0.5em
-  color #828282  
+  color #828282
 
 .posts-list-item-user
   font-size 0.75em
@@ -31,4 +40,10 @@
   min-width 4em
   color #828282
   font-size 0.75em
-    
+
+@media mobileMaxWidthQuery
+  .posts-list-item
+    flex-direction column
+
+  .posts-list-item-subtitle
+    margin-left 2.6em
