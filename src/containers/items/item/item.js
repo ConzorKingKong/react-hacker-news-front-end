@@ -26,7 +26,16 @@ class Item extends Component {
   renderComments () {
     return this.props.items.item.children.map(comment => {
       return (
-        <AlgoliaComment children={comment.children} author={comment.author} url={comment.url} time={comment.created_at_i} text={comment.text} link={this.props.params.id} key={comment.id} id={comment.id} />
+        <AlgoliaComment
+          children={comment.children}
+          author={comment.author}
+          url={comment.url}
+          time={comment.created_at_i}
+          text={comment.text}
+          link={this.props.params.id}
+          id={comment.id}
+          key={comment.id}
+        />
       )
     })
   }

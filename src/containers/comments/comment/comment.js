@@ -39,7 +39,7 @@ export default class Comment extends Component {
     if (!this.state.comment.kids) return
     return this.state.comment.kids.map(kid => {
       return (
-        <div>
+        <div key={kid}>
           <Comment link={this.state.comment.id} key={kid} id={kid} />
         </div>
       )

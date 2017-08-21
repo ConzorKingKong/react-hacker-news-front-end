@@ -58,6 +58,7 @@ class Comments extends Component {
   }
 
   render () {
+    console.log("comment props", this.props)    
     if (!this.props.user) return <div className='posts-list'>{this.renderPlaceholders()}</div>
     return (
       <div className='comment-page'>

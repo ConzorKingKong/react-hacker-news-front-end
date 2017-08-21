@@ -10,13 +10,13 @@ export default (props) => {
       <div className='title-bar-titles'>
         <Link to='/'>Top</Link>
         |
-        <Link to='/newstories'>New</Link>
+        <Link to='/new'>New</Link>
         |
         <Link to='/show'>Show</Link>
         |
         <Link to='/ask'>Ask</Link>
         |
-        <Link to='/jobs'>Jobs</Link>
+        <Link to='/job'>Jobs</Link>
       </div>
       <Searchbar />
     </div>

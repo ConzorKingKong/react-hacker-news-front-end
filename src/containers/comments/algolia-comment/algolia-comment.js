@@ -27,8 +27,8 @@ export default class AlgoliaComment extends Component {
     if (!this.props.children) return
     return this.props.children.map(child => {
       return (
-        <div>
-          <AlgoliaComment children={child.children} author={child.author} url={child.url} time={child.created_at_i} text={child.text} link={child.parent_id} key={child.id} id={child.id} />
+        <div key={child.id} >
+          <AlgoliaComment children={child.children} author={child.author} url={child.url} time={child.created_at_i} text={child.text} link={child.parent_id} id={child.id} />
         </div>
       )
     })

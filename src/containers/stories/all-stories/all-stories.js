@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import ReactDOM from 'react-dom'
 import {connect} from 'react-redux'
 import {fetchStories, clearStories} from '../../../actions/index'
 import PostItem from '../../items/post-item/post-item'
@@ -6,17 +7,29 @@ import StoryPlaceholder from '../../../components/placeholders/story-placeholder
 import AlgoliaPost from '../../../components/algolia-post/algolia-post'
 import autobind from 'autobind-decorator'
 
-class NewStories extends Component {
+class AllStories extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      limit: 40
+      limit: 40,
     }
   }
+
   componentWillMount () {
-    this.props.fetchStories('newstories')
+    this.props.location.pathname === '/' ? this.props.fetchStories('topstories') : this.props.fetchStories(`${this.props.location.pathname.slice(1)}stories`)
     window.addEventListener('scroll', this.handleOnScroll)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    if (this.props.location.pathname !== nextProps.location.pathname) {
+      this.props.clearStories()
+      nextProps.location.pathname === '/' ? this.props.fetchStories('topstories') : this.props.fetchStories(`${nextProps.location.pathname.slice(1)}stories`)      
+    }
+  }
+  
+  componentWillUnmount () {
+    window.removeEventListener('scroll', this.handleOnScroll)
   }
 
   @autobind
@@ -27,12 +40,6 @@ class NewStories extends Component {
         limit: Math.min(this.state.limit + 30, this.props.items.length - 1)
       })
     }
-  }
-
-
-  componentWillUnmount () {
-    this.props.clearStories()
-    window.removeEventListener('scroll', this.handleOnScroll)
   }
 
   @autobind
@@ -58,7 +65,7 @@ class NewStories extends Component {
 
   render () {
     if (!this.props.items) return <div className='new-stories'><div className='posts-list'>{this.renderPlaceholders()}</div></div>
-    return (
+      return (
       <div className='new-stories'>
         <div className='posts-list'>
           {this.renderPosts()}
@@ -73,4 +80,4 @@ function mapStateToProps ({items}) {
   return {items: items.items}
 }
 
-export default connect(mapStateToProps, {fetchStories, clearStories})(NewStories)
+export default connect(mapStateToProps, {fetchStories, clearStories})(AllStories)
