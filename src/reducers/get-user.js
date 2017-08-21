@@ -9,9 +9,7 @@ export default function (state = initialState, action) {
     case ALGOLIA_USER:
       return {...state, user: action.payload.data, loading: false}
     case CLEAR_USER:
-      return {...state, user: action.payload, comments: action.payload}
-    default:
-      return state
+      return {...state, user: action.payload, comments: action.payload, loading: true}
   }
   return state
 }
