@@ -16,7 +16,6 @@ class User extends Component {
   }
 
   render () {
-    console.log(this.props.users)
     if (this.props.users.loading) return <UserPlaceholder />
     if (!this.props.users.user) return <div>This user does not exist</div>
     const {objectID, karma} = this.props.users.user

@@ -40,6 +40,7 @@ export function fetchItem (id) {
         })
       }, (err, results) => {
         if (err) {
+          // handle error
           console.log(err)
         }
         dispatch({type: ITEM, comments: results, payload: item})
