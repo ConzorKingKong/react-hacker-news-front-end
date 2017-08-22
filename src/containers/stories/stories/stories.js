@@ -56,7 +56,8 @@ class Stories extends Component {
   }
 
   render () {
-    if (!this.props.user) return <div className='stories'><div className='posts-list'>{this.renderPlaceholders()}</div></div>
+    if (this.props.loading) return <div className='stories'><div className='posts-list'>{this.renderPlaceholders()}</div></div>
+    if (!this.props.user) return <div>No stories</div>
     return (
       <div className='stories'>
         <div className='posts-list'>
@@ -69,7 +70,10 @@ class Stories extends Component {
 }
 
 function mapStateToProps ({users}) {
-  return {user: users.user}
+  return {
+    user: users.user,
+    loading: users.loading
+  }
 }
 
 export default connect(mapStateToProps, {fetchUser, clearUser})(Stories)

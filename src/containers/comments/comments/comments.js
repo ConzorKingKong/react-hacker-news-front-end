@@ -58,7 +58,8 @@ class Comments extends Component {
   }
 
   render () {
-    if (!this.props.user) return <div className='posts-list'>{this.renderPlaceholders()}</div>
+    if (this.props.loading) return <div className='posts-list'>{this.renderPlaceholders()}</div>
+    if (!this.props.user) return <div>No comments</div>
     return (
       <div className='comment-page'>
         <div>
@@ -71,7 +72,10 @@ class Comments extends Component {
 }
 
 function mapStateToProps ({users}) {
-  return {user: users.user}
+  return {
+    user: users.user,
+    loading: users.loading
+  }
 }
 
 export default connect(mapStateToProps, {fetchUser, clearUser})(Comments)
