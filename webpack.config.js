@@ -22,6 +22,11 @@ module.exports = {
       test: /\.js$/,
       exclude: /node_modules/,
       loader: 'babel-loader'
+    },
+    {
+      test: /\.ico$/,
+      exclude: /node_modules/,
+      loader: 'file-loader'
     }]
   },
   resolve: {
