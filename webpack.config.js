@@ -24,7 +24,7 @@ module.exports = {
       loader: 'babel-loader'
     },
     {
-      test: /\.ico|png$/,
+      test: /\.ico$/,
       exclude: /node_modules/,
       loader: 'file-loader'
     }]
