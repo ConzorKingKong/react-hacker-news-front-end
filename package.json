@@ -1,17 +1,19 @@
 {
-  "name": "doc-learning-react",
+  "name": "react-hacker-news-api",
   "version": "1.0.0",
-  "description": "learning react from the docs",
+  "description": "A front-end for Hacker News' public api.",
   "main": "./src/index.js",
   "scripts": {
-    "start": "webpack-dev-server --config webpack.config.js",
+    "develop": "webpack-dev-server --config webpack.config.js",
     "build": "webpack --progress --colors",
+    "start": "npm run build && node server.js",
     "test": "standard"
   },
-  "author": "connor",
+  "author": "conzorkingkong",
   "license": "ISC",
   "dependencies": {
     "async": "^2.1.4",
+    "express": "^4.17.1",
     "objectcache": "^0.2.4",
     "react": "^15.4.1",
     "react-dom": "^15.4.1",
