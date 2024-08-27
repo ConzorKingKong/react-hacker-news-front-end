@@ -43,7 +43,7 @@
     "html-webpack-plugin": "^2.24.1",
     "redux-promise": "^0.5.3",
     "standard": "^8.6.0",
-    "webpack": "2.2.0-rc.2",
+    "webpack": "5.94.0",
     "webpack-dev-server": "2.2.0-rc.0"
   }
 }
