@@ -1,0 +1,43 @@
+.searchbar-wrapper form {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.searchbar-wrapper form select {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  border: none;
+  padding: 0.5em;
+}
+
+.searchbar-wrapper form input {
+  border: none;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding: 0.5em;
+}
+
+@media (max-width: 767px) {
+  .searchbar-wrapper {
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+    width: 100%;
+  }
+
+  .searchbar-wrapper form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .searchbar-wrapper form input {
+    height: 1em;
+  }
+
+  .select-wrapper {
+    display: flex;
+    justify-content: center;
+    margin-top: 0.2em;
+  }
+}

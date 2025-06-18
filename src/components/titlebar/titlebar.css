@@ -1,0 +1,25 @@
+.title-bar {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #ff6600;
+  height: 3em;
+}
+
+.title-bar a {
+  color: black;
+  padding: 0px 8px;
+  font-size: 1em;
+}
+
+.title-bar a:hover {
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .title-bar {
+    flex-direction: column;
+    height: 4em;
+  }
+}

@@ -1,0 +1,30 @@
+.item-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height: 50%;
+  margin-top: 2em;
+}
+
+.item-placeholder-header {
+  width: 30%;
+  height: 1.8em;
+  background-color: rgb(230, 230, 223);
+}
+
+.item-placeholder-subheader {
+  width: 20%;
+  height: 1em;
+  background-color: rgb(230, 230, 223);
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}
+
+.item-placeholder-content {
+  width: 75%;
+  height: 5em;
+  background-color: rgb(230, 230, 223);
+  margin-top: 0.4em;
+  margin-bottom: 0.4em;
+}

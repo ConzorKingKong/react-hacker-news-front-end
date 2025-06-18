@@ -1,0 +1,42 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2em;
+  max-width: 100%;
+  width: 100%;
+}
+
+.item-title {
+  text-decoration: none;
+  font-size: 1.3em;
+  color: black;
+}
+
+.item-subtitle {
+  display: flex;
+  margin-top: 0.4em;
+  color: grey;
+  font-size: 0.8em;
+}
+
+.item-subtitle a {
+  color: grey;
+}
+
+.item-subtitle-user-info {
+  margin-right: 0.3em;
+}
+
+.item-text {
+  width: 100%;
+}
+
+.comment-list {
+  max-width: 100%;
+  align-self: left;
+}
+
+.comment-list div {
+  max-width: 100%;
+}

@@ -1,0 +1,43 @@
+.user-placeholder {
+  display: flex;
+  width: 100%;
+  margin-top: 2em;
+  justify-content: center;
+}
+
+.user-placeholder-inner-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  height: 50%;
+  margin-top: 2em;
+  justify-content: center;
+}
+
+.user-placeholder-name {
+  width: 50%;
+  height: 1.8em;
+  background-color: rgb(230, 230, 223);
+  margin-bottom: 1.5em;
+}
+
+.user-placeholder-karma {
+  width: 30%;
+  height: 0.8em;
+  background-color: rgb(230, 230, 223);
+  margin-bottom: 1.5em;
+}
+
+.user-placeholder-story {
+  width: 30%;
+  height: 0.8em;
+  background-color: rgb(230, 230, 223);
+  margin-bottom: 0.5em;
+}
+
+.user-placeholder-comment {
+  width: 50%;
+  height: 1.8em;
+  background-color: rgb(230, 230, 223);
+  margin-bottom: 0.5em;
+}

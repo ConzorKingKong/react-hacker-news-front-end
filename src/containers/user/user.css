@@ -1,0 +1,17 @@
+.user {
+  display: flex;
+}
+
+.user-header {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.user-header h3 {
+  margin-top: 0;
+}
+
+.user-header a {
+  color: grey;
+}

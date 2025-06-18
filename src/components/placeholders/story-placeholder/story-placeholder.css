@@ -1,0 +1,20 @@
+.story-placeholder {
+  display: flex;
+  flex-direction: column;
+}
+
+.story-placeholder.story-placeholder {
+  margin-bottom: 1em;
+}
+
+.story-placeholder-bar {
+  display: flex;
+  width: 723px;
+  height: 18px;
+}
+
+@media (max-width: 767px) {
+  .story-placeholder-bar {
+    width: 90vw;
+  }
+}

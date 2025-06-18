@@ -1,0 +1,14 @@
+body {
+  margin: 0;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 1em;
+}
+
+#root {
+  background-color: #f6f6ef;
+  min-height: 100vh;
+}
+
+a {
+  text-decoration: none;
+}
